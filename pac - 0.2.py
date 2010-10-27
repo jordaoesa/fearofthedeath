@@ -16,7 +16,7 @@ parede.rect = parede.image.get_size()
 bomb = pygame.sprite.Sprite()
 bomb.image = pygame.image.load("images/bomb.png").convert_alpha()
 
-
+#teste
 pacCim, pacBai, pacEsq, pacDir = [], [], [], []
 for i in range(4):
     pacCim.insert(i, pygame.sprite.Sprite())
