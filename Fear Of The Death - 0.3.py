@@ -34,9 +34,6 @@ class Jogo:
                 
         this.qtdTilesTela = (21, 19)
         this.tamanhoTela = (this.qtdTilesTela[1] * 32, this.qtdTilesTela[0] * 32)
-        
-        #this.fonteGta1 = pygame.font.Font('data' + os.sep + "fontes" + os.sep + 'fonteGta1.ttf',20,bold = False)
-        #this.fontNumeros = pygame.font.Font('data' + os.sep + 'numeros.ttf',13,bold = False)
 
     def pontos(this, pontos):
         this.score += pontos
@@ -109,9 +106,9 @@ class Claude:
         if not nivel.verificaParede((this.x + this.velX, this.y + this.velY), (this.proxLinha, this.proxColuna)):
             this.x += this.velX
             this.y += this.velY
-##            nivel.matrizCampo[this.proxLinha][this.proxColuna] = 4
-##            nivel.matrizCampo[this.proxLinha-1][this.proxColuna-1] = 0
-##            print nivel.matrizCampo
+            #nivel.matrizCampo[this.proxLinha][this.proxColuna] = 4
+            #nivel.matrizCampo[this.proxLinha-1][this.proxColuna-1] = 0
+            #print nivel.matrizCampo
             nivel.comida((this.x, this.y), (this.proxLinha, this.proxColuna))  ##-- REMOVE AS NOTAS E PLAY SOM
             nivel.portais((this.x, this.y), (this.proxLinha, this.proxColuna)) ##-- PERMITE A PASSAGEM NOS PORTAIS
 
@@ -120,7 +117,7 @@ class Claude:
             this.velY = 0
         
     def printClaude(this):
-        #print nivel.matrizCampo
+        #print nivel.mapa
         if jogo.modo == 3:
             return False
         
@@ -154,7 +151,6 @@ class Claude:
 class Fantasma:
 
     def __init__ (this):
-        #this.cont         = 0
         this.x            = 0
         this.y            = 0
         this.velX         = 0
@@ -169,12 +165,27 @@ class Fantasma:
     def andar(this):
         
         if this.x%32 == 0 and this.y%32 == 0:
-##            print "ok"
-##            this.cont+=1
-##        if this.cont == 1:
-##            this.cont = 0
-            rand = random.randint(1,4)
 
+            if this.y < claude.y:
+                this.velX = 0
+                this.velY = this.velocidade
+            elif this.y > claude.y:
+                this.velX = 0
+                this.velY = -this.velocidade
+            elif this.x < claude.x:
+                this.velX = this.velocidade
+                this.velY = 0
+            elif this.x > claude.x:
+                this.velX = -this.velocidade
+                this.velY = 0
+            
+        this.proxLinha = int(((this.y + 16) / 32))
+        this.proxColuna = int(((this.x + 16) / 32))
+        
+        while nivel.verificaParede((this.x + this.velX, this.y + this.velY), (this.proxLinha, this.proxColuna)):# \
+##           and not nivel.GetMapTile((this.proxLinha,this.proxColuna))==20 \
+##           and not nivel.GetMapTile((this.proxLinha,this.proxColuna))==21:
+            rand = random.randint(1,4)
             if rand == 1:
                 this.velX = -fantasma.velocidade
                 this.velY = 0
@@ -190,30 +201,9 @@ class Fantasma:
             elif rand == 4:
                 this.velX = 0
                 this.velY = fantasma.velocidade
-            
-        this.proxLinha = int(((this.y + 16) / 32))
-        this.proxColuna = int(((this.x + 16) / 32))
-        
-        if not nivel.verificaParede((this.x + this.velX, this.y + this.velY), (this.proxLinha, this.proxColuna)):# \
-##           and not nivel.GetMapTile((this.proxLinha,this.proxColuna))==20 \
-##           and not nivel.GetMapTile((this.proxLinha,this.proxColuna))==21:
-            
+        else:
             this.x += this.velX
             this.y += this.velY
-##        elif nivel.GetMapTile((this.proxLinha,this.proxColuna))==20:
-##            if this.velX > 0:
-##                this.x += -20
-##                this.y += 0
-##            elif this.velX < 0:
-##                this.x += 20
-##                this.y += 0
-##        elif nivel.GetMapTile((this.proxLinha,this.proxColuna))==21:
-##            if this.velY > 0:
-##                this.x += 0
-##                this.y += -20
-##            elif this.velY < 0:
-##                this.x += 0
-##                this.y += 20
 
         
     def printFantasma(this):
@@ -253,6 +243,8 @@ class Nivel:
 ################### REMOCAO DA GRANA       
                     if result == 2: ##-- GRANA
                         nivel.SetMapTile((liinha, cooluna), 0)
+                        #nivel.matrizCampo[liinha][cooluna] = 4
+                        #nivel.matrizCampo[liinha-1][cooluna] = 0
 ##                        print nivel.mapa
                         #sndGrana[claude.sndGranaNum].play()
                         #claude.sndGranaNum = 1 - claude.sndGranaNum
@@ -488,9 +480,9 @@ class Nivel:
             [1,2,1,2,1,1,1,1,1,2,1,1,1,1,1,2,1,2,1],
             [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1],
             [1,1,1,2,1,2,1,1,1,1,1,1,1,2,1,2,1,1,1],
-            [1,2,2,2,1,2,2,2,2,10,2,2,2,2,1,2,2,2,1],
-            [1,1,2,1,1,1,2,1,1,6,1,1,2,1,1,1,2,1,1],
-            [20,2,2,2,2,2,2,1,11,12,13,1,2,2,2,2,2,2,20],
+            [1,2,2,2,1,2,2,2,2,2,2,2,2,2,1,2,2,2,1],
+            [1,1,2,1,1,1,2,1,1,10,1,1,2,1,1,1,2,1,1],
+            [20,2,2,2,2,2,2,2,11,12,13,2,2,2,2,2,2,2,20],
             [1,1,2,1,1,1,2,1,1,1,1,1,2,1,1,1,2,1,1],
             [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1],
             [1,2,1,2,1,1,2,1,1,1,1,1,2,1,1,2,1,2,1],
@@ -515,9 +507,9 @@ class Nivel:
             [1,2,1,2,1,1,1,1,1,2,1,1,1,1,1,2,1,2,1],
             [1,2,1,2,2,2,2,2,2,2,2,2,2,2,2,2,1,2,1],
             [1,2,1,2,1,2,1,1,1,1,1,1,1,2,1,2,1,2,1],
-            [1,2,2,2,1,2,2,2,2,10,2,2,2,2,1,2,2,2,1],
-            [1,1,1,2,1,1,2,1,1,6,1,1,2,1,1,2,1,1,1],
-            [20,2,2,2,2,2,2,1,11,12,13,1,2,2,2,2,2,2,20],
+            [1,2,2,2,1,2,2,2,2,2,2,2,2,2,1,2,2,2,1],
+            [1,1,1,2,1,1,2,1,1,10,1,1,2,1,1,2,1,1,1],
+            [20,2,2,2,2,2,2,2,11,12,13,2,2,2,2,2,2,2,20],
             [1,1,1,2,1,1,2,1,1,1,1,1,2,1,1,2,1,1,1],
             [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1],
             [1,2,1,2,1,1,2,1,1,1,1,1,2,1,1,2,1,2,1],
@@ -539,9 +531,9 @@ class Nivel:
             [1,1,1,1,2,1,2,1,1,1,1,1,2,1,2,1,1,1,1],
             [1,2,2,2,2,1,2,2,2,1,2,2,2,1,2,2,2,1,1],
             [1,1,2,1,1,1,1,1,2,1,2,1,1,1,1,1,2,1,1],
-            [1,2,2,2,2,2,2,2,2,10,2,2,2,2,2,2,2,2,1],
-            [1,1,1,1,1,1,2,1,1,6,1,1,2,1,1,1,1,1,1],
-            [1,2,2,2,2,1,2,1,11,12,13,1,2,1,2,2,2,2,1],
+            [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1],
+            [1,1,1,1,1,1,2,1,1,10,1,1,2,1,1,1,1,1,1],
+            [1,2,2,2,2,1,2,2,11,12,13,2,2,1,2,2,2,2,1],
             [1,1,1,1,2,2,2,1,1,1,1,1,2,2,2,1,1,1,1],
             [20,2,2,2,2,1,2,1,2,2,2,1,2,1,2,2,2,2,20],
             [1,1,1,1,1,1,2,2,2,1,2,2,2,1,1,1,1,1,1],
@@ -568,30 +560,31 @@ class Nivel:
                 elif thisID == 10:# and thisID <= 13:
                     fantasma.homeX = k * 32
                     fantasma.homeY = this.numLinha * 32
-                    print fantasma.homeX, fantasma.homeY
+                    #print fantasma.homeX, fantasma.homeY
                     this.SetMapTile((this.numLinha, k), 0 )
-                    print "ghosts"
+                    #print "ghosts"
                 elif thisID == 11:# and thisID <= 13:
                     fantasma1.homeX = k * 32
                     fantasma1.homeY = this.numLinha * 32
-                    print fantasma1.homeX, fantasma1.homeY
+                    #print fantasma1.homeX, fantasma1.homeY
                     this.SetMapTile((this.numLinha, k), 0 )
-                    print "ghosts1"
+                    #print "ghosts1"
                 elif thisID == 12:# and thisID <= 13:
                     fantasma2.homeX = k * 32
                     fantasma2.homeY = this.numLinha * 32
-                    print fantasma2.homeX, fantasma.homeY
+                    #print fantasma2.homeX, fantasma.homeY
                     this.SetMapTile((this.numLinha, k), 0 )
-                    print "ghosts2"
+                    #print "ghosts2"
                 elif thisID == 13:# and thisID <= 13:
                     fantasma3.homeX = k * 32
                     fantasma3.homeY = this.numLinha * 32
-                    print fantasma3.homeX, fantasma.homeY
+                    #print fantasma3.homeX, fantasma.homeY
                     this.SetMapTile((this.numLinha, k), 0 )
-                    print "ghosts3"
+                    #print "ghosts3"
                 elif thisID == 2:
                     nivel.acumulo += 1
             this.numLinha += 1
+        #print this.mapa
 
         this.reiniciar()
         
@@ -662,6 +655,9 @@ def verificaTeclas():
                 claude.velX = 0
                 claude.velY = -claude.velocidade
                 claude.direcao = "cima"
+        if pressed[K_RETURN]:
+            print nivel.mapa
+            print nivel.matrizCampo
 
     if jogo.modo == 4:
         if pressed[K_RETURN]:
@@ -770,7 +766,7 @@ while True:
         #    jogo.proximoNivel()
 
     #jogo.moverTela()
-    background.fill((48, 48, 48))
+    background.fill((200, 200, 200))
     #background.blit(fundo, (0,0))
 
     ####BLITA MAPA E claude NA TELA
