@@ -45,7 +45,7 @@ class Jogo:
         background.blit(this.pontuacao, (165, 650))
 
     def printVidas(this):
-        this.texto = fonteGta1.render("VIDAS: " + (str(1)*this.vidas), True, (255,0,0))#(255,255,255))
+        this.texto = fonteGta1.render("VIDAS: " + (str(1)*this.vidas), True, (255,0,0))
         background.blit(this.texto, (5,650))
         
     def novoJogo(this):
@@ -66,10 +66,10 @@ class Jogo:
         claude.velY = 0
         claude.images = claude.direita
         
-        
     def setModo (this, newMode):
         this.modo = newMode
         this.tempoModo = 0
+
 
 class Claude:
     
@@ -208,9 +208,11 @@ class Fantasma:
         
     def printFantasma(this):
         
-##        if jogo.modo == 3:
-##            return False
         background.blit (this.image, (this.x, this.y))
+
+    def colisao(this):
+        if claude.x - 16 <= this.x <= claude.x + 16 and claude.y - 16 <= this.y <= claude.y + 16:
+            jogo.setModo(2)
         
             
 class Nivel:
@@ -560,27 +562,19 @@ class Nivel:
                 elif thisID == 10:# and thisID <= 13:
                     fantasma.homeX = k * 32
                     fantasma.homeY = this.numLinha * 32
-                    #print fantasma.homeX, fantasma.homeY
                     this.SetMapTile((this.numLinha, k), 0 )
-                    #print "ghosts"
                 elif thisID == 11:# and thisID <= 13:
                     fantasma1.homeX = k * 32
                     fantasma1.homeY = this.numLinha * 32
-                    #print fantasma1.homeX, fantasma1.homeY
                     this.SetMapTile((this.numLinha, k), 0 )
-                    #print "ghosts1"
                 elif thisID == 12:# and thisID <= 13:
                     fantasma2.homeX = k * 32
                     fantasma2.homeY = this.numLinha * 32
-                    #print fantasma2.homeX, fantasma.homeY
                     this.SetMapTile((this.numLinha, k), 0 )
-                    #print "ghosts2"
                 elif thisID == 13:# and thisID <= 13:
                     fantasma3.homeX = k * 32
                     fantasma3.homeY = this.numLinha * 32
-                    #print fantasma3.homeX, fantasma.homeY
                     this.SetMapTile((this.numLinha, k), 0 )
-                    #print "ghosts3"
                 elif thisID == 2:
                     nivel.acumulo += 1
             this.numLinha += 1
@@ -595,20 +589,20 @@ class Nivel:
         fantasma.velX      = 2
         fantasma.velY      = 0
 
-        fantasma1.x         = fantasma1.homeX
-        fantasma1.y         = fantasma1.homeY
-        fantasma1.velX      = -2
-        fantasma1.velY      = 0
+        fantasma1.x        = fantasma1.homeX
+        fantasma1.y        = fantasma1.homeY
+        fantasma1.velX     = -2
+        fantasma1.velY     = 0
 
-        fantasma2.x         = fantasma2.homeX
-        fantasma2.y         = fantasma2.homeY
-        fantasma2.velX      = 0
-        fantasma2.velY      = 2
+        fantasma2.x        = fantasma2.homeX
+        fantasma2.y        = fantasma2.homeY
+        fantasma2.velX     = 0
+        fantasma2.velY     = 2
 
-        fantasma3.x         = fantasma3.homeX
-        fantasma3.y         = fantasma3.homeY
-        fantasma3.velX      = 0
-        fantasma3.velY      = -2
+        fantasma3.x        = fantasma3.homeX
+        fantasma3.y        = fantasma3.homeY
+        fantasma3.velX     = 0
+        fantasma3.velY     = -2
 
         claude.x           = claude.homeX
         claude.y           = claude.homeY
@@ -616,7 +610,6 @@ class Nivel:
         claude.velY        = 0
         claude.images      = claude.direita
         claude.animaClaude = 0
-
 
 def verificaTeclas():
 
@@ -655,11 +648,11 @@ def verificaTeclas():
                 claude.velX = 0
                 claude.velY = -claude.velocidade
                 claude.direcao = "cima"
-        if pressed[K_RETURN]:
-            print nivel.mapa
-            print nivel.matrizCampo
+##        if pressed[K_RETURN]:
+##            print nivel.mapa
+##            print nivel.matrizCampo
 
-    if jogo.modo == 4:
+    if jogo.modo == 4 or jogo.modo == 5:
         if pressed[K_RETURN]:
             if jogo.getNivel() == 3:
                 print "FIM DO JOGO"
@@ -704,9 +697,14 @@ while True:
 
     verificaTeclas()
     if jogo.modo == 1:
-        verificaTeclas()
 
-        jogo.tempoModo += 1
+        verificaTeclas()
+        
+        fantasma.colisao()
+        fantasma1.colisao()
+        fantasma2.colisao()
+        fantasma3.colisao()
+        
         claude.andar()
         fantasma.andar()
         fantasma1.andar()
@@ -719,17 +717,18 @@ while True:
         nivel.portaisF((fantasma3.x, fantasma3.y), (fantasma3.proxLinha, fantasma3.proxColuna), fantasma3)
 
 ##### OPCAO DE REINICIO DE FASE APOS A PERDA DE UMA VIDA
-##    elif jogo.modo == 2:
-##        jogo.tempoModo += 1
-##        
-##        if jogo.tempoModo == 90:
-##            nivel.reiniciar()
-##            
-##            jogo.vidas -= 1
-##            if jogo.vidas == 0:
-##                jogo.setModo( 3 )
-##            else:
-##                jogo.setModo( 4 )
+    elif jogo.modo == 2:
+        jogo.tempoModo += 1
+        
+        if jogo.tempoModo == 90:
+            jogo.vidas -= 1
+            nivel.reiniciar()
+            jogo.setModo(1)
+            print jogo.vidas
+            
+            if jogo.vidas == 0:
+                print "PERDEU MANOLO"
+                jogo.setModo(5)
                 
     elif jogo.modo == 3:
         jogo.novoJogo()
@@ -764,6 +763,13 @@ while True:
         #jogo.tempoModo += 1
         #if jogo.tempoModo == 100: ##AGUARDA UM POUCO ANTES DE INICIAR PROXIMO NIVEL
         #    jogo.proximoNivel()
+
+    elif jogo.modo == 5:
+        nivel.reiniciar()
+        jogo.vidas = 3
+        jogo.nivel = 0
+        nivel.loadNivel(0)
+        verificaTeclas()
 
     #jogo.moverTela()
     background.fill((200, 200, 200))
