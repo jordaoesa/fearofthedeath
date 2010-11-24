@@ -18,7 +18,24 @@ fonteNome = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'numeros.ttf'
 
 #fundo = pygame.image.load("data"+os.sep+"tiles"+os.sep+"fundo.jpg")
 
-
+##class Menu:
+##
+##    def run(this):
+##        while True:
+##            for event in pygame.event.get(): 
+##                if event.type == QUIT: 
+##                    pygame.quit()
+##                if event.type == KEYDOWN:
+##                    if event.key == K_ESCAPE:
+##                        pygame.quit()
+##                    if event.key == K_RETURN:
+##                        coisas()
+##            
+##            background.fill((255,255,255))
+##            pygame.display.update()
+                        
+            
+        
 class Jogo:
 
     def __init__ (this):
@@ -686,11 +703,12 @@ class Nivel:
 class NomeUser:
 
     def __init__(this):
-        this.user = ""
+        this.user   = ""
 
-    def gravarHiscore(user):
+    def gravarHiscore(this):
+
+        dados  = []
         
-        dados = []
         try:
             ler = open("data" + os.sep + "hiscore.txt", "r")
             #print "passou do ler dados"
@@ -702,10 +720,10 @@ class NomeUser:
             criar = open("data" + os.sep + "hiscore.txt", "w")
             #print "entrou no except e crou o arquivo"
         try:
-            if not user + " " + str(jogo.score) in dados:
+            if not this.user + " " + str(jogo.score) in dados:
                 
                 gravar = open("data" + os.sep + "hiscore.txt", "a")
-                gravar.write(user + " " + str(jogo.score) + "\n")
+                gravar.write(this.user + " " + str(jogo.score) + "\n")
                 gravar.close()
                 print "gravou a bagaca"
         except:
@@ -722,8 +740,12 @@ class NomeUser:
                 if event.type == KEYDOWN:
                     
                     if event.key == K_ESCAPE: pygame.quit()
-                    if event.key == K_KP_ENTER: return this.user
-                    if event.key == K_RETURN: return this.user
+                    if event.key == K_KP_ENTER:
+                        this.gravarHiscore()
+                        return "gravado"
+                    if event.key == K_RETURN:
+                        this.gravarHiscore()
+                        return "gravado"
                     if event.key == K_BACKSPACE: this.user = this.user[:-1]
                     if event.key == K_SPACE: this.user += " "
                     if event.key == K_EXCLAIM: this.user += "!"
@@ -805,10 +827,9 @@ class NomeUser:
                     if event.key == K_KP_EQUALS: this.user += "="
 
             print this.user
-            this.texto = fonteNome.render("DIGITE SEU NOME ", True, (0,0,0))
+            this.texto = fonteNome.render("DIGITE SEU NOME", True, (0,0,0))
             this.nome = fonteNome.render(this.user, True, (0,0,0))
 
-            
             background.fill((255,255,255))
             background.blit(this.texto, (100,300))
             background.blit(this.nome, (100, 350))
@@ -852,41 +873,19 @@ def verificaTeclas():
                 claude.velX = 0
                 claude.velY = -claude.velocidade
                 claude.direcao = "cima"
-##        if pressed[K_RETURN]:
-##            print nivel.mapa
-##            print nivel.matrizCampo
 
-    if jogo.modo == 4 or jogo.modo == 5:
+    if jogo.modo == 4: #or jogo.modo == 5:
         if pressed[K_RETURN]:
             if jogo.getNivel() == 3:
                 print "FIM DO JOGO"
                 pygame.quit()
             else:
                 jogo.proximoNivel()
+                
+    if jogo.modo == 5:
+        if pressed[K_RETURN]:
+            nivel.loadNivel(0)
 
-def gravarHiscore(user):
-    
-    dados = []
-    try:
-        ler = open("data" + os.sep + "hiscore.txt", "r")
-        #print "passou do ler dados"
-        lerDados = ler.readlines()
-        ler.close()
-        for dado in lerDados:
-            dados.append(dado.strip())
-    except:
-        criar = open("data" + os.sep + "hiscore.txt", "w")
-        #print "entrou no except e crou o arquivo"
-    try:
-        if not user + " " + str(jogo.score) in dados:
-            
-            gravar = open("data" + os.sep + "hiscore.txt", "a")
-            gravar.write(user + " " + str(jogo.score) + "\n")
-            gravar.close()
-            print "gravou a bagaca"
-    except:
-        pass
-            
 claude    = Claude() ##-- INSTANCIACAO DE UM OBJETO DE Claude
 fantasma  = Fantasma()
 fantasma1 = Fantasma()
@@ -930,6 +929,7 @@ while True:
 
     verificaTeclas()
     if jogo.modo == 1:
+        print "entreou no 1"
 
         verificaTeclas()
         
@@ -951,6 +951,7 @@ while True:
 
 ##### OPCAO DE REINICIO DE FASE APOS A PERDA DE UMA VIDA
     elif jogo.modo == 2:
+        print "entrou no 2"
         jogo.tempoModo += 1
         
         if jogo.tempoModo == 90:
@@ -960,39 +961,39 @@ while True:
             print jogo.vidas
             
             if jogo.vidas == 0:
-                user = grava.screenName()
-                #user = raw_input("Digite seu nome: ")
-                gravarHiscore(user)
-                print "PERDEU MANOLO"
+                print grava.screenName()
+                cont=0
+                while cont <= 100:
+                    print "PERDEU MANOLO"
+                    print "volta pro menu"
+                    cont+=1
                 jogo.setModo(5)
-                
+
     elif jogo.modo == 3:
+        print "ENTROU NO 3"
         jogo.novoJogo()
-        # game over
         verificaTeclas()
 
     elif jogo.modo == 4:
+        print "entrou no 4"
         if jogo.getNivel() == 3:
-            user = raw_input("Digite seu nome: ")
-            gravarHiscore(user)
-            
+            print grava.screenName()
             venceu = fonteGta1.render("VOCE VENCEU!!", True, (255,0,0))
             background.blit(venceu, (100, 100))
         verificaTeclas()
-        #jogo.tempoModo += 1
-        #if jogo.tempoModo == 100: ##AGUARDA UM POUCO ANTES DE INICIAR PROXIMO NIVEL
-        #    jogo.proximoNivel()
 
     elif jogo.modo == 5:
+        
+        #pygame.event.clear()
         nivel.reiniciar()
         jogo.vidas = 3
         jogo.nivel = 0
         nivel.loadNivel(0)
+##        if pygame.key.get_pressed()[K_RETURN]:
+##            pass
         verificaTeclas()
 
-    #jogo.moverTela()
     background.fill((200, 200, 200))
-    #background.blit(fundo, (0,0))
 
     ####BLITA MAPA E claude NA TELA
     nivel.printMapa()
@@ -1010,7 +1011,6 @@ while True:
     
     jogo.printVidas()
     jogo.printPontuacao()
-    #print nivel.matrizCampo
     pygame.display.update()
     
     fps.tick (60)
