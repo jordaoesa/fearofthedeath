@@ -213,7 +213,55 @@ class Fantasma:
     def colisao(this):
         if claude.x - 16 <= this.x <= claude.x + 16 and claude.y - 16 <= this.y <= claude.y + 16:
             jogo.setModo(2)
-        
+
+##class Colete:
+##
+##    def __init__(this):
+##        
+##        this.animaColete = 0
+##
+##    def printColete(this):
+##        
+##        this.animaColete += 1
+##        
+##        if this.animaColete == 116: ##FAZ AS BOLINHAS PISCAREM
+##            this.animaColete = 0        
+##        
+##        for linha in range(-1, jogo.qtdTilesTela[0] +1):
+##            for coluna in range(-1, jogo.qtdTilesTela[1] +1):
+##
+##                tileAtual = nivel.GetMapTile((jogo.proximoTile[0] + linha, jogo.proximoTile[1] + coluna))
+##                if not tileAtual == 0 and not tileAtual == 20 and not tileAtual == 21 and not tileAtual == 6: ## NADA and PORTA H and PORTA V
+##                    image = pygame.image
+##                    
+##################### BLITA PROTECAO
+##                    if tileAtual == 6 or tileAtual == 7 or tileAtual == 8 or tileAtual == 9: ##ESCUDO PROTETOR
+##                        print "colete"
+##                        if this.animaColete <= 5:     image = colete[0]
+##                        elif this.animaColete <= 10:  image = colete[1]
+##                        elif this.animaColete <= 15:  image = colete[2]
+##                        elif this.animaColete <= 20:  image = colete[3]
+##                        elif this.animaColete <= 25:  image = colete[4]
+##                        elif this.animaColete <= 30:  image = colete[5]
+##                        elif this.animaColete <= 35:  image = colete[6]
+##                        elif this.animaColete <= 40:  image = colete[7]
+##                        elif this.animaColete <= 45:  image = colete[8]
+##                        elif this.animaColete <= 50:  image = colete[9]
+##                        elif this.animaColete <= 55:  image = colete[10]
+##                        elif this.animaColete <= 60:  image = colete[11]
+##                        elif this.animaColete <= 65:  image = colete[12]
+##                        elif this.animaColete <= 70:  image = colete[13]
+##                        elif this.animaColete <= 75:  image = colete[14]
+##                        elif this.animaColete <= 80:  image = colete[15]
+##                        elif this.animaColete <= 85:  image = colete[16]
+##                        elif this.animaColete <= 90:  image = colete[17]
+##                        elif this.animaColete <= 95:  image = colete[18]
+##                        elif this.animaColete <= 100: image = colete[19]
+##                        elif this.animaColete <= 105: image = colete[20]
+##                        elif this.animaColete <= 110: image = colete[21]
+##                        elif this.animaColete <= 115: image = colete[22]
+##
+##                        background.blit(image, (coluna * 32 - jogo.deslocamento[0], linha * 32 - jogo.deslocamento[1]) )
             
 class Nivel:
     
@@ -392,6 +440,7 @@ class Nivel:
                         elif this.animaColete <= 115: image = colete[22]
 
                         background.blit(image, (coluna * 32 - jogo.deslocamento[0], linha * 32 - jogo.deslocamento[1]) )
+                        
 ################### BLITA GRANA
                     elif tileAtual == 2:
                         if this.animaGrana <= 5:     image = grana[0]
@@ -475,7 +524,7 @@ class Nivel:
             
             this.matrizCampo = [
             [1,1,1,1,1,1,1,1,1,21,1,1,1,1,1,1,1,1,1],
-            [1,7,1,2,1,2,1,1,1,2,1,1,1,2,1,2,1,7,1],
+            [1,6,1,2,1,2,1,1,1,2,1,1,1,2,1,2,1,7,1],
             [1,2,2,2,1,2,2,2,1,2,1,2,2,2,1,2,2,2,1],
             [1,2,1,1,1,2,1,2,1,2,1,2,1,2,1,1,1,2,1],
             [1,2,2,2,2,2,1,2,2,2,2,2,1,2,2,2,2,2,1],
@@ -501,7 +550,7 @@ class Nivel:
             
             this.matrizCampo = [
             [1,1,1,1,1,1,1,1,1,21,1,1,1,1,1,1,1,1,1],
-            [1,7,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1],
+            [1,6,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1],
             [1,2,1,2,1,2,1,1,1,2,1,1,1,2,1,2,1,2,1],
             [1,2,1,2,1,2,2,2,1,2,1,2,2,2,1,2,1,2,1],
             [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1],
@@ -528,7 +577,7 @@ class Nivel:
             this.matrizCampo = [
             [1,21,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,21,1],
             [1,2,2,1,2,1,2,1,2,2,2,1,2,1,2,1,2,2,1],
-            [1,2,1,1,7,1,2,1,2,1,2,1,2,1,7,1,1,2,1],
+            [1,2,1,1,6,1,2,1,2,1,2,1,2,1,7,1,1,2,1],
             [1,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,1],
             [1,1,1,1,2,1,2,1,1,1,1,1,2,1,2,1,1,1,1],
             [1,2,2,2,2,1,2,2,2,1,2,2,2,1,2,2,2,1,1],
@@ -544,7 +593,7 @@ class Nivel:
             [1,1,2,1,2,1,1,1,2,1,2,1,1,1,2,1,2,1,1],
             [1,2,2,2,2,2,2,2,2,4,2,2,2,2,2,2,2,2,1],
             [1,1,2,1,2,1,1,1,2,1,2,1,1,1,2,1,2,1,1],
-            [1,2,1,7,2,2,2,1,2,1,2,1,2,2,2,7,1,2,1],
+            [1,2,1,8,2,2,2,1,2,1,2,1,2,2,2,9,1,2,1],
             [1,2,2,1,1,1,2,1,2,1,2,1,2,1,1,1,2,2,1],
             [1,21,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,21,1]
             ]
@@ -559,6 +608,28 @@ class Nivel:
                     claude.homeX = k * 32
                     claude.homeY = this.numLinha * 32
                     this.SetMapTile((this.numLinha, k), 0 )
+                    
+##                elif thisID == 6:
+##                    print "6"
+##                    protect.homeX = k * 32
+##                    protect.homeY = this.numLinha * 32
+##                    this.SetMapTile((this.numLinha, k), 0 )
+##                elif thisID == 7:
+##                    print "7"
+##                    protect1.homeX = k * 32
+##                    protect1.homeY = this.numLinha * 32
+##                    this.SetMapTile((this.numLinha, k), 0 )
+##                elif thisID == 8:
+##                    print "8"
+##                    protect2.homeX = k * 32
+##                    protect2.homeY = this.numLinha * 32
+##                    this.SetMapTile((this.numLinha, k), 0 )
+##                elif thisID == 9:
+##                    print "9"
+##                    protect3.homeX = k * 32
+##                    protect3.homeY = this.numLinha * 32
+##                    this.SetMapTile((this.numLinha, k), 0 )
+                    
                 elif thisID == 10:# and thisID <= 13:
                     fantasma.homeX = k * 32
                     fantasma.homeY = this.numLinha * 32
@@ -665,6 +736,10 @@ fantasma  = Fantasma()
 fantasma1 = Fantasma()
 fantasma2 = Fantasma()
 fantasma3 = Fantasma()
+##protect   = Colete()
+##protect1  = Colete()
+##protect2  = Colete()
+##protect3  = Colete()
 nomeTile  = {}       ##-- ARMAZENA OS NOMES DOS TILES
 colete    = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA COLETE
 grana     = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA GRANA
@@ -778,10 +853,17 @@ while True:
     ####BLITA MAPA E claude NA TELA
     nivel.printMapa()
     claude.printClaude()
+
+##    protect.printColete()
+##    protect1.printColete()
+##    protect2.printColete()
+##    protect3.printColete()
+
     fantasma.printFantasma()
     fantasma1.printFantasma()
     fantasma2.printFantasma()
     fantasma3.printFantasma()
+    
     jogo.printVidas()
     jogo.printPontuacao()
     #print nivel.matrizCampo
