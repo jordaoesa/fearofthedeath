@@ -8,9 +8,11 @@ import os
 class Menu:
 	
 	def __init__(self):
-
+                
 		pygame.init()
-
+                
+		self.start = Loop.Principal()
+		
 		self.image_grande = pygame.image
 		self.image_medio = pygame.image
 		self.image_pequeno = pygame.image
@@ -102,7 +104,7 @@ class Menu:
 				self.screen.blit(self.inicio1, (70, 165))
 				self.som.play()
 				if mouse_press[0]:
-					Loop.run()
+					self.start.run()
 				
 				#if pygame.mouse.get_pressed()[0] == True:
 				#	jogo.game_run()
