@@ -15,6 +15,9 @@ class Menu:
 		self.image_medio = pygame.image
 		self.image_pequeno = pygame.image
 		self.animaFantasma = 0
+
+		self.som = pygame.mixer.Sound("data" +os.sep+ "sons" + "menu.wav")
+		
 		self.screen = pygame.display.set_mode((608, 672), 0, 32)
 		self.background = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fundoMenu.jpg").convert()
 		self.fantasma = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fantasma.png").convert_alpha()
@@ -41,13 +44,13 @@ class Menu:
 		self.inicio = self.fonte.render("inicio", True, (255,255,255))
 		self.instrucoes = self.fonte.render("instrucoes", True, (255,255,255))
 		self.creditos = self.fonte.render("creditos", True, (255,255,255))
-		self.voltar = self.fonte.render("voltar", True, (255,255,255))
+		self.voltar = self.fonte.render("sair", True, (255,255,255))
 
 		self.titulo1 = self.fonte1.render("Fear of The Death", True, (205,205,205))
 		self.inicio1 = self.fonte1.render("inicio", True, (205,105,105))
 		self.instrucoes1 = self.fonte1.render("instrucoes", True, (205,105,105))
 		self.creditos1 = self.fonte1.render("creditos", True, (205,105,105))
-		self.voltar1 = self.fonte1.render("voltar", True, (205,105,105))
+		self.voltar1 = self.fonte1.render("sair", True, (205,105,105))
 		
 	def run(self):
 
@@ -97,6 +100,7 @@ class Menu:
 						
 			if 85 < mouse_pos[0] < 195 and 180 < mouse_pos[1] < 205:
 				self.screen.blit(self.inicio1, (70, 165))
+				self.som.play()
 				if mouse_press[0]:
 					Loop.run()
 				
@@ -104,26 +108,36 @@ class Menu:
 				#	jogo.game_run()
 			else:
 				self.screen.blit(self.inicio, (85, 170))
+				#self.som.play()
 				
 				
 					
 
 			if 85 < mouse_pos[0] < 300 and 250 < mouse_pos[1] < 275:
 				self.screen.blit(self.instrucoes1, (60, 230))
+				#self.som.play()
 			else:
 				self.screen.blit(self.instrucoes, (85, 240))
+				#self.som.play()
 
 
 			if 85 < mouse_pos[0] < 255 and 320 < mouse_pos[1] < 350:
 				self.screen.blit(self.creditos1, (70, 300))
+				#self.som.play()
 			else:
 				self.screen.blit(self.creditos, (85, 310))
+				#self.som.play()
 
 
 			if 85 < mouse_pos[0] < 220 and 390 < mouse_pos[1] < 420:
 				self.screen.blit(self.voltar1, (70, 370))
+				#self.som.play()
+				if mouse_press[0]:
+					pygame.quit()
 			else:
 				self.screen.blit(self.voltar, (85, 380))
+				#self.som.play()
+			#self.som.stop()
 				
 			pygame.display.update()
 			self.clock.tick(60)
