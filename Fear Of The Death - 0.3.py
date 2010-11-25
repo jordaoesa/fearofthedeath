@@ -97,7 +97,7 @@ class Claude:
         this.y            = 0
         this.velX         = 0
         this.velY         = 0
-        this.velocidade   = 2
+        this.velocidade   = 4
         this.proxLinha    = 0
         this.proxColuna   = 0
         this.homeX        = 0
@@ -742,10 +742,10 @@ class NomeUser:
                     if event.key == K_ESCAPE: pygame.quit()
                     if event.key == K_KP_ENTER:
                         this.gravarHiscore()
-                        return "gravado"
+                        return None
                     if event.key == K_RETURN:
                         this.gravarHiscore()
-                        return "gravado"
+                        return None
                     if event.key == K_BACKSPACE: this.user = this.user[:-1]
                     if event.key == K_SPACE: this.user += " "
                     if event.key == K_EXCLAIM: this.user += "!"
@@ -873,8 +873,8 @@ def verificaTeclas():
                 claude.velX = 0
                 claude.velY = -claude.velocidade
                 claude.direcao = "cima"
-
-    if jogo.modo == 4: #or jogo.modo == 5:
+            
+    if jogo.modo == 4:# or jogo.modo == 5:
         if pressed[K_RETURN]:
             if jogo.getNivel() == 3:
                 print "FIM DO JOGO"
@@ -884,7 +884,7 @@ def verificaTeclas():
                 
     if jogo.modo == 5:
         if pressed[K_RETURN]:
-            nivel.loadNivel(0)
+            jogo.setModo(2)
 
 claude    = Claude() ##-- INSTANCIACAO DE UM OBJETO DE Claude
 fantasma  = Fantasma()
@@ -929,7 +929,6 @@ while True:
 
     verificaTeclas()
     if jogo.modo == 1:
-        print "entreou no 1"
 
         verificaTeclas()
         
@@ -951,46 +950,48 @@ while True:
 
 ##### OPCAO DE REINICIO DE FASE APOS A PERDA DE UMA VIDA
     elif jogo.modo == 2:
-        print "entrou no 2"
+        #print "entrou no 2"
         jogo.tempoModo += 1
         
         if jogo.tempoModo == 90:
             jogo.vidas -= 1
             nivel.reiniciar()
             jogo.setModo(1)
-            print jogo.vidas
-            
             if jogo.vidas == 0:
-                print grava.screenName()
-                cont=0
-                while cont <= 100:
-                    print "PERDEU MANOLO"
-                    print "volta pro menu"
-                    cont+=1
+                grava.screenName()
+
+        for event in pygame.event.get(): 
+            if event.type == QUIT: 
+                pygame.quit()
+            if event.type == KEYDOWN:
+                if event.key == K_RETURN:
+                    print "."
+            
+               
+##                while pygame.key.get_pressed()[K_RETURN]:
+##                    print "."
                 jogo.setModo(5)
 
     elif jogo.modo == 3:
-        print "ENTROU NO 3"
         jogo.novoJogo()
         verificaTeclas()
 
     elif jogo.modo == 4:
-        print "entrou no 4"
+        
         if jogo.getNivel() == 3:
-            print grava.screenName()
+            
+            grava.screenName()
             venceu = fonteGta1.render("VOCE VENCEU!!", True, (255,0,0))
             background.blit(venceu, (100, 100))
         verificaTeclas()
 
     elif jogo.modo == 5:
         
-        #pygame.event.clear()
         nivel.reiniciar()
         jogo.vidas = 3
         jogo.nivel = 0
-        nivel.loadNivel(0)
-##        if pygame.key.get_pressed()[K_RETURN]:
-##            pass
+        nivel.loadNivel(0) ##--- aqui vai ser chamado novamente um menu
+        grava.user = ""
         verificaTeclas()
 
     background.fill((200, 200, 200))
