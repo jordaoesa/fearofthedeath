@@ -1,5 +1,5 @@
-import pygame, os
-from pygame.locals import *
+import pygame
+import os
 import Player
 import Fantasma
 import Jogo

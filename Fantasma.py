@@ -1,5 +1,6 @@
-import pygame, os, random
-from pygame.locals import *
+import pygame
+import os
+import random
 import Objetos
 
 class Fantasma:

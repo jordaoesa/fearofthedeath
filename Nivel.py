@@ -1,6 +1,4 @@
 import pygame
-from pygame.locals import *
-#from Objetos import *
 import Objetos
 
 class Nivel:

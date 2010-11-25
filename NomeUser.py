@@ -1,5 +1,6 @@
-import pygame, os
+import pygame
 from pygame.locals import *
+import os
 import Objetos
 
 class NomeUser:
