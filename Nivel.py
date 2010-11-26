@@ -9,7 +9,7 @@ class Nivel:
         this.mapa        = {}
         this.acumulo     = 0
         this.animaColete = 0
-        this.animaGrana  = 0
+        this.animaRoda  = 0
         
     def SetMapTile (this, (linha, coluna), valor):
         this.mapa[ coluna + (linha * this.qtdTilesX) ] = valor
@@ -135,13 +135,13 @@ class Nivel:
     def printMapa (this):
         
         this.animaColete += 1
-        this.animaGrana += 1
+        this.animaRoda += 1
         
         if this.animaColete == 116: ##FAZ AS BOLINHAS PISCAREM
             this.animaColete = 0
             
-        if this.animaGrana == 181:
-            this.animaGrana = 0
+        if this.animaRoda == 20:
+            this.animaRoda = 0
         
         
         for linha in range(-1, Objetos.jogo.qtdTilesTela[0] +1):
@@ -181,42 +181,46 @@ class Nivel:
                         
 ################### BLITA GRANA
                     elif tileAtual == 2:
-                        if this.animaGrana <= 5:     image = Objetos.grana[0]
-                        elif this.animaGrana <= 10:  image = Objetos.grana[1]
-                        elif this.animaGrana <= 15:  image = Objetos.grana[2]
-                        elif this.animaGrana <= 20:  image = Objetos.grana[3]
-                        elif this.animaGrana <= 25:  image = Objetos.grana[4]
-                        elif this.animaGrana <= 30:  image = Objetos.grana[5]
-                        elif this.animaGrana <= 35:  image = Objetos.grana[6]
-                        elif this.animaGrana <= 40:  image = Objetos.grana[7]
-                        elif this.animaGrana <= 45:  image = Objetos.grana[8]
-                        elif this.animaGrana <= 50:  image = Objetos.grana[9]
-                        elif this.animaGrana <= 55:  image = Objetos.grana[10]
-                        elif this.animaGrana <= 60:  image = Objetos.grana[11]
-                        elif this.animaGrana <= 65:  image = Objetos.grana[12]
-                        elif this.animaGrana <= 70:  image = Objetos.grana[13]
-                        elif this.animaGrana <= 75:  image = Objetos.grana[14]
-                        elif this.animaGrana <= 80:  image = Objetos.grana[15]
-                        elif this.animaGrana <= 85:  image = Objetos.grana[16]
-                        elif this.animaGrana <= 90:  image = Objetos.grana[17]
-                        elif this.animaGrana <= 95:  image = Objetos.grana[18]
-                        elif this.animaGrana <= 100: image = Objetos.grana[19]
-                        elif this.animaGrana <= 105: image = Objetos.grana[20]
-                        elif this.animaGrana <= 110: image = Objetos.grana[21]
-                        elif this.animaGrana <= 115: image = Objetos.grana[22]
-                        elif this.animaGrana <= 120: image = Objetos.grana[23]
-                        elif this.animaGrana <= 125: image = Objetos.grana[24]
-                        elif this.animaGrana <= 130: image = Objetos.grana[25]
-                        elif this.animaGrana <= 135: image = Objetos.grana[26]
-                        elif this.animaGrana <= 140: image = Objetos.grana[27]
-                        elif this.animaGrana <= 145: image = Objetos.grana[28]
-                        elif this.animaGrana <= 150: image = Objetos.grana[29]
-                        elif this.animaGrana <= 155: image = Objetos.grana[30]
-                        elif this.animaGrana <= 160: image = Objetos.grana[31]
-                        elif this.animaGrana <= 165: image = Objetos.grana[32]
-                        elif this.animaGrana <= 170: image = Objetos.grana[33]
-                        elif this.animaGrana <= 175: image = Objetos.grana[34]
-                        elif this.animaGrana <= 180: image = Objetos.grana[35]
+##                        if this.animaGrana <= 5:     image = Objetos.grana[0]
+##                        elif this.animaGrana <= 10:  image = Objetos.grana[1]
+##                        elif this.animaGrana <= 15:  image = Objetos.grana[2]
+##                        elif this.animaGrana <= 20:  image = Objetos.grana[3]
+##                        elif this.animaGrana <= 25:  image = Objetos.grana[4]
+##                        elif this.animaGrana <= 30:  image = Objetos.grana[5]
+##                        elif this.animaGrana <= 35:  image = Objetos.grana[6]
+##                        elif this.animaGrana <= 40:  image = Objetos.grana[7]
+##                        elif this.animaGrana <= 45:  image = Objetos.grana[8]
+##                        elif this.animaGrana <= 50:  image = Objetos.grana[9]
+##                        elif this.animaGrana <= 55:  image = Objetos.grana[10]
+##                        elif this.animaGrana <= 60:  image = Objetos.grana[11]
+##                        elif this.animaGrana <= 65:  image = Objetos.grana[12]
+##                        elif this.animaGrana <= 70:  image = Objetos.grana[13]
+##                        elif this.animaGrana <= 75:  image = Objetos.grana[14]
+##                        elif this.animaGrana <= 80:  image = Objetos.grana[15]
+##                        elif this.animaGrana <= 85:  image = Objetos.grana[16]
+##                        elif this.animaGrana <= 90:  image = Objetos.grana[17]
+##                        elif this.animaGrana <= 95:  image = Objetos.grana[18]
+##                        elif this.animaGrana <= 100: image = Objetos.grana[19]
+##                        elif this.animaGrana <= 105: image = Objetos.grana[20]
+##                        elif this.animaGrana <= 110: image = Objetos.grana[21]
+##                        elif this.animaGrana <= 115: image = Objetos.grana[22]
+##                        elif this.animaGrana <= 120: image = Objetos.grana[23]
+##                        elif this.animaGrana <= 125: image = Objetos.grana[24]
+##                        elif this.animaGrana <= 130: image = Objetos.grana[25]
+##                        elif this.animaGrana <= 135: image = Objetos.grana[26]
+##                        elif this.animaGrana <= 140: image = Objetos.grana[27]
+##                        elif this.animaGrana <= 145: image = Objetos.grana[28]
+##                        elif this.animaGrana <= 150: image = Objetos.grana[29]
+##                        elif this.animaGrana <= 155: image = Objetos.grana[30]
+##                        elif this.animaGrana <= 160: image = Objetos.grana[31]
+##                        elif this.animaGrana <= 165: image = Objetos.grana[32]
+##                        elif this.animaGrana <= 170: image = Objetos.grana[33]
+##                        elif this.animaGrana <= 175: image = Objetos.grana[34]
+##                        elif this.animaGrana <= 180: image = Objetos.grana[35]
+                        if this.animaRoda <= 5: image    = Objetos.roda[0]
+                        elif this.animaRoda <= 10: image = Objetos.roda[1]
+                        elif this.animaRoda <= 15: image = Objetos.roda[2]
+                        elif this.animaRoda <= 20: image = Objetos.roda[3]
 
                         Objetos.background.blit(image, (coluna * 32 - Objetos.jogo.deslocamento[0], linha * 32 - Objetos.jogo.deslocamento[1]) )
 ################### BLITA AS PAREDES
