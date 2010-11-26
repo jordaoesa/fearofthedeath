@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 import os
 import Loop
+import Objetos
 
 
 class Menu:
@@ -54,7 +55,10 @@ class Menu:
         self.voltar1 = self.fonte1.render("sair", True, (205,105,105))
 
     def run(self):
-
+        self.cont1 = True
+        self.cont2 = True
+        self.cont3 = True
+        self.cont4 = True
         while True:
             
             for event in pygame.event.get():
@@ -92,54 +96,55 @@ class Menu:
             self.screen.blit(self.image_grande, (200, 430))
             self.screen.blit(self.image_medio, (100, 500))
             self.screen.blit(self.image_pequeno, (0, 550))
-            
-            
-
-            #para blitar os texto no menu, quando passar o mouse.			
-                                    
+                      
             if 85 < mouse_pos[0] < 195 and 180 < mouse_pos[1] < 205:
+                temp1 = self.cont1
                 self.screen.blit(self.inicio1, (70, 165))
-                self.som.play()
+
+                if temp1:
+                    self.som.play()
+                self.cont1 = False
+                
                 if mouse_press[0]:
+                    Objetos.grava.screenName()
+                    Objetos.jogo.novoJogo()
                     self.start.run()
-                    
-                #if pygame.mouse.get_pressed()[0] == True:
-                #	jogo.game_run()
             else:
                 self.screen.blit(self.inicio, (85, 170))
-                #self.som.play()
-                    
-                    
-                            
+                self.cont1 = True
 
             if 85 < mouse_pos[0] < 300 and 250 < mouse_pos[1] < 275:
+                temp2 = self.cont2
                 self.screen.blit(self.instrucoes1, (60, 230))
-                #self.som.play()
+                if temp2:
+                    self.som.play()
+                self.cont2 = False
             else:
                 self.screen.blit(self.instrucoes, (85, 240))
-                #self.som.play()
-
+                self.cont2 = True
 
             if 85 < mouse_pos[0] < 255 and 320 < mouse_pos[1] < 350:
+                temp3 = self.cont3
                 self.screen.blit(self.creditos1, (70, 300))
-                #self.som.play()
+                if temp3:
+                    self.som.play()
+                self.cont3 = False
             else:
                 self.screen.blit(self.creditos, (85, 310))
-                #self.som.play()
+                self.cont3 = True
 
 
             if 85 < mouse_pos[0] < 220 and 390 < mouse_pos[1] < 420:
+                temp4 = self.cont4
                 self.screen.blit(self.voltar1, (70, 370))
-                #self.som.play()
+                if temp4:
+                    self.som.play()
+                self.cont4 = False
                 if mouse_press[0]:
                     pygame.quit()
             else:
                 self.screen.blit(self.voltar, (85, 380))
-                #self.som.play()
-            #self.som.stop()
+                self.cont4 = True
                     
             pygame.display.update()
             self.clock.tick(60)
-			
-menu = Menu()
-menu.run()

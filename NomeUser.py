@@ -45,10 +45,10 @@ class NomeUser:
                     if event.key == K_ESCAPE: pygame.quit()
                     if event.key == K_KP_ENTER:
                         this.gravarHiscore()
-                        return None
+                        return this.user
                     if event.key == K_RETURN:
                         this.gravarHiscore()
-                        return None
+                        return this.user
                     if event.key == K_BACKSPACE: this.user = this.user[:-1]
                     if event.key == K_SPACE: this.user += " "
                     if event.key == K_EXCLAIM: this.user += "!"
@@ -129,7 +129,6 @@ class NomeUser:
                     if event.key == K_KP_PLUS: this.user += "+"
                     if event.key == K_KP_EQUALS: this.user += "="
 
-            print this.user
             this.texto = Objetos.fonteNome.render("DIGITE SEU NOME", True, (0,0,0))
             this.nome = Objetos.fonteNome.render(this.user, True, (0,0,0))
 

@@ -4,7 +4,7 @@ import Objetos
 class Jogo:
 
     def __init__ (this):
-        this.nivel        = 0
+        this.nivel        = 1
         this.score        = 0
         this.vidas        = 3
         this.modo         = 0
@@ -36,7 +36,7 @@ class Jogo:
         this.score = 0
         this.vidas = 3
         this.setModo(1)
-        Objetos.nivel.loadNivel(Objetos.jogo.getNivel())
+        Objetos.nivel.loadNivel(1)
         
     def getNivel(this):
         return this.nivel

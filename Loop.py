@@ -29,26 +29,25 @@ class Principal:
                 Objetos.nivel.portaisF((Objetos.fantasma2.x, Objetos.fantasma2.y), (Objetos.fantasma2.proxLinha, Objetos.fantasma2.proxColuna), Objetos.fantasma2)
                 Objetos.nivel.portaisF((Objetos.fantasma3.x, Objetos.fantasma3.y), (Objetos.fantasma3.proxLinha, Objetos.fantasma3.proxColuna), Objetos.fantasma3)
 
-        ##### OPCAO DE REINICIO DE FASE APOS A PERDA DE UMA VIDA
-            elif Objetos.jogo.modo == 2:
-                #print "entrou no 2"
+            elif Objetos.jogo.modo == 2: ##REINICIO APOS PERDA DE VIDA
                 Objetos.jogo.tempoModo += 1
                 
-                if Objetos.jogo.tempoModo == 90:
+                if Objetos.jogo.tempoModo == 100:
                     Objetos.jogo.vidas -= 1
                     Objetos.nivel.reiniciar()
                     Objetos.jogo.setModo(1)
                     if Objetos.jogo.vidas == 0:
-                        Objetos.grava.screenName()
-
+                        #Objetos.grava.screenName()
+                        #Objetos.nivel.reiniciar()
+                        #Objetos.jogo.vidas = 3
+                        #Objetos.jogo.nivel = 0
+                        Objetos.menu.run()
                 for event in pygame.event.get(): 
                     if event.type == QUIT: 
                         pygame.quit()
                     if event.type == KEYDOWN:
                         if event.key == K_RETURN:
                             print "."
-        ##                while pygame.key.get_pressed()[K_RETURN]:
-        ##                    print "."
                         Objetos.jogo.setModo(5)
 
             elif Objetos.jogo.modo == 3:
@@ -59,7 +58,7 @@ class Principal:
                 
                 if Objetos.jogo.getNivel() == 3:
                     
-                    Objetos.grava.screenName()
+                    #Objetos.grava.screenName()
                     venceu = Objetos.fonteGta1.render("VOCE VENCEU!!", True, (255,0,0))
                     Objetos.background.blit(venceu, (100, 100))
                 Funcoes.verificaTeclas()
