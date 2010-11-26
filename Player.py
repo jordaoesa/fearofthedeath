@@ -63,6 +63,6 @@ class Sonic:
         
         if Objetos.jogo.modo == 1:
             if not this.velX == 0 or not this.velY == 0:
-                this.animaSonic += 0.3
+                this.animaSonic += 0.2
             if int(this.animaSonic) == 3:
                 this.animaSonic = 0
