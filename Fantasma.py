@@ -21,16 +21,16 @@ class Fantasma:
         
         if this.x%32 == 0 and this.y%32 == 0:
 
-            if this.y < Objetos.claude.y:
+            if this.y < Objetos.sonic.y:
                 this.velX = 0
                 this.velY = this.velocidade
-            elif this.y > Objetos.claude.y:
+            elif this.y > Objetos.sonic.y:
                 this.velX = 0
                 this.velY = -this.velocidade
-            elif this.x < Objetos.claude.x:
+            elif this.x < Objetos.sonic.x:
                 this.velX = this.velocidade
                 this.velY = 0
-            elif this.x > Objetos.claude.x:
+            elif this.x > Objetos.sonic.x:
                 this.velX = -this.velocidade
                 this.velY = 0
             
@@ -66,5 +66,5 @@ class Fantasma:
         Objetos.background.blit (this.image, (this.x, this.y))
 
     def colisao(this):
-        if Objetos.claude.x - 16 <= this.x <= Objetos.claude.x + 16 and Objetos.claude.y - 16 <= this.y <= Objetos.claude.y + 16:
+        if Objetos.sonic.x - 16 <= this.x <= Objetos.sonic.x + 16 and Objetos.sonic.y - 16 <= this.y <= Objetos.sonic.y + 16:
             Objetos.jogo.setModo(2)

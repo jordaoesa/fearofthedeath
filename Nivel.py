@@ -20,12 +20,12 @@ class Nivel:
         else:
             return 0
 
-    def comida(this, (claudeX, claudeY), (linha, coluna)):
+    def comida(this, (sonicX, sonicY), (linha, coluna)):
     
         for liinha in range(linha - 1, linha + 2):
             for cooluna in range(coluna - 1, coluna + 2):
             
-                if  (claudeX - (cooluna * 32) < 32) and (claudeX - (cooluna * 32) > -32) and (claudeY - (liinha * 32) < 32) and (claudeY - (liinha * 32) > -32):
+                if  (sonicX - (cooluna * 32) < 32) and (sonicX - (cooluna * 32) > -32) and (sonicY - (liinha * 32) < 32) and (sonicY - (liinha * 32) > -32):
                     result = Objetos.nivel.GetMapTile((liinha, cooluna))
 
 ################### REMOCAO DA GRANA       
@@ -34,8 +34,8 @@ class Nivel:
                         #nivel.matrizCampo[liinha][cooluna] = 4
                         #nivel.matrizCampo[liinha-1][cooluna] = 0
 ##                        print nivel.mapa
-                        #sndGrana[claude.sndGranaNum].play()
-                        #claude.sndGranaNum = 1 - claude.sndGranaNum
+                        #sndGrana[sonic.sndGranaNum].play()
+                        #sonic.sndGranaNum = 1 - sonic.sndGranaNum
                         
                         Objetos.nivel.acumulo -= 1
                         Objetos.jogo.pontos(10)
@@ -50,12 +50,12 @@ class Nivel:
 
 ### PORTAS HORIZONTAIS E VERTICAIS
 
-    def portais(this, (claudeX, claudeY), (linha, coluna)):
+    def portais(this, (sonicX, sonicY), (linha, coluna)):
         
         for liinha in range(linha - 1, linha + 2):
             for cooluna in range(coluna - 1, coluna + 2):
                 
-                if  (claudeX - (cooluna * 32) < 32) and (claudeX - (cooluna * 32) > -32) and (claudeY - (liinha * 32) < 32) and (claudeY - (liinha * 32) > -32):
+                if  (sonicX - (cooluna * 32) < 32) and (sonicX - (cooluna * 32) > -32) and (sonicY - (liinha * 32) < 32) and (sonicY - (liinha * 32) > -32):
                 # check the offending tile ID
                     result = Objetos.nivel.GetMapTile((liinha, cooluna))
                 
@@ -63,23 +63,23 @@ class Nivel:
                         for i in range(0, Objetos.nivel.qtdTilesX):
                             if not i == cooluna:
                                 if Objetos.nivel.GetMapTile((liinha, i)) == 20: ##PORTA HORIZONTAL
-                                    Objetos.claude.x = i * 32
+                                    Objetos.sonic.x = i * 32
                                     
-                                    if Objetos.claude.velX > 0:
-                                        Objetos.claude.x += 32
+                                    if Objetos.sonic.velX > 0:
+                                        Objetos.sonic.x += 32
                                     else:
-                                        Objetos.claude.x -= 32
+                                        Objetos.sonic.x -= 32
                                         
                     elif result == 21: ##PORTA VERTICAL
                         for i in range(0, Objetos.nivel.qtdTilesY):
                             if not i == liinha:
                                 if Objetos.nivel.GetMapTile((i, cooluna)) == 21: ##PORTA VERTICAL
-                                    Objetos.claude.y = i * 32
+                                    Objetos.sonic.y = i * 32
                                     
-                                    if Objetos.claude.velY > 0:
-                                        Objetos.claude.y += 32
+                                    if Objetos.sonic.velY > 0:
+                                        Objetos.sonic.y += 32
                                     else:
-                                        Objetos.claude.y -= 32
+                                        Objetos.sonic.y -= 32
 
 ### PORTAS HORIZONTAIS E VERTICAIS PARA OS FANTASMAS
     def portaisF(this, (fX, fY), (linha, coluna), fant):
@@ -343,8 +343,8 @@ class Nivel:
                 
                 thisID = this.matrizCampo[l][k]
                 if thisID == 4:
-                    Objetos.claude.homeX = k * 32
-                    Objetos.claude.homeY = this.numLinha * 32
+                    Objetos.sonic.homeX = k * 32
+                    Objetos.sonic.homeY = this.numLinha * 32
                     this.SetMapTile((this.numLinha, k), 0 )
                     
 ##                elif thisID == 6:
@@ -413,9 +413,9 @@ class Nivel:
         Objetos.fantasma3.velX     = 0
         Objetos.fantasma3.velY     = -2
 
-        Objetos.claude.x           = Objetos.claude.homeX
-        Objetos.claude.y           = Objetos.claude.homeY
-        Objetos.claude.velX        = 0
-        Objetos.claude.velY        = 0
-        Objetos.claude.images      = Objetos.claude.direita
-        Objetos.claude.animaClaude = 0
+        Objetos.sonic.x           = Objetos.sonic.homeX
+        Objetos.sonic.y           = Objetos.sonic.homeY
+        Objetos.sonic.velX        = 0
+        Objetos.sonic.velY        = 0
+        Objetos.sonic.images      = Objetos.sonicD
+        Objetos.sonic.animaSonic = 0

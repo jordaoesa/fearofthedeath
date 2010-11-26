@@ -17,28 +17,28 @@ def verificaTeclas():
 ### CHECA MOVIMENTOS
     if Objetos.jogo.modo == 1:
         if pressed[K_RIGHT]:
-            if not Objetos.nivel.verificaParede((Objetos.claude.x + Objetos.claude.velocidade, Objetos.claude.y), (Objetos.claude.proxLinha, Objetos.claude.proxColuna)): 
-                Objetos.claude.velX = Objetos.claude.velocidade
-                Objetos.claude.velY = 0
-                Objetos.claude.direcao = "direita"
+            if not Objetos.nivel.verificaParede((Objetos.sonic.x + Objetos.sonic.velocidade, Objetos.sonic.y), (Objetos.sonic.proxLinha, Objetos.sonic.proxColuna)): 
+                Objetos.sonic.velX = Objetos.sonic.velocidade
+                Objetos.sonic.velY = 0
+                Objetos.sonic.direcao = "direita"
                 
         elif pressed[K_LEFT]:
-            if not Objetos.nivel.verificaParede((Objetos.claude.x - Objetos.claude.velocidade, Objetos.claude.y), (Objetos.claude.proxLinha, Objetos.claude.proxColuna)): 
-                Objetos.claude.velX = -Objetos.claude.velocidade
-                Objetos.claude.velY = 0
-                Objetos.claude.direcao = "esquerda"
+            if not Objetos.nivel.verificaParede((Objetos.sonic.x - Objetos.sonic.velocidade, Objetos.sonic.y), (Objetos.sonic.proxLinha, Objetos.sonic.proxColuna)): 
+                Objetos.sonic.velX = -Objetos.sonic.velocidade
+                Objetos.sonic.velY = 0
+                Objetos.sonic.direcao = "esquerda"
             
         elif pressed[K_DOWN]:
-            if not Objetos.nivel.verificaParede((Objetos.claude.x, Objetos.claude.y + Objetos.claude.velocidade), (Objetos.claude.proxLinha, Objetos.claude.proxColuna)): 
-                Objetos.claude.velX = 0
-                Objetos.claude.velY = Objetos.claude.velocidade
-                Objetos.claude.direcao = "baixo"
+            if not Objetos.nivel.verificaParede((Objetos.sonic.x, Objetos.sonic.y + Objetos.sonic.velocidade), (Objetos.sonic.proxLinha, Objetos.sonic.proxColuna)): 
+                Objetos.sonic.velX = 0
+                Objetos.sonic.velY = Objetos.sonic.velocidade
+                Objetos.sonic.direcao = "baixo"
             
         elif pressed[K_UP]:
-            if not Objetos.nivel.verificaParede((Objetos.claude.x, Objetos.claude.y - Objetos.claude.velocidade), (Objetos.claude.proxLinha, Objetos.claude.proxColuna)):
-                Objetos.claude.velX = 0
-                Objetos.claude.velY = -Objetos.claude.velocidade
-                Objetos.claude.direcao = "cima"
+            if not Objetos.nivel.verificaParede((Objetos.sonic.x, Objetos.sonic.y - Objetos.sonic.velocidade), (Objetos.sonic.proxLinha, Objetos.sonic.proxColuna)):
+                Objetos.sonic.velX = 0
+                Objetos.sonic.velY = -Objetos.sonic.velocidade
+                Objetos.sonic.direcao = "cima"
             
     if Objetos.jogo.modo == 4:# or jogo.modo == 5:
         if pressed[K_RETURN]:

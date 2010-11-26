@@ -18,7 +18,7 @@ class Principal:
                 Objetos.fantasma2.colisao()
                 Objetos.fantasma3.colisao()
                 
-                Objetos.claude.andar()
+                Objetos.sonic.andar()
                 Objetos.fantasma.andar()
                 Objetos.fantasma1.andar()
                 Objetos.fantasma2.andar()
@@ -75,9 +75,9 @@ class Principal:
 
             Objetos.background.fill((200, 200, 200))
 
-            ####BLITA MAPA E claude NA TELA
+            ####BLITA MAPA E sonic NA TELA
             Objetos.nivel.printMapa()
-            Objetos.claude.printClaude()
+            Objetos.sonic.printSonic()
 
         ##    protect.printColete()
         ##    protect1.printColete()

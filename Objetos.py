@@ -25,7 +25,7 @@ fonteNome = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'numeros.ttf'
 
 #fundo = pygame.image.load("data"+os.sep+"tiles"+os.sep+"fundo.jpg")
 
-claude    = Player.Claude() ##-- INSTANCIACAO DE UM OBJETO DE Claude
+sonic     = Player.Sonic() ##-- INSTANCIACAO DE UM OBJETO DE SONIC
 fantasma  = Fantasma.Fantasma()
 fantasma1 = Fantasma.Fantasma()
 fantasma2 = Fantasma.Fantasma()
@@ -38,6 +38,10 @@ nomeTile  = {}       ##-- ARMAZENA OS NOMES DOS TILES
 colete    = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA COLETE
 grana     = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA GRANA
 parede    = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA PAREDE
+sonicB    = {}
+sonicE    = {}
+sonicD    = {}
+sonicC    = {}
 jogo      = Jogo.Jogo()   ##-- INSTANCIACAO DE UM OBJETO DE Jogo
 nivel     = Nivel.Nivel()  ##-- INSTANCIACAO DE UM OBJETO DE Nivel
 
@@ -61,3 +65,8 @@ for i in range(36):
     grana[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"grana"+os.sep+ "grana"+str(i)+".png").convert_alpha()
 for i in range(4):
     parede[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"paredes"+os.sep+ "parede"+str(i)+".jpg").convert_alpha()
+for i in range(4):
+    sonicB[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"sonic 32x32"+os.sep+ "0"+str(i)+".png").convert_alpha()
+    sonicE[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"sonic 32x32"+os.sep+ "1"+str(i)+".png").convert_alpha()
+    sonicD[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"sonic 32x32"+os.sep+ "2"+str(i)+".png").convert_alpha()
+    sonicC[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"sonic 32x32"+os.sep+ "3"+str(i)+".png").convert_alpha()

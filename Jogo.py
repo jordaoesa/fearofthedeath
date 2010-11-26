@@ -45,9 +45,9 @@ class Jogo:
         this.nivel += 1
         this.setModo(1)
         Objetos.nivel.loadNivel(Objetos.jogo.getNivel())
-        Objetos.claude.velX = 0
-        Objetos.claude.velY = 0
-        Objetos.claude.images = Objetos.claude.direita
+        Objetos.sonic.velX = 0
+        Objetos.sonic.velY = 0
+        Objetos.sonic.images = Objetos.sonicD
         
     def setModo (this, newMode):
         this.modo = newMode

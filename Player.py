@@ -2,7 +2,7 @@ import pygame
 import os
 import Objetos
 
-class Claude:
+class Sonic:
     
     def __init__ (this):
         this.direcao      = "direita"
@@ -10,22 +10,12 @@ class Claude:
         this.y            = 0
         this.velX         = 0
         this.velY         = 0
-        this.velocidade   = 4
+        this.velocidade   = 2
         this.proxLinha    = 0
         this.proxColuna   = 0
         this.homeX        = 0
         this.homeY        = 0
-        this.esquerda     = {}
-        this.direita      = {}
-        this.cima         = {}
-        this.baixo        = {}
         this.images       = {}
-        
-        for i in range(0, 6):
-            this.esquerda[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"gtaMini"+os.sep+"1" + str(i) + ".png").convert_alpha()
-            this.direita[i]  = pygame.image.load("data"+os.sep+"sprites"+os.sep+"gtaMini"+os.sep+"0" + str(i) + ".png").convert_alpha()
-            this.cima[i]     = pygame.image.load("data"+os.sep+"sprites"+os.sep+"gtaMini"+os.sep+"2" + str(i) + ".png").convert_alpha()
-            this.baixo[i]    = pygame.image.load("data"+os.sep+"sprites"+os.sep+"gtaMini"+os.sep+"3" + str(i) + ".png").convert_alpha()
             
         this.sndGranaNum = 0
         
@@ -37,9 +27,7 @@ class Claude:
         if not Objetos.nivel.verificaParede((this.x + this.velX, this.y + this.velY), (this.proxLinha, this.proxColuna)):
             this.x += this.velX
             this.y += this.velY
-            #nivel.matrizCampo[this.proxLinha][this.proxColuna] = 4
-            #nivel.matrizCampo[this.proxLinha-1][this.proxColuna-1] = 0
-            #print nivel.matrizCampo
+            
             Objetos.nivel.comida((this.x, this.y), (this.proxLinha, this.proxColuna))  ##-- REMOVE AS NOTAS E PLAY SOM
             Objetos.nivel.portais((this.x, this.y), (this.proxLinha, this.proxColuna)) ##-- PERMITE A PASSAGEM NOS PORTAIS
 
@@ -47,34 +35,34 @@ class Claude:
             this.velX = 0
             this.velY = 0
         
-    def printClaude(this):
+    def printSonic(this):
         #print nivel.mapa
         if Objetos.jogo.modo == 3:
             return False
         
         if this.velX > 0:
-            this.images = this.direita
+            this.images = Objetos.sonicD
         elif this.velX < 0:
-            this.images = this.esquerda
+            this.images = Objetos.sonicE
         elif this.velY > 0:
-            this.images = this.baixo
+            this.images = Objetos.sonicB
         elif this.velY < 0:
-            this.images = this.cima
+            this.images = Objetos.sonicC
         else:
-            this.animaClaude = 0
+            this.animaSonic = 0
             if this.direcao == "direita":
-                this.images = this.direita
+                this.images = Objetos.sonicD
             elif this.direcao == "esquerda":
-                this.images = this.esquerda
+                this.images = Objetos.sonicE
             elif this.direcao == "cima":
-                this.images = this.cima
+                this.images = Objetos.sonicC
             elif this.direcao == "baixo":
-                this.images = this.baixo
+                this.images = Objetos.sonicB
             
-        Objetos.background.blit (this.images[int(this.animaClaude)], (this.x - Objetos.jogo.posicaoPixel[0], this.y - Objetos.jogo.posicaoPixel[1]))
+        Objetos.background.blit (this.images[int(this.animaSonic)], (this.x - Objetos.jogo.posicaoPixel[0], this.y - Objetos.jogo.posicaoPixel[1]))
         
         if Objetos.jogo.modo == 1:
             if not this.velX == 0 or not this.velY == 0:
-                this.animaClaude += 0.3
-            if int(this.animaClaude) == 6:
-                this.animaClaude = 0
+                this.animaSonic += 0.3
+            if int(this.animaSonic) == 3:
+                this.animaSonic = 0
