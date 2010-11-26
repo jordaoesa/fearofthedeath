@@ -10,7 +10,7 @@ class Fantasma:
         this.y            = 0
         this.velX         = 0
         this.velY         = 0
-        this.velocidade   = 2
+        this.velocidade   = 1
         this.proxLinha    = 0
         this.proxColuna   = 0
         this.homeX        = 0
@@ -18,7 +18,7 @@ class Fantasma:
         this.image        = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fantasmas"+os.sep+"1.png").convert_alpha()
                 
     def andar(this):
-        
+            
         if this.x%32 == 0 and this.y%32 == 0:
 
             if this.y < Objetos.sonic.y:
@@ -34,12 +34,12 @@ class Fantasma:
                 this.velX = -this.velocidade
                 this.velY = 0
             
-        this.proxLinha = int(((this.y + 16) / 32))
-        this.proxColuna = int(((this.x + 16) / 32))
+
+        this.proxLinha = int(((this.y + 19) / 32))
+        this.proxColuna = int(((this.x + 19) / 32))
         
-        while Objetos.nivel.verificaParede((this.x + this.velX, this.y + this.velY), (this.proxLinha, this.proxColuna)):# \
-##           and not nivel.GetMapTile((this.proxLinha,this.proxColuna))==20 \
-##           and not nivel.GetMapTile((this.proxLinha,this.proxColuna))==21:
+        while Objetos.nivel.verificaParede((this.x + this.velX, this.y + this.velY), (this.proxLinha, this.proxColuna)):
+            
             rand = random.randint(1,4)
             if rand == 1:
                 this.velX = -this.velocidade

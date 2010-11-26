@@ -21,8 +21,8 @@ class Sonic:
         
     def andar(this):
         
-        this.proxLinha = int(((this.y + 16) / 32))
-        this.proxColuna = int(((this.x + 16) / 32))
+        this.proxLinha = int(((this.y + 19) / 32))
+        this.proxColuna = int(((this.x + 19) / 32))
         
         if not Objetos.nivel.verificaParede((this.x + this.velX, this.y + this.velY), (this.proxLinha, this.proxColuna)):
             this.x += this.velX
