@@ -3,7 +3,6 @@
 import pygame
 from pygame.locals import *
 import os
-import Loop
 import Objetos
 
 
@@ -12,8 +11,6 @@ class Menu:
     def __init__(self):
 
         pygame.init()
-
-        self.start = Loop.Principal()
 
         self.image_grande = pygame.image
         self.image_medio = pygame.image
@@ -80,8 +77,6 @@ class Menu:
             self.screen.blit(self.background,(0,0))
             self.screen.blit(self.titulo, (130, 50))
             
-         #   self.screen.blit(self.teia1, (10,10))
-            
             self.animaFantasma += 1
             if self.animaFantasma == 15:
                 self.animaFantasma = 0
@@ -102,7 +97,8 @@ class Menu:
             self.screen.blit(self.image_grande, (200, 430))
             self.screen.blit(self.image_medio, (100, 500))
             self.screen.blit(self.image_pequeno, (0, 550))
-                      
+
+            ##--- Inicio  
             if 85 < mouse_pos[0] < 195 and 180 < mouse_pos[1] < 205:
                 temp1 = self.cont1
                 self.screen.blit(self.inicio1, (70, 165))
@@ -112,45 +108,56 @@ class Menu:
                 self.cont1 = False
                 
                 if mouse_press[0]:
-                    Objetos.grava.screenName()
-                    Objetos.jogo.novoJogo()
-                    self.start.run()
+                    Objetos.escolha.selectPlayer()
             else:
                 self.screen.blit(self.inicio, (85, 170))
                 self.cont1 = True
 
+            ##--- Instrucoes
             if 85 < mouse_pos[0] < 300 and 250 < mouse_pos[1] < 275:
                 temp2 = self.cont2
                 self.screen.blit(self.instrucoes1, (60, 230))
                 if temp2:
                     self.som.play()
                 self.cont2 = False
+
+                if mouse_press[0]:
+                    Objetos.instrucoes.run()
             else:
                 self.screen.blit(self.instrucoes, (85, 240))
                 self.cont2 = True
 
+            ##--- Creditos
             if 85 < mouse_pos[0] < 255 and 320 < mouse_pos[1] < 350:
                 temp3 = self.cont3
                 self.screen.blit(self.creditos1, (70, 300))
                 if temp3:
                     self.som.play()
                 self.cont3 = False
+
+                if mouse_press[0]:
+                    Objetos.creditos.run()
             else:
                 self.screen.blit(self.creditos, (85, 310))
                 self.cont3 = True
 
 
+            ##--- Opcoes
             if 85 < mouse_pos[0] < 220 and 390 < mouse_pos[1] < 420:
                 temp4 = self.cont4
                 self.screen.blit(self.opcoes1, (70, 370))
                 if temp4:
                     self.som.play()
                 self.cont4 = False
+
+                if mouse_press[0]:
+                    Objetos.opcoes.run()
                 
             else:
                 self.screen.blit(self.opcoes, (85, 380))
                 self.cont4 = True
 
+            ##--- Sair
             if 85 < mouse_pos[0] < 175 and 460 < mouse_pos[1] < 490:
                 temp5 = self.cont5
                 self.screen.blit(self.sair1, (75, 440))

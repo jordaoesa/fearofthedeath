@@ -45,7 +45,8 @@ class NomeUser:
                     
                 if event.type == KEYDOWN:
                     
-                    if event.key == K_ESCAPE: pygame.quit()
+                    if event.key == K_ESCAPE:
+                        Objetos.escolha.selectPlayer()
                     elif event.key == K_KP_ENTER:
                         if len(this.user.strip().split()) > 0:
                             return this.user
@@ -134,11 +135,12 @@ class NomeUser:
                         elif event.key == K_KP_PLUS: this.user += "+"
                         elif event.key == K_KP_EQUALS: this.user += "="
 
-            this.texto = Objetos.fonteNome.render("DIGITE SEU NOME", True, (0,0,0))
-            this.nome = Objetos.fonteNome.render(this.user, True, (0,0,0))
+            this.texto = Objetos.fonteGta1.render("DIGITE SEU NOME", True, (0,0,0))
+            this.nome = Objetos.fonteGta1.render(this.user, True, (0,0,0))
 
             #Objetos.background.fill((255,255,255))
             Objetos.background.blit(Objetos.fundoNome, (0,0))
+            Objetos.background.blit(Objetos.tarjaNome, (95,295))
             Objetos.background.blit(this.texto, (100,300))
             Objetos.background.blit(this.nome, (100, 350))
             pygame.display.update()
