@@ -10,7 +10,7 @@ class Sonic:
         this.y            = 0
         this.velX         = 0
         this.velY         = 0
-        this.velocidade   = 4
+        this.velocidade   = 2
         this.proxLinha    = 0
         this.proxColuna   = 0
         this.homeX        = 0
