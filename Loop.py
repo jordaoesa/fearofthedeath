@@ -37,7 +37,7 @@ class Principal:
                     Objetos.nivel.reiniciar()
                     Objetos.jogo.setModo(1)
                     if Objetos.jogo.vidas == 0:
-                        print "vc perdeu!!"
+                        print "vc perdeu"
                         Objetos.grava.gravarScore()
                         Objetos.menu.run()
                 for event in pygame.event.get(): 
@@ -52,8 +52,9 @@ class Principal:
 
                 Objetos.jogo.tempoModo += 1
                 if Objetos.jogo.getNivel() == 3:
-                    venceu = Objetos.fonteGta1.render("VOCE VENCEU!!", True, (255,0,0))
+                    venceu = Objetos.fonteGta1.render("VOCE VENCEU", True, (255,0,0))
                     Objetos.background.blit(venceu, (100, 100))
+                    #pygame.display.update()
                     if Objetos.jogo.tempoModo == 100:
                         Objetos.jogo.tempoModo = 0                    
                         Objetos.grava.gravarScore()
@@ -62,13 +63,6 @@ class Principal:
                 if Objetos.jogo.tempoModo == 100:
                     Objetos.jogo.tempoModo = 0
                     Objetos.jogo.proximoNivel()
-                print "aguardando"
-##                if Objetos.jogo.getNivel() == 3:
-##                    Objetos.grava.gravarScore()
-##                    Objetos.menu.run()
-##                    venceu = Objetos.fonteGta1.render("VOCE VENCEU!!", True, (255,0,0))
-##                    Objetos.background.blit(venceu, (100, 100))
-##                Funcoes.verificaTeclas()
 
             elif Objetos.jogo.modo == 5:
                 
@@ -85,11 +79,6 @@ class Principal:
             Objetos.nivel.printMapa()
             Objetos.sonic.printSonic()
 
-        ##    protect.printColete()
-        ##    protect1.printColete()
-        ##    protect2.printColete()
-        ##    protect3.printColete()
-
             Objetos.fantasma.printFantasma()
             Objetos.fantasma1.printFantasma()
             Objetos.fantasma2.printFantasma()
@@ -97,6 +86,7 @@ class Principal:
             
             Objetos.jogo.printVidas()
             Objetos.jogo.printPontuacao()
+
+
             pygame.display.update()
-            print Objetos.jogo.modo
             Objetos.fps.tick (60)

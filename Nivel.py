@@ -152,71 +152,35 @@ class Nivel:
                     image = pygame.image
                     
 ################### BLITA PROTECAO
-                    if tileAtual == 7: ##ESCUDO PROTETOR
-                        if this.animaColete <= 5:     image = Objetos.colete[0]
-                        elif this.animaColete <= 10:  image = Objetos.colete[1]
-                        elif this.animaColete <= 15:  image = Objetos.colete[2]
-                        elif this.animaColete <= 20:  image = Objetos.colete[3]
-                        elif this.animaColete <= 25:  image = Objetos.colete[4]
-                        elif this.animaColete <= 30:  image = Objetos.colete[5]
-                        elif this.animaColete <= 35:  image = Objetos.colete[6]
-                        elif this.animaColete <= 40:  image = Objetos.colete[7]
-                        elif this.animaColete <= 45:  image = Objetos.colete[8]
-                        elif this.animaColete <= 50:  image = Objetos.colete[9]
-                        elif this.animaColete <= 55:  image = Objetos.colete[10]
-                        elif this.animaColete <= 60:  image = Objetos.colete[11]
-                        elif this.animaColete <= 65:  image = Objetos.colete[12]
-                        elif this.animaColete <= 70:  image = Objetos.colete[13]
-                        elif this.animaColete <= 75:  image = Objetos.colete[14]
-                        elif this.animaColete <= 80:  image = Objetos.colete[15]
-                        elif this.animaColete <= 85:  image = Objetos.colete[16]
-                        elif this.animaColete <= 90:  image = Objetos.colete[17]
-                        elif this.animaColete <= 95:  image = Objetos.colete[18]
-                        elif this.animaColete <= 100: image = Objetos.colete[19]
-                        elif this.animaColete <= 105: image = Objetos.colete[20]
-                        elif this.animaColete <= 110: image = Objetos.colete[21]
-                        elif this.animaColete <= 115: image = Objetos.colete[22]
-
-                        Objetos.background.blit(image, (coluna * 32 - Objetos.jogo.deslocamento[0], linha * 32 - Objetos.jogo.deslocamento[1]) )
+##                    if tileAtual == 6 or tileAtual == 7 or tileAtual == 8 or tileAtual == 9: ##ESCUDO PROTETOR
+##                        if this.animaColete <= 5:     image = Objetos.colete[0]
+##                        elif this.animaColete <= 10:  image = Objetos.colete[1]
+##                        elif this.animaColete <= 15:  image = Objetos.colete[2]
+##                        elif this.animaColete <= 20:  image = Objetos.colete[3]
+##                        elif this.animaColete <= 25:  image = Objetos.colete[4]
+##                        elif this.animaColete <= 30:  image = Objetos.colete[5]
+##                        elif this.animaColete <= 35:  image = Objetos.colete[6]
+##                        elif this.animaColete <= 40:  image = Objetos.colete[7]
+##                        elif this.animaColete <= 45:  image = Objetos.colete[8]
+##                        elif this.animaColete <= 50:  image = Objetos.colete[9]
+##                        elif this.animaColete <= 55:  image = Objetos.colete[10]
+##                        elif this.animaColete <= 60:  image = Objetos.colete[11]
+##                        elif this.animaColete <= 65:  image = Objetos.colete[12]
+##                        elif this.animaColete <= 70:  image = Objetos.colete[13]
+##                        elif this.animaColete <= 75:  image = Objetos.colete[14]
+##                        elif this.animaColete <= 80:  image = Objetos.colete[15]
+##                        elif this.animaColete <= 85:  image = Objetos.colete[16]
+##                        elif this.animaColete <= 90:  image = Objetos.colete[17]
+##                        elif this.animaColete <= 95:  image = Objetos.colete[18]
+##                        elif this.animaColete <= 100: image = Objetos.colete[19]
+##                        elif this.animaColete <= 105: image = Objetos.colete[20]
+##                        elif this.animaColete <= 110: image = Objetos.colete[21]
+##                        elif this.animaColete <= 115: image = Objetos.colete[22]
+##
+##                        Objetos.background.blit(image, (coluna * 32 - Objetos.jogo.deslocamento[0], linha * 32 - Objetos.jogo.deslocamento[1]) )
                         
-################### BLITA GRANA
-                    elif tileAtual == 2:
-##                        if this.animaGrana <= 5:     image = Objetos.grana[0]
-##                        elif this.animaGrana <= 10:  image = Objetos.grana[1]
-##                        elif this.animaGrana <= 15:  image = Objetos.grana[2]
-##                        elif this.animaGrana <= 20:  image = Objetos.grana[3]
-##                        elif this.animaGrana <= 25:  image = Objetos.grana[4]
-##                        elif this.animaGrana <= 30:  image = Objetos.grana[5]
-##                        elif this.animaGrana <= 35:  image = Objetos.grana[6]
-##                        elif this.animaGrana <= 40:  image = Objetos.grana[7]
-##                        elif this.animaGrana <= 45:  image = Objetos.grana[8]
-##                        elif this.animaGrana <= 50:  image = Objetos.grana[9]
-##                        elif this.animaGrana <= 55:  image = Objetos.grana[10]
-##                        elif this.animaGrana <= 60:  image = Objetos.grana[11]
-##                        elif this.animaGrana <= 65:  image = Objetos.grana[12]
-##                        elif this.animaGrana <= 70:  image = Objetos.grana[13]
-##                        elif this.animaGrana <= 75:  image = Objetos.grana[14]
-##                        elif this.animaGrana <= 80:  image = Objetos.grana[15]
-##                        elif this.animaGrana <= 85:  image = Objetos.grana[16]
-##                        elif this.animaGrana <= 90:  image = Objetos.grana[17]
-##                        elif this.animaGrana <= 95:  image = Objetos.grana[18]
-##                        elif this.animaGrana <= 100: image = Objetos.grana[19]
-##                        elif this.animaGrana <= 105: image = Objetos.grana[20]
-##                        elif this.animaGrana <= 110: image = Objetos.grana[21]
-##                        elif this.animaGrana <= 115: image = Objetos.grana[22]
-##                        elif this.animaGrana <= 120: image = Objetos.grana[23]
-##                        elif this.animaGrana <= 125: image = Objetos.grana[24]
-##                        elif this.animaGrana <= 130: image = Objetos.grana[25]
-##                        elif this.animaGrana <= 135: image = Objetos.grana[26]
-##                        elif this.animaGrana <= 140: image = Objetos.grana[27]
-##                        elif this.animaGrana <= 145: image = Objetos.grana[28]
-##                        elif this.animaGrana <= 150: image = Objetos.grana[29]
-##                        elif this.animaGrana <= 155: image = Objetos.grana[30]
-##                        elif this.animaGrana <= 160: image = Objetos.grana[31]
-##                        elif this.animaGrana <= 165: image = Objetos.grana[32]
-##                        elif this.animaGrana <= 170: image = Objetos.grana[33]
-##                        elif this.animaGrana <= 175: image = Objetos.grana[34]
-##                        elif this.animaGrana <= 180: image = Objetos.grana[35]
+################### BLITA RODELA
+                    if tileAtual == 2:
                         if this.animaRoda <= 5: image    = Objetos.roda[0]
                         elif this.animaRoda <= 10: image = Objetos.roda[1]
                         elif this.animaRoda <= 15: image = Objetos.roda[2]
@@ -224,7 +188,7 @@ class Nivel:
 
                         Objetos.background.blit(image, (coluna * 32 - Objetos.jogo.deslocamento[0], linha * 32 - Objetos.jogo.deslocamento[1]) )
 ################### BLITA AS PAREDES
-                    else:
+                    elif tileAtual == 1:
                         Objetos.background.blit(Objetos.parede[ Objetos.jogo.getNivel() ], (coluna * 32 - Objetos.jogo.deslocamento[0], linha * 32 - Objetos.jogo.deslocamento[1]) )
         
     def loadNivel(this, nivelNum):
@@ -372,19 +336,19 @@ class Nivel:
 ##                    protect3.homeY = this.numLinha * 32
 ##                    this.SetMapTile((this.numLinha, k), 0 )
                     
-                elif thisID == 10:# and thisID <= 13:
+                elif thisID == 10:
                     Objetos.fantasma.homeX = k * 32
                     Objetos.fantasma.homeY = this.numLinha * 32
                     this.SetMapTile((this.numLinha, k), 0 )
-                elif thisID == 11:# and thisID <= 13:
+                elif thisID == 11:
                     Objetos.fantasma1.homeX = k * 32
                     Objetos.fantasma1.homeY = this.numLinha * 32
                     this.SetMapTile((this.numLinha, k), 0 )
-                elif thisID == 12:# and thisID <= 13:
+                elif thisID == 12:
                     Objetos.fantasma2.homeX = k * 32
                     Objetos.fantasma2.homeY = this.numLinha * 32
                     this.SetMapTile((this.numLinha, k), 0 )
-                elif thisID == 13:# and thisID <= 13:
+                elif thisID == 13:
                     Objetos.fantasma3.homeX = k * 32
                     Objetos.fantasma3.homeY = this.numLinha * 32
                     this.SetMapTile((this.numLinha, k), 0 )
