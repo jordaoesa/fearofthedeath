@@ -10,7 +10,7 @@ class Fantasma:
         this.y            = 0
         this.velX         = 0
         this.velY         = 0
-        this.velocidade   = 0
+        this.velocidade   = 1
         this.proxLinha    = 0
         this.proxColuna   = 0
         this.homeX        = 0
