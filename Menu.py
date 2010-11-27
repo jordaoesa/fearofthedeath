@@ -46,18 +46,18 @@ class Menu:
         self.fonte1 = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"Holiday.ttf", 55, bold = True)
 
         self.titulo = self.fonte.render("Fear of The Death", True, (255,255,255))
-        self.inicio = self.fonte.render("inicio", True, (255,255,255))
-        self.instrucoes = self.fonte.render("instrucoes", True, (255,255,255))
-        self.creditos = self.fonte.render("creditos", True, (255,255,255))
-        self.opcoes = self.fonte.render("opcoes", True, (255,255,255))
-        self.sair = self.fonte.render("sair", True, (255,255,255))
+        self.inicio = self.fonte.render("Inicio", True, (255,255,255))
+        self.instrucoes = self.fonte.render("Instrucoes", True, (255,255,255))
+        self.creditos = self.fonte.render("Creditos", True, (255,255,255))
+        self.opcoes = self.fonte.render("Opcoes", True, (255,255,255))
+        self.sair = self.fonte.render("Sair", True, (255,255,255))
 
         self.titulo1 = self.fonte1.render("Fear of The Death", True, (205,205,205))
-        self.inicio1 = self.fonte1.render("inicio", True, (205,105,105))
-        self.instrucoes1 = self.fonte1.render("instrucoes", True, (205,105,105))
-        self.creditos1 = self.fonte1.render("creditos", True, (205,105,105))
-        self.opcoes1 = self.fonte1.render("opcoes", True, (205,105,105))
-        self.sair1 = self.fonte1.render("sair", True, (205,105,105))
+        self.inicio1 = self.fonte1.render("Inicio", True, (205,105,105))
+        self.instrucoes1 = self.fonte1.render("Instrucoes", True, (205,105,105))
+        self.creditos1 = self.fonte1.render("Creditos", True, (205,105,105))
+        self.opcoes1 = self.fonte1.render("Opcoes", True, (205,105,105))
+        self.sair1 = self.fonte1.render("Sair", True, (205,105,105))
 
     def run(self):
         self.cont1 = True
