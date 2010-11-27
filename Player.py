@@ -36,7 +36,7 @@ class Sonic:
             this.velY = 0
         
     def printSonic(this):
-        #print nivel.mapa
+
         if Objetos.jogo.modo == 3:
             return False
         
