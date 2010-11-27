@@ -15,6 +15,9 @@ pygame.init()
 background = pygame.display.set_mode((608,672), 0, 32)
 pygame.display.set_caption("Fear Of The Death")
 
+##---
+fundoNome = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"fundoNome.png").convert_alpha()
+
 ##--- INICIANDO SONS
 sndGrana    = {}
 sndGrana[0] = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"grana1.wav")
@@ -37,7 +40,6 @@ fantasma3 = Fantasma.Fantasma()
 ##protect3  = Colete()
 nomeTile  = {}       ##-- ARMAZENA OS NOMES DOS TILES
 colete    = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA COLETE
-#grana     = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA GRANA
 parede    = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA PAREDE
 sonicB    = {}
 sonicE    = {}
@@ -65,8 +67,6 @@ nomeTile[21] = "portaVertical"
 
 for i in range(23):
     colete[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"colete"+os.sep+ "colete"+str(i)+".png").convert_alpha()
-#for i in range(36):
-#    grana[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"grana"+os.sep+ "grana"+str(i)+".png").convert_alpha()
 for i in range(4):
     parede[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"paredes"+os.sep+ "parede"+str(i)+".jpg").convert_alpha()
     sonicB[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"sonic 32x32"+os.sep+ "0"+str(i)+".png").convert_alpha()

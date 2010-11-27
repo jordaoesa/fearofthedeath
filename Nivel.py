@@ -148,36 +148,36 @@ class Nivel:
             for coluna in range(-1, Objetos.jogo.qtdTilesTela[1] +1):
 
                 tileAtual = this.GetMapTile((Objetos.jogo.proximoTile[0] + linha, Objetos.jogo.proximoTile[1] + coluna))
-                if not tileAtual == 0 and not tileAtual == 20 and not tileAtual == 21 and not tileAtual == 6: ## NADA and PORTA H and PORTA V
+                if not tileAtual == 0 and not tileAtual == 20 and not tileAtual == 21: ## NADA and PORTA H and PORTA V
                     image = pygame.image
                     
 ################### BLITA PROTECAO
-##                    if tileAtual == 6 or tileAtual == 7 or tileAtual == 8 or tileAtual == 9: ##ESCUDO PROTETOR
-##                        if this.animaColete <= 5:     image = Objetos.colete[0]
-##                        elif this.animaColete <= 10:  image = Objetos.colete[1]
-##                        elif this.animaColete <= 15:  image = Objetos.colete[2]
-##                        elif this.animaColete <= 20:  image = Objetos.colete[3]
-##                        elif this.animaColete <= 25:  image = Objetos.colete[4]
-##                        elif this.animaColete <= 30:  image = Objetos.colete[5]
-##                        elif this.animaColete <= 35:  image = Objetos.colete[6]
-##                        elif this.animaColete <= 40:  image = Objetos.colete[7]
-##                        elif this.animaColete <= 45:  image = Objetos.colete[8]
-##                        elif this.animaColete <= 50:  image = Objetos.colete[9]
-##                        elif this.animaColete <= 55:  image = Objetos.colete[10]
-##                        elif this.animaColete <= 60:  image = Objetos.colete[11]
-##                        elif this.animaColete <= 65:  image = Objetos.colete[12]
-##                        elif this.animaColete <= 70:  image = Objetos.colete[13]
-##                        elif this.animaColete <= 75:  image = Objetos.colete[14]
-##                        elif this.animaColete <= 80:  image = Objetos.colete[15]
-##                        elif this.animaColete <= 85:  image = Objetos.colete[16]
-##                        elif this.animaColete <= 90:  image = Objetos.colete[17]
-##                        elif this.animaColete <= 95:  image = Objetos.colete[18]
-##                        elif this.animaColete <= 100: image = Objetos.colete[19]
-##                        elif this.animaColete <= 105: image = Objetos.colete[20]
-##                        elif this.animaColete <= 110: image = Objetos.colete[21]
-##                        elif this.animaColete <= 115: image = Objetos.colete[22]
-##
-##                        Objetos.background.blit(image, (coluna * 32 - Objetos.jogo.deslocamento[0], linha * 32 - Objetos.jogo.deslocamento[1]) )
+                    if tileAtual == 7 or tileAtual == 6: ##ESCUDO PROTETOR
+                        if this.animaColete <= 5:     image = Objetos.colete[0]
+                        elif this.animaColete <= 10:  image = Objetos.colete[1]
+                        elif this.animaColete <= 15:  image = Objetos.colete[2]
+                        elif this.animaColete <= 20:  image = Objetos.colete[3]
+                        elif this.animaColete <= 25:  image = Objetos.colete[4]
+                        elif this.animaColete <= 30:  image = Objetos.colete[5]
+                        elif this.animaColete <= 35:  image = Objetos.colete[6]
+                        elif this.animaColete <= 40:  image = Objetos.colete[7]
+                        elif this.animaColete <= 45:  image = Objetos.colete[8]
+                        elif this.animaColete <= 50:  image = Objetos.colete[9]
+                        elif this.animaColete <= 55:  image = Objetos.colete[10]
+                        elif this.animaColete <= 60:  image = Objetos.colete[11]
+                        elif this.animaColete <= 65:  image = Objetos.colete[12]
+                        elif this.animaColete <= 70:  image = Objetos.colete[13]
+                        elif this.animaColete <= 75:  image = Objetos.colete[14]
+                        elif this.animaColete <= 80:  image = Objetos.colete[15]
+                        elif this.animaColete <= 85:  image = Objetos.colete[16]
+                        elif this.animaColete <= 90:  image = Objetos.colete[17]
+                        elif this.animaColete <= 95:  image = Objetos.colete[18]
+                        elif this.animaColete <= 100: image = Objetos.colete[19]
+                        elif this.animaColete <= 105: image = Objetos.colete[20]
+                        elif this.animaColete <= 110: image = Objetos.colete[21]
+                        elif this.animaColete <= 115: image = Objetos.colete[22]
+
+                        Objetos.background.blit(image, (coluna * 32 - Objetos.jogo.deslocamento[0], linha * 32 - Objetos.jogo.deslocamento[1]) )
                         
 ################### BLITA RODELA
                     if tileAtual == 2:
@@ -354,6 +354,7 @@ class Nivel:
                     this.SetMapTile((this.numLinha, k), 0 )
                 elif thisID == 2:
                     Objetos.nivel.acumulo += 1
+                    
             this.numLinha += 1
         #print this.mapa
 
