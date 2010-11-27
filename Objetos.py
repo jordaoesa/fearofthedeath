@@ -7,6 +7,11 @@ import NomeUser
 import Nivel
 import Funcoes
 import Menu
+import Loop
+import EscolhePlayer
+import Opcoes
+import Instrucoes
+import Creditos
 
 
 fps = pygame.time.Clock()
@@ -15,8 +20,9 @@ pygame.init()
 background = pygame.display.set_mode((608,672), 0, 32)
 pygame.display.set_caption("Fear Of The Death")
 
-##---
+##--- FUNDO NOME
 fundoNome = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"fundoNome.png").convert_alpha()
+tarjaNome = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"tarjaNome.png").convert_alpha()
 
 ##--- INICIANDO SONS
 sndGrana    = {}
@@ -29,31 +35,34 @@ fonteNome = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'numeros.ttf'
 
 #fundo = pygame.image.load("data"+os.sep+"tiles"+os.sep+"fundo.jpg")
 
-sonic     = Player.Sonic() ##-- INSTANCIACAO DE UM OBJETO DE SONIC
-fantasma  = Fantasma.Fantasma()
-fantasma1 = Fantasma.Fantasma()
-fantasma2 = Fantasma.Fantasma()
-fantasma3 = Fantasma.Fantasma()
+sonic        = Player.Sonic() ##-- INSTANCIACAO DE UM OBJETO DE SONIC
+fantasma     = Fantasma.Fantasma()
+fantasma1    = Fantasma.Fantasma()
+fantasma2    = Fantasma.Fantasma()
+fantasma3    = Fantasma.Fantasma()
 ##protect   = Colete()
 ##protect1  = Colete()
 ##protect2  = Colete()
 ##protect3  = Colete()
-nomeTile  = {}       ##-- ARMAZENA OS NOMES DOS TILES
-colete    = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA COLETE
-parede    = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA PAREDE
-sonicB    = {}
-sonicE    = {}
-sonicD    = {}
-sonicC    = {}
-roda     = {}
-jogo      = Jogo.Jogo()   ##-- INSTANCIACAO DE UM OBJETO DE Jogo
-nivel     = Nivel.Nivel()  ##-- INSTANCIACAO DE UM OBJETO DE Nivel
+nomeTile     = {}       ##-- ARMAZENA OS NOMES DOS TILES
+colete       = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA COLETE
+parede       = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA PAREDE
+sonicB       = {}
+sonicE       = {}
+sonicD       = {}
+sonicC       = {}
+roda         = {}
+jogo         = Jogo.Jogo()   ##-- INSTANCIACAO DE UM OBJETO DE Jogo
+nivel        = Nivel.Nivel()  ##-- INSTANCIACAO DE UM OBJETO DE Nivel
+grava        = NomeUser.NomeUser() ## --- Grava a bagaceira
+#nivel.loadNivel( jogo.getNivel() )
+menu         = Menu.Menu()
+start        = Loop.Principal()
+escolha      = EscolhePlayer.EscolhePlayer()
+opcoes       = Opcoes.Opcoes()
+instrucoes   = Instrucoes.Instrucoes()
+creditos     = Creditos.Creditos()
 
-grava     = NomeUser.NomeUser() ## --- Grava a bagaceira
-
-nivel.loadNivel( jogo.getNivel() )
-
-menu      = Menu.Menu()
 
 nomeTile[1]  = "parede"
 nomeTile[2]  = "grana"
@@ -69,8 +78,8 @@ for i in range(23):
     colete[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"colete"+os.sep+ "colete"+str(i)+".png").convert_alpha()
 for i in range(4):
     parede[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"paredes"+os.sep+ "parede"+str(i)+".jpg").convert_alpha()
-    sonicB[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"sonic 32x32"+os.sep+ "0"+str(i)+".png").convert_alpha()
-    sonicE[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"sonic 32x32"+os.sep+ "1"+str(i)+".png").convert_alpha()
-    sonicD[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"sonic 32x32"+os.sep+ "2"+str(i)+".png").convert_alpha()
-    sonicC[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"sonic 32x32"+os.sep+ "3"+str(i)+".png").convert_alpha()
+    sonicB[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "0"+str(i)+".png").convert_alpha()
+    sonicE[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "1"+str(i)+".png").convert_alpha()
+    sonicD[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "2"+str(i)+".png").convert_alpha()
+    sonicC[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "3"+str(i)+".png").convert_alpha()
     roda[i]  = pygame.image.load("data"+os.sep+"sprites"+os.sep+"rodas"+os.sep+ "0"+str(i)+".png").convert_alpha()
