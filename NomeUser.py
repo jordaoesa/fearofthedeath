@@ -137,7 +137,8 @@ class NomeUser:
             this.texto = Objetos.fonteNome.render("DIGITE SEU NOME", True, (0,0,0))
             this.nome = Objetos.fonteNome.render(this.user, True, (0,0,0))
 
-            Objetos.background.fill((255,255,255))
+            #Objetos.background.fill((255,255,255))
+            Objetos.background.blit(Objetos.fundoNome, (0,0))
             Objetos.background.blit(this.texto, (100,300))
             Objetos.background.blit(this.nome, (100, 350))
             pygame.display.update()
