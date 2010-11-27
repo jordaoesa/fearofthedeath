@@ -1,6 +1,7 @@
 import pygame
 import Objetos
 import Funcoes
+import NomeUser
 
 class Principal:
     
@@ -41,6 +42,7 @@ class Principal:
                         #Objetos.nivel.reiniciar()
                         #Objetos.jogo.vidas = 3
                         #Objetos.jogo.nivel = 0
+                        Objetos.grava.gravarScore()
                         Objetos.menu.run()
                 for event in pygame.event.get(): 
                     if event.type == QUIT: 

@@ -20,6 +20,12 @@ class Jogo:
 
     def pontos(this, pontos):
         this.score += pontos
+
+    def clearScore(this):
+        this.score = 0
+
+    def getScore(this):
+        return this.score
         
     def printPontuacao(this):
         this.texto = Objetos.fonteGta1.render("SCORE: ", True, (0,0,255))
