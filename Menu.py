@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 import pygame
 from pygame.locals import *
 import os
@@ -34,32 +35,36 @@ class Menu:
         self.fantasma_pequeno = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fantasma_pequeno.png").convert_alpha()
         self.fantasma_pequeno1 = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fantasma_pequeno1.png").convert_alpha()
         self.fantasma_pequeno2 = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fantasma_pequeno2.png").convert_alpha()
+        
 
 
         self.clock = pygame.time.Clock();
         self.x = 0
         self.y = 0
 
-        self.fonte = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"fonte.ttf", 50, bold = False)
-        self.fonte1 = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"fonte.ttf", 65, bold = True)
+        self.fonte = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"Holiday.ttf", 40, bold = False)
+        self.fonte1 = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"Holiday.ttf", 55, bold = True)
 
         self.titulo = self.fonte.render("Fear of The Death", True, (255,255,255))
         self.inicio = self.fonte.render("inicio", True, (255,255,255))
         self.instrucoes = self.fonte.render("instrucoes", True, (255,255,255))
         self.creditos = self.fonte.render("creditos", True, (255,255,255))
-        self.voltar = self.fonte.render("sair", True, (255,255,255))
+        self.opcoes = self.fonte.render("opcoes", True, (255,255,255))
+        self.sair = self.fonte.render("sair", True, (255,255,255))
 
         self.titulo1 = self.fonte1.render("Fear of The Death", True, (205,205,205))
         self.inicio1 = self.fonte1.render("inicio", True, (205,105,105))
         self.instrucoes1 = self.fonte1.render("instrucoes", True, (205,105,105))
         self.creditos1 = self.fonte1.render("creditos", True, (205,105,105))
-        self.voltar1 = self.fonte1.render("sair", True, (205,105,105))
+        self.opcoes1 = self.fonte1.render("opcoes", True, (205,105,105))
+        self.sair1 = self.fonte1.render("sair", True, (205,105,105))
 
     def run(self):
         self.cont1 = True
         self.cont2 = True
         self.cont3 = True
         self.cont4 = True
+        self.cont5 = True
         while True:
             
             for event in pygame.event.get():
@@ -75,7 +80,7 @@ class Menu:
             self.screen.blit(self.background,(0,0))
             self.screen.blit(self.titulo, (130, 50))
             
-            
+         #   self.screen.blit(self.teia1, (10,10))
             
             self.animaFantasma += 1
             if self.animaFantasma == 15:
@@ -137,15 +142,26 @@ class Menu:
 
             if 85 < mouse_pos[0] < 220 and 390 < mouse_pos[1] < 420:
                 temp4 = self.cont4
-                self.screen.blit(self.voltar1, (70, 370))
+                self.screen.blit(self.opcoes1, (70, 370))
                 if temp4:
                     self.som.play()
                 self.cont4 = False
+                
+            else:
+                self.screen.blit(self.opcoes, (85, 380))
+                self.cont4 = True
+
+            if 85 < mouse_pos[0] < 175 and 460 < mouse_pos[1] < 490:
+                temp5 = self.cont5
+                self.screen.blit(self.sair1, (75, 440))
+                if temp5:
+                    self.som.play()
+                self.cont5 = False
                 if mouse_press[0]:
                     pygame.quit()
             else:
-                self.screen.blit(self.voltar, (85, 380))
-                self.cont4 = True
+                self.screen.blit(self.sair, (85, 450))
+                self.cont5 = True
                     
             pygame.display.update()
             self.clock.tick(60)
