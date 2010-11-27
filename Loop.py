@@ -1,7 +1,6 @@
 import pygame
 import Objetos
 import Funcoes
-import NomeUser
 
 class Principal:
     
@@ -38,32 +37,38 @@ class Principal:
                     Objetos.nivel.reiniciar()
                     Objetos.jogo.setModo(1)
                     if Objetos.jogo.vidas == 0:
-                        #Objetos.grava.screenName()
-                        #Objetos.nivel.reiniciar()
-                        #Objetos.jogo.vidas = 3
-                        #Objetos.jogo.nivel = 0
+                        print "vc perdeu!!"
                         Objetos.grava.gravarScore()
                         Objetos.menu.run()
                 for event in pygame.event.get(): 
                     if event.type == QUIT: 
                         pygame.quit()
-                    if event.type == KEYDOWN:
-                        if event.key == K_RETURN:
-                            print "."
-                        Objetos.jogo.setModo(5)
 
             elif Objetos.jogo.modo == 3:
                 Objetos.jogo.novoJogo()
                 Funcoes.verificaTeclas()
 
             elif Objetos.jogo.modo == 4:
-                
+
+                Objetos.jogo.tempoModo += 1
                 if Objetos.jogo.getNivel() == 3:
-                    
-                    #Objetos.grava.screenName()
                     venceu = Objetos.fonteGta1.render("VOCE VENCEU!!", True, (255,0,0))
                     Objetos.background.blit(venceu, (100, 100))
-                Funcoes.verificaTeclas()
+                    if Objetos.jogo.tempoModo == 100:
+                        Objetos.jogo.tempoModo = 0                    
+                        Objetos.grava.gravarScore()
+                        Objetos.menu.run()
+                        
+                if Objetos.jogo.tempoModo == 100:
+                    Objetos.jogo.tempoModo = 0
+                    Objetos.jogo.proximoNivel()
+                print "aguardando"
+##                if Objetos.jogo.getNivel() == 3:
+##                    Objetos.grava.gravarScore()
+##                    Objetos.menu.run()
+##                    venceu = Objetos.fonteGta1.render("VOCE VENCEU!!", True, (255,0,0))
+##                    Objetos.background.blit(venceu, (100, 100))
+##                Funcoes.verificaTeclas()
 
             elif Objetos.jogo.modo == 5:
                 
@@ -93,5 +98,5 @@ class Principal:
             Objetos.jogo.printVidas()
             Objetos.jogo.printPontuacao()
             pygame.display.update()
-            
+            print Objetos.jogo.modo
             Objetos.fps.tick (60)

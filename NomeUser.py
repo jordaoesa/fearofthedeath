@@ -16,18 +16,18 @@ class NomeUser:
         dados  = []
         
         try:
-            ler = open("data" + os.sep + "hiscore.txt", "r")
+            ler = open("data" + os.sep + "rank.dat", "r")
             lerDados = ler.readlines()
             ler.close()
             for dado in lerDados:
                 dados.append(dado.strip())
         except:
-            criar = open("data" + os.sep + "hiscore.txt", "w")
+            criar = open("data" + os.sep + "rank.dat", "w")
             
         try:
             if not this.user + "|" + str(Objetos.jogo.getScore()) in dados:
                 
-                gravar = open("data" + os.sep + "hiscore.txt", "a")
+                gravar = open("data" + os.sep + "rank.dat", "a")
                 gravar.write(this.user + "|" + str(Objetos.jogo.getScore()) + "\n")
                 gravar.close()
                 this.clearUser()

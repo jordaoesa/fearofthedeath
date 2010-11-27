@@ -21,9 +21,6 @@ class Jogo:
     def pontos(this, pontos):
         this.score += pontos
 
-    def clearScore(this):
-        this.score = 0
-
     def getScore(this):
         return this.score
         
