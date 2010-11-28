@@ -1,4 +1,4 @@
-import pygame
+import pygame, os
 from pygame.locals import *
 import Objetos
 
@@ -23,10 +23,12 @@ class EscolhePlayer:
             
             Objetos.background.blit(Objetos.fundoSelect, (0,0))
 
-            this.texto = Objetos.fonteNome.render("Selecione seu Player",True, (255,255,255))
-            Objetos.background.blit(this.texto, (170, 30))
+            this.texto = Objetos.fonteHoliday.render("SELECIONE SEU PLAYER",True, (255,255,255))
+            Objetos.background.blit(this.texto, (100, 30))
             
             if 11 <= mouse_pos[0] <= 186 and 250 <= mouse_pos[1] <= 650:
+                Objetos.background.blit(Objetos.fundoSelect1, (0,0))
+                Objetos.background.blit(this.texto, (100, 30))
                 Objetos.background.blit(Objetos.selectedShadow, (254,70))
                 if mouse_press[0]:
                     this.player = "shadow"
@@ -35,6 +37,8 @@ class EscolhePlayer:
                     Objetos.grava.screenName()
                     Objetos.start.run()
             elif 196 <= mouse_pos[0] <= 409 and 252 <= mouse_pos[1] <= 650:
+                Objetos.background.blit(Objetos.fundoSelect1, (0,0))
+                Objetos.background.blit(this.texto, (100, 30))
                 Objetos.background.blit(Objetos.selectedKnuckles, (254,70))
                 if mouse_press[0]:
                     this.player = "knuckles"
@@ -43,6 +47,8 @@ class EscolhePlayer:
                     Objetos.grava.screenName()
                     Objetos.start.run()
             elif 429 <= mouse_pos[0] <= 600 and 265 <= mouse_pos[1] <= 650:
+                Objetos.background.blit(Objetos.fundoSelect1, (0,0))
+                Objetos.background.blit(this.texto, (100, 30))
                 Objetos.background.blit(Objetos.selectedSonic, (254,70))
                 if mouse_press[0]:
                     this.player = "sonic"

@@ -52,7 +52,7 @@ class Principal:
 
                 Objetos.jogo.tempoModo += 1
                 if Objetos.jogo.getNivel() == 3:
-                    venceu = Objetos.fonteGta1.render("VOCE VENCEU", True, (255,0,0))
+                    venceu = Objetos.fonteGta.render("VOCE VENCEU", True, (255,0,0))
                     Objetos.background.blit(venceu, (100, 100))
                     #pygame.display.update()
                     if Objetos.jogo.tempoModo == 100:
