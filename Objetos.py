@@ -34,9 +34,10 @@ fundoSonic = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"so
 tarjaNome = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"tarjaNome.png").convert_alpha()
 
 ##--- INICIANDO SONS
-sndGrana    = {}
-sndGrana[0] = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"grana1.wav")
-sndGrana[1] = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"grana2.wav")
+sndMoeda = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"sonicMoeda.ogg")
+##sndGrana    = {}
+##sndGrana[0] = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"grana1.wav")
+##sndGrana[1] = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"grana2.wav")
 
 ##-- FONTES
 fonteGta = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'fonteGta1.ttf',20,bold = False)
