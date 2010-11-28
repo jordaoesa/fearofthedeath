@@ -31,7 +31,7 @@ class Nivel:
 ################### REMOCAO DA GRANA       
                     if result == 2: ##-- GRANA
                         Objetos.nivel.SetMapTile((liinha, cooluna), 0)
-                        #Objetos.sndMoeda.play()
+                        Objetos.sndMoeda.play()
                         #nivel.matrizCampo[liinha][cooluna] = 4
                         #nivel.matrizCampo[liinha-1][cooluna] = 0
 ##                        print nivel.mapa
