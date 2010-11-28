@@ -386,5 +386,5 @@ class Nivel:
         Objetos.sonic.y            = Objetos.sonic.homeY
         Objetos.sonic.velX         = 0
         Objetos.sonic.velY         = 0
-        Objetos.sonic.images       = Objetos.sonicD
+        Objetos.sonic.images       = Objetos.imgPlayer["playerD"]
         Objetos.sonic.animaSonic   = 0

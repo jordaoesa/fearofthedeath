@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding: cp1252 -*-
 
 import pygame
 from pygame.locals import *
@@ -41,6 +41,9 @@ class Menu:
 
         self.fonte = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"Holiday.ttf", 40, bold = False)
         self.fonte1 = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"Holiday.ttf", 55, bold = True)
+
+##        self.font = pygame.font.SysFont("courrier new", 40, bold = False)
+##        self.i = self.font.render("créditos", True, (255,255,255))
 
         self.titulo = self.fonte.render("Fear of The Death", True, (255,255,255))
         self.inicio = self.fonte.render("Inicio", True, (255,255,255))

@@ -50,7 +50,7 @@ class Jogo:
         Objetos.nivel.loadNivel(Objetos.jogo.getNivel())
         Objetos.sonic.velX = 0
         Objetos.sonic.velY = 0
-        Objetos.sonic.images = Objetos.sonicD
+        Objetos.sonic.images = Objetos.imgPlayer["playerD"]
         
     def setModo (this, newMode):
         this.modo = newMode
