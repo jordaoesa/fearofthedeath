@@ -7,6 +7,7 @@ class NomeUser:
 
     def __init__(this):
         this.user   = ""
+        this.image = pygame.image
 
     def clearUser(this):
         this.user = ""
@@ -36,6 +37,13 @@ class NomeUser:
             pass
 
     def screenName(this):
+        
+        if Objetos.escolha.player == "shadow":
+            this.image = Objetos.fundoShadow
+        elif Objetos.escolha.player == "knuckles":
+            this.image = Objetos.fundoKnuckles
+        elif Objetos.escolha.player == "sonic":
+            this.image = Objetos.fundoSonic
 
         while True:
 
@@ -139,7 +147,7 @@ class NomeUser:
             this.nome = Objetos.fonteGta1.render(this.user, True, (0,0,0))
 
             #Objetos.background.fill((255,255,255))
-            Objetos.background.blit(Objetos.fundoNome, (0,0))
+            Objetos.background.blit(this.image, (0,0))
             Objetos.background.blit(Objetos.tarjaNome, (95,295))
             Objetos.background.blit(this.texto, (100,300))
             Objetos.background.blit(this.nome, (100, 350))

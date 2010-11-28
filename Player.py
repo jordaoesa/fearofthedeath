@@ -10,7 +10,7 @@ class Sonic:
         this.y            = 0
         this.velX         = 0
         this.velY         = 0
-        this.velocidade   = 2
+        this.velocidade   = 4
         this.proxLinha    = 0
         this.proxColuna   = 0
         this.homeX        = 0
@@ -40,24 +40,43 @@ class Sonic:
         if Objetos.jogo.modo == 3:
             return False
         
+##        if this.velX > 0:
+##            this.images = Objetos.sonicD
+##        elif this.velX < 0:
+##            this.images = Objetos.sonicE
+##        elif this.velY > 0:
+##            this.images = Objetos.sonicB
+##        elif this.velY < 0:
+##            this.images = Objetos.sonicC
+##        else:
+##            this.animaSonic = 0
+##            if this.direcao == "direita":
+##                this.images = Objetos.sonicD
+##            elif this.direcao == "esquerda":
+##                this.images = Objetos.sonicE
+##            elif this.direcao == "cima":
+##                this.images = Objetos.sonicC
+##            elif this.direcao == "baixo":
+##                this.images = Objetos.sonicB
+
         if this.velX > 0:
-            this.images = Objetos.sonicD
+            this.images = Objetos.imgPlayer["playerD"]
         elif this.velX < 0:
-            this.images = Objetos.sonicE
+            this.images = Objetos.imgPlayer["playerE"]
         elif this.velY > 0:
-            this.images = Objetos.sonicB
+            this.images = Objetos.imgPlayer["playerB"]
         elif this.velY < 0:
-            this.images = Objetos.sonicC
+            this.images = Objetos.imgPlayer["playerC"]
         else:
             this.animaSonic = 0
             if this.direcao == "direita":
-                this.images = Objetos.sonicD
+                this.images = Objetos.imgPlayer["playerD"]
             elif this.direcao == "esquerda":
-                this.images = Objetos.sonicE
+                this.images = Objetos.imgPlayer["playerE"]
             elif this.direcao == "cima":
-                this.images = Objetos.sonicC
+                this.images = Objetos.imgPlayer["playerC"]
             elif this.direcao == "baixo":
-                this.images = Objetos.sonicB
+                this.images = Objetos.imgPlayer["playerB"]
             
         Objetos.background.blit (this.images[int(this.animaSonic)], (this.x - Objetos.jogo.posicaoPixel[0], this.y - Objetos.jogo.posicaoPixel[1]))
         

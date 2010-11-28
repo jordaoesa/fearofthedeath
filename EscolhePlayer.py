@@ -5,23 +5,50 @@ import Objetos
 class EscolhePlayer:
 
     def __init__(this):
-        this.user = ""
+        this.player = ""
 
     def selectPlayer(this):
 
         while True:
 
+            mouse_pos = pygame.mouse.get_pos()
+            mouse_press = pygame.mouse.get_pressed()
+            
             for event in pygame.event.get(): 
                 if event.type == QUIT: 
                     pygame.quit()
                 if event.type == KEYDOWN:
                     if event.key == K_ESCAPE:
                         Objetos.menu.run()
-                    elif event.key == K_RETURN:
-                        Objetos.jogo.novoJogo()
-                        Objetos.grava.screenName()
-                        Objetos.start.run()
+            
+            Objetos.background.blit(Objetos.fundoSelect, (0,0))
 
-            print "escolhe"
-            Objetos.background.fill((255,255,255))
+            this.texto = Objetos.fonteNome.render("Selecione seu Player",True, (255,255,255))
+            Objetos.background.blit(this.texto, (170, 30))
+            
+            if 11 <= mouse_pos[0] <= 186 and 250 <= mouse_pos[1] <= 650:
+                Objetos.background.blit(Objetos.selectedShadow, (254,70))
+                if mouse_press[0]:
+                    this.player = "shadow"
+                    Objetos.imgPlayer = Objetos.shadowPlayer
+                    Objetos.jogo.novoJogo()
+                    Objetos.grava.screenName()
+                    Objetos.start.run()
+            elif 196 <= mouse_pos[0] <= 409 and 252 <= mouse_pos[1] <= 650:
+                Objetos.background.blit(Objetos.selectedKnuckles, (254,70))
+                if mouse_press[0]:
+                    this.player = "knuckles"
+                    Objetos.imgPlayer = Objetos.knucklesPlayer
+                    Objetos.jogo.novoJogo()
+                    Objetos.grava.screenName()
+                    Objetos.start.run()
+            elif 429 <= mouse_pos[0] <= 600 and 265 <= mouse_pos[1] <= 650:
+                Objetos.background.blit(Objetos.selectedSonic, (254,70))
+                if mouse_press[0]:
+                    this.player = "sonic"
+                    Objetos.imgPlayer = Objetos.sonicPlayer
+                    Objetos.jogo.novoJogo()
+                    Objetos.grava.screenName()
+                    Objetos.start.run()
+                    
             pygame.display.update()

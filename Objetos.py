@@ -20,8 +20,16 @@ pygame.init()
 background = pygame.display.set_mode((608,672), 0, 32)
 pygame.display.set_caption("Fear Of The Death")
 
+##--- SELECT PLAYER
+fundoSelect = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"selectPlayer.jpg").convert_alpha()
+selectedShadow = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"selectShadow.png").convert_alpha()
+selectedKnuckles = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"selectKnuckles.png").convert_alpha()
+selectedSonic = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"selectSonic.png").convert_alpha()
+
 ##--- FUNDO NOME
-fundoNome = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"fundoNome.png").convert_alpha()
+fundoShadow = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"shadow.jpg").convert_alpha()
+fundoKnuckles = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"knuckles.jpg").convert_alpha()
+fundoSonic = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"sonic.jpg").convert_alpha()
 tarjaNome = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"tarjaNome.png").convert_alpha()
 
 ##--- INICIANDO SONS
@@ -47,10 +55,14 @@ fantasma3    = Fantasma.Fantasma()
 nomeTile     = {}       ##-- ARMAZENA OS NOMES DOS TILES
 colete       = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA COLETE
 parede       = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA PAREDE
-sonicB       = {}
-sonicE       = {}
-sonicD       = {}
-sonicC       = {}
+imgPlayer    = {"playerB":{}, "playerE":{},"playerD":{},"playerC":{}}
+shadowPlayer = {"playerB":{}, "playerE":{},"playerD":{},"playerC":{}}
+knucklesPlayer = {"playerB":{}, "playerE":{},"playerD":{},"playerC":{}}
+sonicPlayer = {"playerB":{}, "playerE":{},"playerD":{},"playerC":{}}
+##sonicB       = {}
+##sonicE       = {}
+##sonicD       = {}
+##sonicC       = {}
 roda         = {}
 jogo         = Jogo.Jogo()   ##-- INSTANCIACAO DE UM OBJETO DE Jogo
 nivel        = Nivel.Nivel()  ##-- INSTANCIACAO DE UM OBJETO DE Nivel
@@ -77,9 +89,24 @@ nomeTile[21] = "portaVertical"
 for i in range(23):
     colete[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"colete"+os.sep+ "colete"+str(i)+".png").convert_alpha()
 for i in range(4):
+    shadowPlayer["playerB"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "0"+str(i)+".png").convert_alpha()
+    shadowPlayer["playerE"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "1"+str(i)+".png").convert_alpha()
+    shadowPlayer["playerD"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "2"+str(i)+".png").convert_alpha()
+    shadowPlayer["playerC"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "3"+str(i)+".png").convert_alpha()
+
+    knucklesPlayer["playerB"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"knuckles"+os.sep+ "0"+str(i)+".png").convert_alpha()
+    knucklesPlayer["playerE"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"knuckles"+os.sep+ "1"+str(i)+".png").convert_alpha()
+    knucklesPlayer["playerD"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"knuckles"+os.sep+ "2"+str(i)+".png").convert_alpha()
+    knucklesPlayer["playerC"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"knuckles"+os.sep+ "3"+str(i)+".png").convert_alpha()
+
+    sonicPlayer["playerB"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"sonic"+os.sep+ "0"+str(i)+".png").convert_alpha()
+    sonicPlayer["playerE"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"sonic"+os.sep+ "1"+str(i)+".png").convert_alpha()
+    sonicPlayer["playerD"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"sonic"+os.sep+ "2"+str(i)+".png").convert_alpha()
+    sonicPlayer["playerC"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"sonic"+os.sep+ "3"+str(i)+".png").convert_alpha()
+    
     parede[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"paredes"+os.sep+ "parede"+str(i)+".jpg").convert_alpha()
-    sonicB[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "0"+str(i)+".png").convert_alpha()
-    sonicE[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "1"+str(i)+".png").convert_alpha()
-    sonicD[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "2"+str(i)+".png").convert_alpha()
-    sonicC[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "3"+str(i)+".png").convert_alpha()
+##    sonicB[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "0"+str(i)+".png").convert_alpha()
+##    sonicE[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "1"+str(i)+".png").convert_alpha()
+##    sonicD[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "2"+str(i)+".png").convert_alpha()
+##    sonicC[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "3"+str(i)+".png").convert_alpha()
     roda[i]  = pygame.image.load("data"+os.sep+"sprites"+os.sep+"rodas"+os.sep+ "0"+str(i)+".png").convert_alpha()
