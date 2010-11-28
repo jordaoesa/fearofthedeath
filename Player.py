@@ -16,11 +16,15 @@ class Sonic:
         this.homeX        = 0
         this.homeY        = 0
         this.images       = {}
-            
-        this.sndGranaNum = 0
+        this.escudo       = False
+        this.contEscudo   = 0    
+        #this.sndGranaNum = 0
         
     def andar(this):
         
+##        if this.escudo:
+##            this.velocidade = 4
+            
         this.proxLinha = int(((this.y + 19) / 32))
         this.proxColuna = int(((this.x + 19) / 32))
         
@@ -39,25 +43,6 @@ class Sonic:
 
         if Objetos.jogo.modo == 3:
             return False
-        
-##        if this.velX > 0:
-##            this.images = Objetos.sonicD
-##        elif this.velX < 0:
-##            this.images = Objetos.sonicE
-##        elif this.velY > 0:
-##            this.images = Objetos.sonicB
-##        elif this.velY < 0:
-##            this.images = Objetos.sonicC
-##        else:
-##            this.animaSonic = 0
-##            if this.direcao == "direita":
-##                this.images = Objetos.sonicD
-##            elif this.direcao == "esquerda":
-##                this.images = Objetos.sonicE
-##            elif this.direcao == "cima":
-##                this.images = Objetos.sonicC
-##            elif this.direcao == "baixo":
-##                this.images = Objetos.sonicB
 
         if this.velX > 0:
             this.images = Objetos.imgPlayer["playerD"]
