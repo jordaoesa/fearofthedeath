@@ -25,13 +25,13 @@ class Jogo:
         return this.score
         
     def printPontuacao(this):
-        this.texto = Objetos.fonteGta1.render("SCORE: ", True, (0,0,255))
-        this.pontuacao = Objetos.fonteGta1.render(str(this.score), True, (0,255,0))
+        this.texto = Objetos.fonteGta.render("SCORE: ", True, (0,0,255))
+        this.pontuacao = Objetos.fonteGta.render(str(this.score), True, (0,255,0))
         Objetos.background.blit(this.texto, (100,650))
         Objetos.background.blit(this.pontuacao, (165, 650))
 
     def printVidas(this):
-        this.texto = Objetos.fonteGta1.render("VIDAS: " + (str(1)*this.vidas), True, (255,0,0))
+        this.texto = Objetos.fonteGta.render("VIDAS: " + (str(1)*this.vidas), True, (255,0,0))
         Objetos.background.blit(this.texto, (5,650))
         
     def novoJogo(this):

@@ -22,6 +22,7 @@ pygame.display.set_caption("Fear Of The Death")
 
 ##--- SELECT PLAYER
 fundoSelect = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"selectPlayer.jpg").convert_alpha()
+fundoSelect1 = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"selectPlayerRed.jpg").convert_alpha()
 selectedShadow = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"selectShadow.png").convert_alpha()
 selectedKnuckles = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"selectKnuckles.png").convert_alpha()
 selectedSonic = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"selectSonic.png").convert_alpha()
@@ -38,8 +39,9 @@ sndGrana[0] = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"grana1.wav")
 sndGrana[1] = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"grana2.wav")
 
 ##-- FONTES
-fonteGta1 = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'fonteGta1.ttf',20,bold = False)
-fonteNome = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'numeros.ttf',30,bold = False)
+fonteGta = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'fonteGta1.ttf',20,bold = False)
+fonteSega = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'sega.ttf',30,bold = False)
+fonteHoliday = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'Holiday.ttf',30,bold = False)
 
 #fundo = pygame.image.load("data"+os.sep+"tiles"+os.sep+"fundo.jpg")
 
