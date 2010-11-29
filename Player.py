@@ -8,7 +8,7 @@ class Sonic:
         this.direcao      = "direita"
         this.x            = 0
         this.y            = 0
-        this.velX         = 0
+        this.velX         = 2
         this.velY         = 0
         this.velocidade   = 2
         this.proxLinha    = 0
@@ -16,17 +16,31 @@ class Sonic:
         this.homeX        = 0
         this.homeY        = 0
         this.images       = {}
-        this.escudo       = False
-        this.contEscudo   = 0    
-        #this.sndGranaNum = 0
+        this.escudo       = 0
+        this.tempoEscudo  = 0
+        this.limiteEscudo = 0
         
     def andar(this):
-        
-##        if this.escudo:
-##            this.velocidade = 4
+
+        if this.tempoEscudo >= this.limiteEscudo:
+            this.escudo = 0
+            this.tempoEscudo = 0
+        if this.escudo > 0:
+            this.velocidade = 4
+            Objetos.fantasma.velocidade = -1
+            Objetos.fantasma1.velocidade = -1
+            Objetos.fantasma2.velocidade = -1
+            Objetos.fantasma3.velocidade = -1
+        else:
+            this.limiteEscudo = 0
+            this.velocidade = 2
+            Objetos.fantasma.velocidade = 1
+            Objetos.fantasma1.velocidade = 1
+            Objetos.fantasma2.velocidade = 1
+            Objetos.fantasma3.velocidade = 1
             
-        this.proxLinha = int(((this.y + 19) / 32))
-        this.proxColuna = int(((this.x + 19) / 32))
+        this.proxLinha = int(((this.y + 14) / 32))
+        this.proxColuna = int(((this.x + 14) / 32))
         
         if not Objetos.nivel.verificaParede((this.x + this.velX, this.y + this.velY), (this.proxLinha, this.proxColuna)):
             this.x += this.velX
