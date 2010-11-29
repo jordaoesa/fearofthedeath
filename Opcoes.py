@@ -25,7 +25,7 @@ class Opcoes:
                     elif event.key == K_DOWN:
                         pygame.display.set_mode((608,672), 0, 32)
 
-            print mouse_pos
+            #print mouse_pos
             
             this.texto = Objetos.fonteHoliday.render("OPCOES",True, (255,255,255))
 
