@@ -18,8 +18,9 @@ class Instrucoes:
                     if event.key == K_ESCAPE:
                         Objetos.menu.run()
                         
+            Objetos.background.blit(Objetos.fundoOpcoes, (0,0))
+            this.texto = Objetos.fonteHoliday.render("INSTRUCOES",True, (255,255,255))
 
-            print "instrucoes"
-            Objetos.background.fill((255,255,255))
+            Objetos.background.blit(this.texto, (215, 30))
             pygame.display.update()
 
