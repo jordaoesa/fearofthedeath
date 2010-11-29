@@ -4,6 +4,8 @@ import pygame
 from pygame.locals import *
 import os
 import Objetos
+import random
+
 
 
 class Menu:
@@ -65,7 +67,20 @@ class Menu:
         self.cont3 = True
         self.cont4 = True
         self.cont5 = True
+        self.ve1, self.ve2, self.ve3, self.ve4 = True, False, False, False
+
+        #variavel do fantasma
+        x = -170
+        x1 = -350
+        x2 = -500
+        y = random.randint(-100, 580)
+        y1 = y + 50
+        y2 = y + 80
+        v = False
+        
         while True:
+
+            
             
             for event in pygame.event.get():
                 if event.type == QUIT:
@@ -80,27 +95,91 @@ class Menu:
             self.screen.blit(self.background,(0,0))
             self.screen.blit(self.titulo, (130, 50))
             
-            self.animaFantasma += 1
-            if self.animaFantasma == 15:
-                self.animaFantasma = 0
-            
-            if self.animaFantasma <= 5:
-                self.image_grande = self.fantasma1
-                self.image_medio = self.fantasma_medio1
-                self.image_pequeno = self.fantasma_pequeno1
-            elif self.animaFantasma <= 10:
-                self.image_grande = self.fantasma
-                self.image_medio = self.fantasma_medio
-                self.image_pequeno = self.fantasma_pequeno
-            elif self.animaFantasma <= 15:
-                self.image_grande = self.fantasma2
-                self.image_medio = self.fantasma_medio2
-                self.image_pequeno = self.fantasma_pequeno2
+            if not v:
 
-            self.screen.blit(self.image_grande, (200, 430))
-            self.screen.blit(self.image_medio, (100, 500))
-            self.screen.blit(self.image_pequeno, (0, 550))
+                self.animaFantasma += 1
+                if self.animaFantasma == 15:
+                    self.animaFantasma = 0
 
+                if self.animaFantasma <= 5:
+                    self.image_grande = self.fantasma1
+                    self.image_medio = self.fantasma_medio1
+                    self.image_pequeno = self.fantasma_pequeno1
+
+                elif self.animaFantasma <= 10:
+                    self.image_grande = self.fantasma
+                    self.image_medio = self.fantasma_medio
+                    self.image_pequeno = self.fantasma_pequeno
+
+                elif self.animaFantasma <= 15:
+                    self.image_grande = self.fantasma2
+                    self.image_medio = self.fantasma_medio2
+                    self.image_pequeno = self.fantasma_pequeno2
+
+                
+                if self.ve1:
+                    x+=1
+                elif self.ve2:
+                    y+=1
+                elif self.ve3:
+                    y-=1
+                elif self.ve4:
+                    x-=1
+
+                if x >= 608:
+                    self.ve1 = False
+                    self.ve2 = True
+                    self.ve3 = False
+                    self.ve4 = False
+                    x = random.randint(0, 580)
+                    y = -170
+                    
+                elif y >= 672:
+                    self.ve1 = False
+                    self.ve2 = False
+                    self.ve3 = True
+                    self.ve4 = False
+                    x = random.randint(0, 580)
+                    y = 672
+                    
+                elif y <= -170:
+                    self.ve1 = False
+                    self.ve2 = False
+                    self.ve3 = False
+                    self.ve4 = True
+                    x = 608
+                    y = random.randint(0, 580)
+                    
+                elif x <= -170:
+                    self.ve1 = True
+                    self.ve2 = False
+                    self.ve3 = False
+                    self.ve4 = False
+                    x = -170
+                    y = random.randint(0, 580)
+                    
+                    
+                    
+
+                self.screen.blit(self.image_grande, (x, y))
+
+                #if x >= 30:
+                #self.screen.blit(self.image_medio, (x1, y1))
+
+                #if x1 >= 30:
+                #self.screen.blit(self.image_pequeno, (x2, y2))
+                  
+                x1 += 1
+                #y1+=1
+                if x1 >= 580:
+                    x1 = -170
+                    y1 = y + 50
+
+                x2 += 1
+                #y2+=1
+                if x2 >= 580:
+                    x2 = -170
+                    y2 = y + 80
             ##--- Inicio  
             if 85 < mouse_pos[0] < 195 and 180 < mouse_pos[1] < 205:
                 temp1 = self.cont1
