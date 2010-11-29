@@ -42,14 +42,14 @@ def verificaTeclas():
                 Objetos.sonic.velY = -Objetos.sonic.velocidade
                 Objetos.sonic.direcao = "cima"
             
-    if Objetos.jogo.modo == 4:# or jogo.modo == 5:
-        if pressed[K_RETURN]:
-            if Objetos.jogo.getNivel() == 3:
-                print "FIM DO JOGO"
-                pygame.quit()
-            else:
-                Objetos.jogo.proximoNivel()
-                
-    if Objetos.jogo.modo == 5:
-        if pressed[K_RETURN]:
-            Objetos.jogo.setModo(2)
+##    if Objetos.jogo.modo == 4:# or jogo.modo == 5:
+##        if pressed[K_RETURN]:
+##            if Objetos.jogo.getNivel() == 3:
+##                print "FIM DO JOGO"
+##                pygame.quit()
+##            else:
+##                Objetos.jogo.proximoNivel()
+##                
+##    if Objetos.jogo.modo == 5:
+##        if pressed[K_RETURN]:
+##            Objetos.jogo.setModo(2)

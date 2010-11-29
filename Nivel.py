@@ -35,14 +35,13 @@ class Nivel:
                         Objetos.nivel.acumulo -= 1
                         Objetos.jogo.pontos(10)
                         if Objetos.nivel.acumulo == 0:
-                            Objetos.jogo.setModo( 4 )
+                            Objetos.jogo.setModo(3)
                             
 ################### REMOCAO DO ESCUDO                       
-                    elif result == 7 or result == 6: ##ESCUDO PROTETOR
+                    elif result == 7: ##ESCUDO PROTETOR
                         Objetos.nivel.SetMapTile((liinha, cooluna), 0)
-                        #Objetos.player.escudo = True
                         Objetos.sonic.escudo +=1 ##-- PROTECAO
-                        Objetos.sonic.limiteEscudo += 500 ##-- MAIOR VELOCIDADE
+                        Objetos.sonic.limiteEscudo += 500 ##-- 500 LACOS PARA VELOCIDADE
                         Objetos.jogo.pontos(100)
 
 ### PORTAS HORIZONTAIS E VERTICAIS
@@ -53,7 +52,7 @@ class Nivel:
             for cooluna in range(coluna - 1, coluna + 2):
                 
                 if  (sonicX - (cooluna * 32) < 32) and (sonicX - (cooluna * 32) > -32) and (sonicY - (liinha * 32) < 32) and (sonicY - (liinha * 32) > -32):
-                # check the offending tile ID
+                    
                     result = Objetos.nivel.GetMapTile((liinha, cooluna))
                 
                     if result == 20: ##PORTA HORIZONTAL
@@ -85,7 +84,7 @@ class Nivel:
             for cooluna in range(coluna - 1, coluna + 2):
                 
                 if  (fX - (cooluna * 32) < 32) and (fX - (cooluna * 32) > -32) and (fY - (liinha * 32) < 32) and (fY - (liinha * 32) > -32):
-                # check the offending tile ID
+
                     result = Objetos.nivel.GetMapTile((liinha, cooluna))
                 
                     if result == 20: ##PORTA HORIZONTAL
@@ -134,7 +133,7 @@ class Nivel:
         this.animaColete += 1
         this.animaRoda += 1
         
-        if this.animaColete == 116: ##FAZ AS BOLINHAS PISCAREM
+        if this.animaColete == 116:
             this.animaColete = 0
             
         if this.animaRoda == 20:
@@ -213,29 +212,7 @@ class Nivel:
                 if thisID == 4:
                     Objetos.sonic.homeX = k * 32
                     Objetos.sonic.homeY = this.numLinha * 32
-                    this.SetMapTile((this.numLinha, k), 0 )
-                    
-##                elif thisID == 6:
-##                    print "6"
-##                    protect.homeX = k * 32
-##                    protect.homeY = this.numLinha * 32
-##                    this.SetMapTile((this.numLinha, k), 0 )
-##                elif thisID == 7:
-##                    print "7"
-##                    protect1.homeX = k * 32
-##                    protect1.homeY = this.numLinha * 32
-##                    this.SetMapTile((this.numLinha, k), 0 )
-##                elif thisID == 8:
-##                    print "8"
-##                    protect2.homeX = k * 32
-##                    protect2.homeY = this.numLinha * 32
-##                    this.SetMapTile((this.numLinha, k), 0 )
-##                elif thisID == 9:
-##                    print "9"
-##                    protect3.homeX = k * 32
-##                    protect3.homeY = this.numLinha * 32
-##                    this.SetMapTile((this.numLinha, k), 0 )
-                    
+                    this.SetMapTile((this.numLinha, k), 0 )                    
                 elif thisID == 10:
                     Objetos.fantasma.homeX = k * 32
                     Objetos.fantasma.homeY = this.numLinha * 32
