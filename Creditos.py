@@ -19,7 +19,9 @@ class Creditos:
                         Objetos.menu.run()
                         
 
-            print "creditos"
-            Objetos.background.fill((255,255,255))
+            Objetos.background.blit(Objetos.fundoOpcoes, (0,0))
+            this.texto = Objetos.fonteHoliday.render("CREDITOS",True, (255,255,255))
+
+            Objetos.background.blit(this.texto, (225, 30))
             pygame.display.update()
 
