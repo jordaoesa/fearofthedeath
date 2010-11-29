@@ -1,4 +1,5 @@
 import pygame
+from pygame.locals import *
 import Objetos
 import Funcoes
 
@@ -10,6 +11,9 @@ class Principal:
 
             Funcoes.verificaTeclas()
             if Objetos.jogo.modo == 1:
+                
+                if Objetos.sonic.escudo > 0:
+                    Objetos.sonic.tempoEscudo += 1
 
                 Funcoes.verificaTeclas()
 
@@ -29,40 +33,66 @@ class Principal:
                 Objetos.nivel.portaisF((Objetos.fantasma2.x, Objetos.fantasma2.y), (Objetos.fantasma2.proxLinha, Objetos.fantasma2.proxColuna), Objetos.fantasma2)
                 Objetos.nivel.portaisF((Objetos.fantasma3.x, Objetos.fantasma3.y), (Objetos.fantasma3.proxLinha, Objetos.fantasma3.proxColuna), Objetos.fantasma3)
 
-            elif Objetos.jogo.modo == 2: ##REINICIO APOS PERDA DE VIDA
-                Objetos.jogo.tempoModo += 1
+            elif Objetos.jogo.modo == 2: ##-- REINICIO APOS PERDA DE VIDA
                 
-                if Objetos.jogo.tempoModo == 100:
-                    Objetos.jogo.vidas -= 1
-                    Objetos.nivel.reiniciar()
-                    Objetos.jogo.setModo(1)
-                    if Objetos.jogo.vidas == 0:
-                        print "vc perdeu"
-                        Objetos.grava.gravarScore()
-                        Objetos.menu.run()
-                for event in pygame.event.get(): 
-                    if event.type == QUIT: 
-                        pygame.quit()
+                if Objetos.jogo.vidas == 0:
+                    while Objetos.jogo.tempoModo <= 200:
+                        Objetos.jogo.tempoModo += 1
+                        mensagem = Objetos.fonteHoliday.render("Perdeu Manolo", True, (255,0,0))
+                        Objetos.background.blit(mensagem, (180, 320))
+                        pygame.display.update()
+                    Objetos.jogo.tempoModo = 0
+                    Objetos.grava.gravarScore()
+                    Objetos.menu.run()
+                        
+                while Objetos.jogo.tempoModo <= 200:
+                    Objetos.jogo.tempoModo += 1
+                    mensagem = Objetos.fonteHoliday.render("Carregando...", True, (255,0,0))
+                    Objetos.background.blit(mensagem, (180, 320))
+                    pygame.display.update()
+                Objetos.jogo.tempoModo = 0
+                
+                Objetos.jogo.vidas -= 1
+                Objetos.nivel.reiniciar()
+                Objetos.jogo.setModo(1)
+
 
             elif Objetos.jogo.modo == 3:
                 Objetos.jogo.novoJogo()
                 Funcoes.verificaTeclas()
 
-            elif Objetos.jogo.modo == 4:
+            elif Objetos.jogo.modo == 4: ##-- INICIO DA PROXIMA FASE
 
-                Objetos.jogo.tempoModo += 1
                 if Objetos.jogo.getNivel() == 3:
-                    venceu = Objetos.fonteGta.render("VOCE VENCEU", True, (255,0,0))
-                    Objetos.background.blit(venceu, (100, 100))
-                    #pygame.display.update()
-                    if Objetos.jogo.tempoModo == 100:
-                        Objetos.jogo.tempoModo = 0                    
-                        Objetos.grava.gravarScore()
-                        Objetos.menu.run()
+
+                    Objetos.jogo.tempoModo = 0                    
+                    Objetos.grava.gravarScore()
+                    
+                    while Objetos.jogo.tempoModo <= 500:
+                        Objetos.jogo.tempoModo += 1
+                        venceu = Objetos.fonteHoliday.render("VOCE VENCEU", True, (0,0,0))
+                        Objetos.background.blit(venceu, (200, 320))
+
+                        for event in pygame.event.get(): 
+                            if event.type == QUIT: 
+                                pygame.quit()
+                            if event.type == KEYDOWN:
+                                if event.key == K_ESCAPE:
+                                    Objetos.menu.run()
+                                elif event.key == K_RETURN:
+                                    Objetos.menu.run()
+                                    
+                        pygame.display.update()
+                    Objetos.menu.run()
                         
-                if Objetos.jogo.tempoModo == 100:
-                    Objetos.jogo.tempoModo = 0
-                    Objetos.jogo.proximoNivel()
+                while Objetos.jogo.tempoModo <= 200:
+                    Objetos.jogo.tempoModo += 1
+                    mensagem = Objetos.fonteHoliday.render("Carregando...", True, (255,0,0))
+                    Objetos.background.blit(mensagem, (180, 320))
+                    pygame.display.update()
+                    
+                Objetos.jogo.tempoModo = 0
+                Objetos.jogo.proximoNivel()
 
             elif Objetos.jogo.modo == 5:
                 
@@ -86,7 +116,6 @@ class Principal:
             
             Objetos.jogo.printVidas()
             Objetos.jogo.printPontuacao()
-
 
             pygame.display.update()
             Objetos.fps.tick (60)
