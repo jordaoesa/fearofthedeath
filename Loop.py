@@ -6,6 +6,7 @@ import Funcoes
 class Principal:
     
     def run(this):
+        Objetos.sndTema.stop()
         
         while True: 
 
@@ -36,7 +37,7 @@ class Principal:
             elif Objetos.jogo.modo == 2: ##-- REINICIO APOS PERDA DE VIDA
                 
                 if Objetos.jogo.vidas == 0:
-                    while Objetos.jogo.tempoModo <= 500:
+                    while Objetos.jogo.tempoModo <= 400:
                         Objetos.jogo.tempoModo += 1
                         mensagem = Objetos.fonteHoliday.render("Perdeu Manolo", True, (255,0,0))
                         Objetos.background.blit(mensagem, (180, 320))
@@ -46,7 +47,7 @@ class Principal:
                     Objetos.grava.gravarScore()
                     Objetos.menu.run()
                         
-                while Objetos.jogo.tempoModo <= 500:
+                while Objetos.jogo.tempoModo <= 400:
                     Objetos.jogo.tempoModo += 1
                     mensagem = Objetos.fonteHoliday.render("Carregando...", True, (255,0,0))
                     Objetos.background.blit(mensagem, (180, 320))
@@ -66,7 +67,7 @@ class Principal:
                     Objetos.jogo.tempoModo = 0                    
                     Objetos.grava.gravarScore()
                     
-                    while Objetos.jogo.tempoModo <= 700:
+                    while Objetos.jogo.tempoModo <= 500:
                         Objetos.jogo.tempoModo += 1
                         venceu = Objetos.fonteHoliday.render("VOCE VENCEU", True, (0,0,0))
                         Objetos.background.blit(venceu, (200, 320))
@@ -84,7 +85,7 @@ class Principal:
                         Objetos.fps.tick(60)
                     Objetos.menu.run()
                         
-                while Objetos.jogo.tempoModo <= 500:
+                while Objetos.jogo.tempoModo <= 400:
                     Objetos.jogo.tempoModo += 1
                     mensagem = Objetos.fonteHoliday.render("Carregando...", True, (255,0,0))
                     Objetos.background.blit(mensagem, (180, 320))
