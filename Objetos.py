@@ -48,6 +48,7 @@ tarjaNome = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"tar
 fundoOpcoes = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"fundoOpcoes.png").convert_alpha()
 
 ##--- INICIANDO SONS
+sndTema = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"Fear of the dark.ogg")
 sndMoeda = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"playerMoeda.ogg")
 sndMorte = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"playerMorte.ogg")
 sndMoeda.set_volume(volume/100.0)
@@ -198,7 +199,7 @@ idiomas = {
                  ["SELECIONE SEU JOGADOR"],
                  ["DIGITE SEU NOME"],
                  ["INSTRUCOES"],
-                 ["CREDITOS"],
+                 ["CREDITOS", "DESENVOLVEDORES"],
                  ["OPCOES", "MODO DE TELA","Tela Cheia","Tela Normal","IDIOMA","Portugues","Ingles","Espanhol","VOLUME","POSICOES"],
                  [],
                  [],
@@ -209,8 +210,8 @@ idiomas = {
               ["SELECT YOUR PLAYER"],
               ["ENTER YOUR NAME"],
               ["INSTRUCTIONS"],
-              ["CREDITS"],
-              ["OPTIONS", "DISPLAY MODE","Fullscreen","Normal Mode","LANGUAGE","Portuguese","English","Spanish","VOLUME","RANKING"],
+              ["CREDITS","DEVELOPERS"],
+              ["OPTIONS","DISPLAY MODE","Fullscreen","Normal Mode","LANGUAGE","Portuguese","English","Spanish","VOLUME","RANKING"],
               [],
               [],
               []
@@ -220,7 +221,7 @@ idiomas = {
                 ["ELIGE TU JUGADOR"],
                 ["INGRESSE SU NOMBRE"],
                 ["INSTRUCCIONES"],
-                ["CREDITOS"],
+                ["CREDITOS","DESARROLLADORES"],
                 ["OPCIONES", "MODO DE PANTALLA","Pantalla Completa","Pantalla Normal","LENGUAJE","Portugues","Ingles","Espanol","VOLUMEN","POSICIONES"],
                 [],
                 [],

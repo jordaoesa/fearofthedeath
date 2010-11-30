@@ -12,6 +12,8 @@ class Menu:
 	
     def __init__(self):
 
+        Objetos.sndTema.play(-1)
+        
         pygame.init()
 
         self.image_grande = pygame.image
@@ -46,6 +48,8 @@ class Menu:
 ##        self.i = self.font.render("créditos", True, (255,255,255))
 
     def run(self):
+
+        
         
         self.titulo = self.fonte.render("Fear of The Death", True, (255,255,255))
         self.inicio = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][0], True, (255,255,255))
@@ -55,11 +59,11 @@ class Menu:
         self.sair = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][4], True, (255,255,255))
 
         self.titulo1 = self.fonte1.render("Fear of The Death", True, (205,205,205))
-        self.inicio1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][0], True, (205,105,105))
-        self.instrucoes1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][1], True, (205,105,105))
-        self.creditos1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][2], True, (205,105,105))
-        self.opcoes1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][3], True, (205,105,105))
-        self.sair1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][4], True, (205,105,105))
+        self.inicio1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][0], True, (255,0,0))
+        self.instrucoes1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][1], True, (255,0,0))
+        self.creditos1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][2], True, (255,0,0))
+        self.opcoes1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][3], True, (255,0,0))
+        self.sair1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][4], True, (255,0,0))
         
         self.cont1 = True
         self.cont2 = True
@@ -197,6 +201,7 @@ class Menu:
                 self.cont1 = False
                 
                 if mouse_press[0]:
+                    #Objetos.sndTema.stop()
                     Objetos.escolha.selectPlayer()
             else:
                 self.screen.blit(self.inicio, (85, 170))
@@ -211,6 +216,7 @@ class Menu:
                 self.cont2 = False
 
                 if mouse_press[0]:
+                    #Objetos.sndTema.stop()
                     Objetos.instrucoes.run()
             else:
                 self.screen.blit(self.instrucoes, (85, 240))
@@ -225,6 +231,7 @@ class Menu:
                 self.cont3 = False
 
                 if mouse_press[0]:
+                    #Objetos.sndTema.stop()
                     Objetos.creditos.run()
             else:
                 self.screen.blit(self.creditos, (85, 310))
@@ -240,6 +247,7 @@ class Menu:
                 self.cont4 = False
 
                 if mouse_press[0]:
+                    #Objetos.sndTema.stop()
                     Objetos.opcoes.run()
                 
             else:
@@ -254,6 +262,7 @@ class Menu:
                     self.som.play()
                 self.cont5 = False
                 if mouse_press[0]:
+                    #Objetos.sndTema.stop()
                     pygame.quit()
             else:
                 self.screen.blit(self.sair, (85, 450))
