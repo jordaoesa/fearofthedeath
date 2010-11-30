@@ -67,8 +67,9 @@ fantasma1        = Fantasma.Fantasma()
 fantasma2        = Fantasma.Fantasma()
 fantasma3        = Fantasma.Fantasma()
 nomeTile         = {}       ##-- ARMAZENA OS NOMES DOS TILES
-colete           = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA COLETE
+##colete           = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA COLETE
 parede           = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA PAREDE
+turbo            = {} ##--- ARMAZENA OS SPRITES DO MODO TURBO
 imgPlayer        = {"playerB":{}, "playerE":{},"playerD":{},"playerC":{}}
 shadowPlayer     = {"playerB":{}, "playerE":{},"playerD":{},"playerC":{}}
 knucklesPlayer   = {"playerB":{}, "playerE":{},"playerD":{},"playerC":{}}
@@ -96,8 +97,10 @@ nomeTile[7]  = "protetor"
 nomeTile[20] = "portaHorizontal"
 nomeTile[21] = "portaVertical"
 
-for i in range(23):
-    colete[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"colete"+os.sep+ "colete"+str(i)+".png").convert_alpha()
+##for i in range(23):
+##    colete[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"colete"+os.sep+ "colete"+str(i)+".png").convert_alpha()
+for i in range(36):
+    turbo[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"turbo"+os.sep+str(i)+".png").convert_alpha()
 for i in range(4):
     shadowPlayer["playerB"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "0"+str(i)+".png").convert_alpha()
     shadowPlayer["playerE"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "1"+str(i)+".png").convert_alpha()

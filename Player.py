@@ -16,16 +16,32 @@ class Sonic:
         this.homeX        = 0
         this.homeY        = 0
         this.images       = {}
-        this.escudo       = 0
+        #this.escudo       = 0
         this.tempoEscudo  = 0
         this.limiteEscudo = 0
         
     def andar(this):
 
+##        if this.tempoEscudo >= this.limiteEscudo:
+##            this.escudo = 0
+##            this.tempoEscudo = 0
+##        if this.escudo > 0:
+##            this.velocidade = 4
+##            Objetos.fantasma.velocidade = -1
+##            Objetos.fantasma1.velocidade = -1
+##            Objetos.fantasma2.velocidade = -1
+##            Objetos.fantasma3.velocidade = -1
+##        else:
+##            this.limiteEscudo = 0
+##            this.velocidade = 2
+##            Objetos.fantasma.velocidade = 1
+##            Objetos.fantasma1.velocidade = 1
+##            Objetos.fantasma2.velocidade = 1
+##            Objetos.fantasma3.velocidade = 1
         if this.tempoEscudo >= this.limiteEscudo:
-            this.escudo = 0
+            #this.escudo = 0
             this.tempoEscudo = 0
-        if this.escudo > 0:
+        if this.tempoEscudo > 0:
             this.velocidade = 4
             Objetos.fantasma.velocidade = -1
             Objetos.fantasma1.velocidade = -1
