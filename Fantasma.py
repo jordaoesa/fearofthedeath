@@ -73,7 +73,7 @@ class Fantasma:
         Objetos.background.blit (this.image, (this.x, this.y))
 
     def colisao(this):
-        if Objetos.sonic.escudo == 0:
+        if Objetos.sonic.limiteEscudo == 0:
             if Objetos.sonic.x - 16 <= this.x <= Objetos.sonic.x + 16 and Objetos.sonic.y - 16 <= this.y <= Objetos.sonic.y + 16:
                 Objetos.jogo.setModo(2)
                 Objetos.sndMorte.play()

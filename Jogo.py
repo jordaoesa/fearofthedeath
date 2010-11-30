@@ -33,6 +33,10 @@ class Jogo:
     def printVidas(this):
         this.texto = Objetos.fonteGta.render("VIDAS: " + (str(1)*this.vidas), True, (255,0,0))
         Objetos.background.blit(this.texto, (5,650))
+
+    def printTurbo(this):
+        if Objetos.sonic.limiteEscudo > 0:
+            Objetos.background.blit(Objetos.turbo[0], (0,0))
         
     def novoJogo(this):
         this.nivel = 1

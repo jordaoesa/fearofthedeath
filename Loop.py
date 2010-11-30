@@ -13,7 +13,7 @@ class Principal:
             Funcoes.verificaTeclas()
             if Objetos.jogo.modo == 1: ##-- MODO DE JOGO NORMAL
                 
-                if Objetos.sonic.escudo > 0:
+                if Objetos.sonic.limiteEscudo > 0:
                     Objetos.sonic.tempoEscudo += 1
 
                 Funcoes.verificaTeclas()
@@ -112,6 +112,7 @@ class Principal:
             
             Objetos.jogo.printVidas()
             Objetos.jogo.printPontuacao()
+            Objetos.jogo.printTurbo()
 
             pygame.display.update()
             Objetos.fps.tick (60)

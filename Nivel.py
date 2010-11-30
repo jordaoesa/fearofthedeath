@@ -8,8 +8,8 @@ class Nivel:
         this.qtdTilesY   = 0
         this.mapa        = {}
         this.acumulo     = 0
-        this.animaColete = 0
-        this.animaRoda  = 0
+        this.animaTurbo  = 0
+        this.animaRoda   = 0
         
     def SetMapTile (this, (linha, coluna), valor):
         this.mapa[ coluna + (linha * this.qtdTilesX) ] = valor
@@ -40,7 +40,7 @@ class Nivel:
 ################### REMOCAO DO ESCUDO                       
                     elif result == 7: ##ESCUDO PROTETOR
                         Objetos.nivel.SetMapTile((liinha, cooluna), 0)
-                        Objetos.sonic.escudo +=1 ##-- PROTECAO
+                        #Objetos.sonic.escudo +=1 ##-- PROTECAO
                         Objetos.sonic.limiteEscudo += 500 ##-- 500 LACOS PARA VELOCIDADE
                         Objetos.jogo.pontos(100)
 
@@ -130,11 +130,11 @@ class Nivel:
 
     def printMapa (this):
         
-        this.animaColete += 1
+        this.animaTurbo += 1
         this.animaRoda += 1
         
-        if this.animaColete == 116:
-            this.animaColete = 0
+        if this.animaTurbo >= 181:
+            this.animaTurbo = 0
             
         if this.animaRoda == 20:
             this.animaRoda = 0
@@ -149,29 +149,43 @@ class Nivel:
                     
 ################### BLITA PROTECAO
                     if tileAtual == 7 or tileAtual == 6: ##ESCUDO PROTETOR
-                        if this.animaColete <= 5:     image = Objetos.colete[0]
-                        elif this.animaColete <= 10:  image = Objetos.colete[1]
-                        elif this.animaColete <= 15:  image = Objetos.colete[2]
-                        elif this.animaColete <= 20:  image = Objetos.colete[3]
-                        elif this.animaColete <= 25:  image = Objetos.colete[4]
-                        elif this.animaColete <= 30:  image = Objetos.colete[5]
-                        elif this.animaColete <= 35:  image = Objetos.colete[6]
-                        elif this.animaColete <= 40:  image = Objetos.colete[7]
-                        elif this.animaColete <= 45:  image = Objetos.colete[8]
-                        elif this.animaColete <= 50:  image = Objetos.colete[9]
-                        elif this.animaColete <= 55:  image = Objetos.colete[10]
-                        elif this.animaColete <= 60:  image = Objetos.colete[11]
-                        elif this.animaColete <= 65:  image = Objetos.colete[12]
-                        elif this.animaColete <= 70:  image = Objetos.colete[13]
-                        elif this.animaColete <= 75:  image = Objetos.colete[14]
-                        elif this.animaColete <= 80:  image = Objetos.colete[15]
-                        elif this.animaColete <= 85:  image = Objetos.colete[16]
-                        elif this.animaColete <= 90:  image = Objetos.colete[17]
-                        elif this.animaColete <= 95:  image = Objetos.colete[18]
-                        elif this.animaColete <= 100: image = Objetos.colete[19]
-                        elif this.animaColete <= 105: image = Objetos.colete[20]
-                        elif this.animaColete <= 110: image = Objetos.colete[21]
-                        elif this.animaColete <= 115: image = Objetos.colete[22]
+                        if this.animaTurbo <= 5:     image = Objetos.turbo[0]
+                        elif this.animaTurbo <= 10:  image = Objetos.turbo[1]
+                        elif this.animaTurbo <= 15:  image = Objetos.turbo[2]
+                        elif this.animaTurbo <= 20:  image = Objetos.turbo[3]
+                        elif this.animaTurbo <= 25:  image = Objetos.turbo[4]
+                        elif this.animaTurbo <= 30:  image = Objetos.turbo[5]
+                        elif this.animaTurbo <= 35:  image = Objetos.turbo[6]
+                        elif this.animaTurbo <= 40:  image = Objetos.turbo[7]
+                        elif this.animaTurbo <= 45:  image = Objetos.turbo[8]
+                        elif this.animaTurbo <= 50:  image = Objetos.turbo[9]
+                        elif this.animaTurbo <= 55:  image = Objetos.turbo[10]
+                        elif this.animaTurbo <= 60:  image = Objetos.turbo[11]
+                        elif this.animaTurbo <= 65:  image = Objetos.turbo[12]
+                        elif this.animaTurbo <= 70:  image = Objetos.turbo[13]
+                        elif this.animaTurbo <= 75:  image = Objetos.turbo[14]
+                        elif this.animaTurbo <= 80:  image = Objetos.turbo[15]
+                        elif this.animaTurbo <= 85:  image = Objetos.turbo[16]
+                        elif this.animaTurbo <= 90:  image = Objetos.turbo[17]
+                        elif this.animaTurbo <= 95:  image = Objetos.turbo[18]
+                        elif this.animaTurbo <= 100: image = Objetos.turbo[19]
+                        elif this.animaTurbo <= 105: image = Objetos.turbo[20]
+                        elif this.animaTurbo <= 110: image = Objetos.turbo[21]
+                        elif this.animaTurbo <= 115: image = Objetos.turbo[22]
+                        elif this.animaTurbo <= 120: image = Objetos.turbo[23]
+                        elif this.animaTurbo <= 125: image = Objetos.turbo[24]
+                        elif this.animaTurbo <= 130: image = Objetos.turbo[25]
+                        elif this.animaTurbo <= 135: image = Objetos.turbo[26]
+                        elif this.animaTurbo <= 140: image = Objetos.turbo[27]
+                        elif this.animaTurbo <= 145: image = Objetos.turbo[28]
+                        elif this.animaTurbo <= 150: image = Objetos.turbo[29]
+                        elif this.animaTurbo <= 155: image = Objetos.turbo[30]
+                        elif this.animaTurbo <= 160: image = Objetos.turbo[31]
+                        elif this.animaTurbo <= 165: image = Objetos.turbo[32]
+                        elif this.animaTurbo <= 170: image = Objetos.turbo[33]
+                        elif this.animaTurbo <= 175: image = Objetos.turbo[34]
+                        elif this.animaTurbo <= 180: image = Objetos.turbo[35]
+                        
 
                         Objetos.background.blit(image, (coluna * 32 - Objetos.jogo.deslocamento[0], linha * 32 - Objetos.jogo.deslocamento[1]) )
                         
