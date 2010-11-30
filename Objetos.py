@@ -16,10 +16,14 @@ import Creditos
 
 fps = pygame.time.Clock()
 pygame.init()
+pygame.mixer.init()
 
 modoTela = 0
 background = pygame.display.set_mode((608,672), modoTela, 32)
 pygame.display.set_caption("Fear Of The Death")
+
+##--- VARIAVEL DE VOLUME
+volume = 100
 
 ##--- SELECT PLAYER
 fundoSelect = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"selectPlayer.jpg").convert_alpha()
@@ -27,6 +31,12 @@ fundoSelect1 = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"
 selectedShadow = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"selectShadow.png").convert_alpha()
 selectedKnuckles = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"selectKnuckles.png").convert_alpha()
 selectedSonic = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"selectSonic.png").convert_alpha()
+
+##--- FUNDO INSTRUCOES
+sonicFala = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"sonicFala.png").convert_alpha()
+shadowFala = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"shadowFala.png").convert_alpha()
+knucklesFala = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"knucklesFala.png").convert_alpha()
+
 
 ##--- FUNDO NOME
 fundoShadow = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"shadow.jpg").convert_alpha()
@@ -36,14 +46,18 @@ tarjaNome = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"tar
 
 ##--- FUNDO OPCOES
 fundoOpcoes = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"fundoOpcoes.png").convert_alpha()
+
 ##--- INICIANDO SONS
 sndMoeda = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"playerMoeda.ogg")
 sndMorte = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"playerMorte.ogg")
+sndMoeda.set_volume(volume/100.0)
+sndMorte.set_volume(volume/100.0)
 
 ##--- FONTES
 fonteGta = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'fonteGta1.ttf',20,bold = False)
 fonteSega = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'sega.ttf',30,bold = False)
 fonteHoliday = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'Holiday.ttf',30,bold = False)
+#fonteHoliday = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"50.ttf",30,bold = False)
 
 sonic            = Player.Sonic() ##-- INSTANCIACAO DE UM OBJETO DE SONIC
 #player           = Player.Player()
@@ -182,13 +196,34 @@ idioma = "portugues"
 idiomas = {
     "portugues":[["Inicio","Instrucoes","Creditos","Opcoes","Sair"],
                  ["SELECIONE SEU JOGADOR"],
-                 ["DIGITE SEU NOME"]],
+                 ["DIGITE SEU NOME"],
+                 ["INSTRUCOES"],
+                 ["CREDITOS"],
+                 ["OPCOES", "MODO DE TELA","Tela Cheia","Tela Normal","IDIOMA","Portugues","Ingles","Espanhol","VOLUME","POSICOES"],
+                 [],
+                 [],
+                 []
+                 ],
     
     "ingles":[["Begin","Instructions","Credits","Options","Exit"],
               ["SELECT YOUR PLAYER"],
-              ["ENTER YOUR NAME"]],
+              ["ENTER YOUR NAME"],
+              ["INSTRUCTIONS"],
+              ["CREDITS"],
+              ["OPTIONS", "DISPLAY MODE","Fullscreen","Normal Mode","LANGUAGE","Portuguese","English","Spanish","VOLUME","RANKING"],
+              [],
+              [],
+              []
+              ],
 
     "espanhol":[["Inicio","Instrucciones","Creditos","Opciones","Salida"],
                 ["ELIGE TU JUGADOR"],
-                ["INGRESSE SU NOMBRE"]]
+                ["INGRESSE SU NOMBRE"],
+                ["INSTRUCCIONES"],
+                ["CREDITOS"],
+                ["OPCIONES", "MODO DE PANTALLA","Pantalla Completa","Pantalla Normal","LENGUAJE","Portugues","Ingles","Espanol","VOLUMEN","POSICIONES"],
+                [],
+                [],
+                []
+                ]
 }

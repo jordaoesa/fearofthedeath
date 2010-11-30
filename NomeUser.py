@@ -124,7 +124,7 @@ class NomeUser:
                         elif event.key == K_KP_PLUS: this.user += "+"
                         elif event.key == K_KP_EQUALS: this.user += "="
 
-            this.texto = Objetos.fonteHoliday.render("DIGITE SEU NOME", True, (0,0,0))
+            this.texto = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][2][0], True, (0,0,0))
             this.nome = Objetos.fonteHoliday.render(this.user, True, (0,0,0))
 
             Objetos.background.blit(this.image, (0,0))
