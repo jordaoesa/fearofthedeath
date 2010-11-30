@@ -45,6 +45,7 @@ class Principal:
                         Objetos.fps.tick(60)
                     Objetos.jogo.tempoModo = 0
                     Objetos.grava.gravarScore()
+                    Objetos.menu.__init__()
                     Objetos.menu.run()
                         
                 while Objetos.jogo.tempoModo <= 400:
@@ -61,7 +62,7 @@ class Principal:
                 Objetos.jogo.setModo(1)
 
             elif Objetos.jogo.modo == 3: ##-- INICIO DA PROXIMA FASE
-
+                    
                 if Objetos.jogo.getNivel() == 3:
 
                     Objetos.jogo.tempoModo = 0                    
@@ -79,6 +80,7 @@ class Principal:
                                 if event.key == K_ESCAPE:
                                     Objetos.menu.run()
                                 elif event.key == K_RETURN:
+                                    Objetos.menu.__init__()
                                     Objetos.menu.run()
                                     
                         pygame.display.update()
