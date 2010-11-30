@@ -41,7 +41,7 @@ class Principal:
                         mensagem = Objetos.fonteHoliday.render("Perdeu Manolo", True, (255,0,0))
                         Objetos.background.blit(mensagem, (180, 320))
                         pygame.display.update()
-                        Objetos.fps.tick(50)
+                        Objetos.fps.tick(60)
                     Objetos.jogo.tempoModo = 0
                     Objetos.grava.gravarScore()
                     Objetos.menu.run()
@@ -51,7 +51,7 @@ class Principal:
                     mensagem = Objetos.fonteHoliday.render("Carregando...", True, (255,0,0))
                     Objetos.background.blit(mensagem, (180, 320))
                     pygame.display.update()
-                    Objetos.fps.tick(50)
+                    Objetos.fps.tick(60)
 
                 Objetos.jogo.tempoModo = 0
                 Objetos.sonic.tempoEscudo = 0
@@ -81,7 +81,7 @@ class Principal:
                                     Objetos.menu.run()
                                     
                         pygame.display.update()
-                        Objetos.fps.tick(50)
+                        Objetos.fps.tick(60)
                     Objetos.menu.run()
                         
                 while Objetos.jogo.tempoModo <= 500:
@@ -89,7 +89,7 @@ class Principal:
                     mensagem = Objetos.fonteHoliday.render("Carregando...", True, (255,0,0))
                     Objetos.background.blit(mensagem, (180, 320))
                     pygame.display.update()
-                    Objetos.fps.tick(50)
+                    Objetos.fps.tick(60)
                     
                 Objetos.nivel.reiniciar()
                 Objetos.sonic.tempoEscudo = 0

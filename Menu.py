@@ -34,8 +34,6 @@ class Menu:
         self.fantasma_pequeno = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fantasma_pequeno.png").convert_alpha()
         self.fantasma_pequeno1 = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fantasma_pequeno1.png").convert_alpha()
         self.fantasma_pequeno2 = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fantasma_pequeno2.png").convert_alpha()
-        
-
 
         self.clock = pygame.time.Clock();
         self.x = 0
@@ -47,21 +45,22 @@ class Menu:
 ##        self.font = pygame.font.SysFont("courrier new", 40, bold = False)
 ##        self.i = self.font.render("créditos", True, (255,255,255))
 
+    def run(self):
+        
         self.titulo = self.fonte.render("Fear of The Death", True, (255,255,255))
-        self.inicio = self.fonte.render("Inicio", True, (255,255,255))
-        self.instrucoes = self.fonte.render("Instrucoes", True, (255,255,255))
-        self.creditos = self.fonte.render("Creditos", True, (255,255,255))
-        self.opcoes = self.fonte.render("Opcoes", True, (255,255,255))
-        self.sair = self.fonte.render("Sair", True, (255,255,255))
+        self.inicio = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][0], True, (255,255,255))
+        self.instrucoes = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][1], True, (255,255,255))
+        self.creditos = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][2], True, (255,255,255))
+        self.opcoes = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][3], True, (255,255,255))
+        self.sair = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][4], True, (255,255,255))
 
         self.titulo1 = self.fonte1.render("Fear of The Death", True, (205,205,205))
-        self.inicio1 = self.fonte1.render("Inicio", True, (205,105,105))
-        self.instrucoes1 = self.fonte1.render("Instrucoes", True, (205,105,105))
-        self.creditos1 = self.fonte1.render("Creditos", True, (205,105,105))
-        self.opcoes1 = self.fonte1.render("Opcoes", True, (205,105,105))
-        self.sair1 = self.fonte1.render("Sair", True, (205,105,105))
-
-    def run(self):
+        self.inicio1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][0], True, (205,105,105))
+        self.instrucoes1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][1], True, (205,105,105))
+        self.creditos1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][2], True, (205,105,105))
+        self.opcoes1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][3], True, (205,105,105))
+        self.sair1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][4], True, (205,105,105))
+        
         self.cont1 = True
         self.cont2 = True
         self.cont3 = True
@@ -119,19 +118,27 @@ class Menu:
                 
                 if self.ve1:
                     x+=1
+                    #x1+=1
+                    #x2+=1
                 elif self.ve2:
                     y+=1
+                    #y1+=1
+                    #y2+=1
                 elif self.ve3:
                     y-=1
+                    #y1-=1
+                    #y2-=1
                 elif self.ve4:
                     x-=1
+                    #x1-=1
+                    #x2-=1
 
                 if x >= 608:
                     self.ve1 = False
                     self.ve2 = True
                     self.ve3 = False
                     self.ve4 = False
-                    x = random.randint(0, 580)
+                    x = random.randint(0, 400)
                     y = -170
                     
                 elif y >= 672:
@@ -139,7 +146,7 @@ class Menu:
                     self.ve2 = False
                     self.ve3 = True
                     self.ve4 = False
-                    x = random.randint(0, 580)
+                    x = random.randint(0, 400)
                     y = 672
                     
                 elif y <= -170:
@@ -169,17 +176,17 @@ class Menu:
                 #if x1 >= 30:
                 #self.screen.blit(self.image_pequeno, (x2, y2))
                   
-                x1 += 1
-                #y1+=1
-                if x1 >= 580:
-                    x1 = -170
-                    y1 = y + 50
-
-                x2 += 1
-                #y2+=1
-                if x2 >= 580:
-                    x2 = -170
-                    y2 = y + 80
+##                x1 += 1
+##                #y1+=1
+##                if x1 >= 580:
+##                    x1 = -170
+##                    y1 = y + 50
+##
+##                x2 += 1
+##                #y2+=1
+##                if x2 >= 580:
+##                    x2 = -170
+##                    y2 = y + 80
             ##--- Inicio  
             if 85 < mouse_pos[0] < 195 and 180 < mouse_pos[1] < 205:
                 temp1 = self.cont1

@@ -23,7 +23,7 @@ class EscolhePlayer:
             
             Objetos.background.blit(Objetos.fundoSelect, (0,0))
 
-            this.texto = Objetos.fonteHoliday.render("SELECIONE SEU PLAYER",True, (255,255,255))
+            this.texto = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][1][0],True, (255,255,255))
             Objetos.background.blit(this.texto, (100, 30))
             
             if 11 <= mouse_pos[0] <= 186 and 250 <= mouse_pos[1] <= 650:
