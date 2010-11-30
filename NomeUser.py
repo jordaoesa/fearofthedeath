@@ -17,24 +17,76 @@ class NomeUser:
         dados  = []
         
         try:
+            print "entrou no try de leitura"
             ler = open("data" + os.sep + "rank.dat", "r")
             lerDados = ler.readlines()
             ler.close()
             for dado in lerDados:
                 dados.append(dado.strip())
+            print dados
         except:
             criar = open("data" + os.sep + "rank.dat", "w")
+            print "arquivo criado com sucesso"
             
+        gravar = open("data" + os.sep + "rank.dat", "w")
         try:
-            if not this.user + "|" + str(Objetos.jogo.getScore()) in dados:
-                
-                gravar = open("data" + os.sep + "rank.dat", "a")
-                gravar.write(this.user + "|" + str(Objetos.jogo.getScore()) + "\n")
+            if len(dados) == 0:
+                dados.insert(0, this.user+"|"+str(Objetos.jogo.getScore()))
+                gravar.write(dados[0]+"\n")
                 gravar.close()
-                this.clearUser()
-                print "gravado com sucesso"
+                print "gravadex"
+            elif len(dados) > 0 and this.user + "|" + str(Objetos.jogo.getScore()) in dados:
+                gravar.close()
+            elif len(dados) > 0 and not this.user + "|" + str(Objetos.jogo.getScore()) in dados:
+                if int(dados[0].split("|")[1]) < Objetos.jogo.getScore():
+                    dados.insert(0, this.user+"|"+str(Objetos.jogo.getScore()))
+                elif int(dados[1].split("|")[1]) < Objetos.jogo.getScore():
+                    dados.insert(1, this.user+"|"+str(Objetos.jogo.getScore()))
+                elif int(dados[2].split("|")[1]) < Objetos.jogo.getScore():
+                    dados.insert(2, this.user+"|"+str(Objetos.jogo.getScore()))
+                elif int(dados[3].split("|")[1]) < Objetos.jogo.getScore():
+                    dados.insert(3, this.user+"|"+str(Objetos.jogo.getScore()))
+                elif int(dados[4].split("|")[1]) < Objetos.jogo.getScore():
+                    dados.insert(4, this.user+"|"+str(Objetos.jogo.getScore()))
+                elif int(dados[5].split("|")[1]) < Objetos.jogo.getScore():
+                    dados.insert(5, this.user+"|"+str(Objetos.jogo.getScore()))
+                elif int(dados[6].split("|")[1]) < Objetos.jogo.getScore():
+                    dados.insert(6, this.user+"|"+str(Objetos.jogo.getScore()))
+                elif int(dados[7].split("|")[1]) < Objetos.jogo.getScore():
+                    dados.insert(7, this.user+"|"+str(Objetos.jogo.getScore()))
+                elif int(dados[8].split("|")[1]) < Objetos.jogo.getScore():
+                    dados.insert(8, this.user+"|"+str(Objetos.jogo.getScore()))
+                elif int(dados[9].split("|")[1]) < Objetos.jogo.getScore():
+                    dados.insert(9, this.user+"|"+str(Objetos.jogo.getScore()))
+
+                if len(dados) > 10:
+                    dados.pop()
+
+                for dado in dados:
+                    gravar.write(dado+"\n")
+                gravar.close()
+                print "!!!!gravado!!!!"
         except:
-            pass
+            print "erro ao tentar gravar ou algo do tipow"
+            dados.append(this.user+"|"+str(Objetos.jogo.getScore()))
+            for dado in dados:
+                gravar.write(dado+"\n")
+            gravar.close()
+            print "!!!!gravado no except!!!!"
+            
+
+
+            
+##        try:
+##            if not this.user + "|" + str(Objetos.jogo.getScore()) in dados:
+##                
+##                gravar = open("data" + os.sep + "rank.dat", "a")
+##                gravar.write(this.user + "|" + str(Objetos.jogo.getScore()) + "\n")
+##                gravar.close()
+##                this.clearUser()
+##                print "gravado com sucesso"
+##        except:
+##            pass
 
     def screenName(this):
         
