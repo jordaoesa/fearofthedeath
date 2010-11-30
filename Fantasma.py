@@ -18,6 +18,13 @@ class Fantasma:
         this.image        = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fantasmas"+os.sep+"1.png").convert_alpha()
                 
     def andar(this):
+
+        if Objetos.jogo.getNivel() == 3:
+            
+            Objetos.fantasma.velocidade = 2
+            Objetos.fantasma1.velocidade = 2
+            Objetos.fantasma2.velocidade = 2
+            Objetos.fantasma3.velocidade = 2
             
         if this.x%32 == 0 and this.y%32 == 0:
 

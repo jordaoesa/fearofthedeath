@@ -21,9 +21,7 @@ class NomeUser:
             lerDados = ler.readlines()
             ler.close()
             for dado in lerDados:
-                #print dado.split("|")
                 dados.append(dado.strip())
-            #print dados
         except:
             criar = open("data" + os.sep + "rank.dat", "w")
             
