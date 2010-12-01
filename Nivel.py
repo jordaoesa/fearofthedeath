@@ -224,6 +224,8 @@ class Nivel:
             this.matrizCampo = Objetos.matriz2
         elif nivelNum == 3:
             this.matrizCampo = Objetos.matriz3
+        elif nivelNum == 4:
+            this.matrizCampo = Objetos.matriz4
             
 
         for l in range(this.qtdTilesY):

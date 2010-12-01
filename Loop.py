@@ -6,9 +6,6 @@ import Funcoes
 
 class Principal:
 
-##    def __init__(this):
-##        this.playMusicas()
-
     def playMusicas(this):
         this.i = random.randint(1,6)
         Objetos.musicas[this.i].play(-1)
@@ -79,7 +76,7 @@ class Principal:
             ##--- INICIO DA PROXIMA FASE
             elif Objetos.jogo.modo == 3:
                     
-                if Objetos.jogo.getNivel() == 3:
+                if Objetos.jogo.getNivel() == 4:
 
                     Objetos.jogo.tempoModo = 0                    
                     Objetos.grava.gravarScore()

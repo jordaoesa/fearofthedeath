@@ -25,6 +25,7 @@ pygame.display.set_caption("Fear Of The Death")
 
 ##--- IMAGEM VIDA
 imgVida = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"vida.png").convert_alpha()
+
 ##--- VARIAVEL DE VOLUME
 volume = 100
 
@@ -39,9 +40,6 @@ selectedSonic = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+
 sonicFala = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"sonicFala.png").convert_alpha()
 shadowFala = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"shadowFala.png").convert_alpha()
 knucklesFala = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"knucklesFala.png").convert_alpha()
-
-##--- GRAMA
-##grama = pygame.image.load("data"+os.sep+"sprites"+os.sep+"paredes"+os.sep+"grama.png").convert_alpha()
 
 ##--- FUNDO NOME
 fundoShadow = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"shadow.jpg").convert_alpha()
@@ -63,24 +61,19 @@ musicas = [pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"0"+str(i)+".ogg") for
 sndMoeda = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"playerMoeda.ogg")
 sndMorte = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"playerMorte.ogg")
 sndAlerta = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"playerMoeda.ogg")
-##sndMoeda.set_volume(volume/100.0)
-##sndMorte.set_volume(volume/100.0)
 
 ##--- FONTES
 fonteGta = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'fonteGta1.ttf',20,bold = False)
 fonteSega = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'sega.ttf',30,bold = False)
 fonteHoliday = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'Holiday.ttf',30,bold = False)
 fonteHoliday20 = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'Holiday.ttf',20,bold = False)
-#fonteHoliday = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"50.ttf",30,bold = False)
 
 sonic            = Player.Sonic() ##-- INSTANCIACAO DE UM OBJETO DE SONIC
-#player           = Player.Player()
 fantasma         = Fantasma.Fantasma()
 fantasma1        = Fantasma.Fantasma()
 fantasma2        = Fantasma.Fantasma()
 fantasma3        = Fantasma.Fantasma()
 nomeTile         = {}       ##-- ARMAZENA OS NOMES DOS TILES
-##colete           = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA COLETE
 parede           = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA PAREDE
 turbo            = {} ##--- ARMAZENA OS SPRITES DO MODO TURBO
 imgPlayer        = {"playerB":{}, "playerE":{},"playerD":{},"playerC":{}}
@@ -91,7 +84,6 @@ roda             = {} ##-- MOEDA PLAYER
 jogo             = Jogo.Jogo()   ##-- INSTANCIACAO DE UM OBJETO DE Jogo
 nivel            = Nivel.Nivel()  ##-- INSTANCIACAO DE UM OBJETO DE Nivel
 grava            = NomeUser.NomeUser() ## --- Grava a bagaceira
-#nivel.loadNivel( jogo.getNivel() )
 menu             = Menu.Menu()
 start            = Loop.Principal()
 escolha          = EscolhePlayer.EscolhePlayer()
@@ -110,8 +102,6 @@ nomeTile[7]  = "protetor"
 nomeTile[20] = "portaHorizontal"
 nomeTile[21] = "portaVertical"
 
-##for i in range(23):
-##    colete[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"colete"+os.sep+ "colete"+str(i)+".png").convert_alpha()
 for i in range(36):
     turbo[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"turbo"+os.sep+str(i)+".png").convert_alpha()
 for i in range(4):
@@ -130,36 +120,38 @@ for i in range(4):
     sonicPlayer["playerD"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"sonic"+os.sep+ "2"+str(i)+".png").convert_alpha()
     sonicPlayer["playerC"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"sonic"+os.sep+ "3"+str(i)+".png").convert_alpha()
     
-    parede[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"paredes"+os.sep+ "parede"+str(i)+".jpg").convert_alpha()
     roda[i]  = pygame.image.load("data"+os.sep+"sprites"+os.sep+"rodas"+os.sep+ "0"+str(i)+".png").convert_alpha()
 
+for i in range(1,5):
+    parede[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"paredes"+os.sep+ "parede"+str(i)+".jpg").convert_alpha()
 
 ##--- MATRIZES CAMPO
 
-##matriz1 = [
-##[1, 1, 21, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 21, 1, 1], 
-##[1, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 1], 
-##[20, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 2, 20], 
-##[1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1], 
-##[1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1], 
-##[1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1], 
-##[1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1], 
-##[1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1], 
-##[1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1], 
-##[1, 4, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1], 
-##[1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1], 
-##[1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1], 
-##[1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1], 
-##[1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1], 
-##[1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1], 
-##[1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1], 
-##[1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1], 
-##[1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1], 
-##[20, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 20], 
-##[1, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 1], 
-##[1, 1, 21, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 21, 1, 1]
-##]
-matriz1 = [
+matriz1= [
+[1,1,21,1,1,1,1,1,1,1,1,1,1,1,1,1,21,1,1],
+[1,1,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,1,1],
+[20,7,2,1,1,1,1,1,2,1,2,1,1,1,1,1,2,7,20],
+[1,1,2,1,2,2,2,2,2,1,2,2,2,2,2,1,2,1,1],
+[1,2,2,2,2,1,1,1,2,1,2,1,1,1,2,2,2,2,1],
+[1,2,1,1,2,2,2,2,2,2,2,2,2,2,2,1,1,2,1],
+[1,2,1,1,1,1,1,1,2,1,2,1,1,1,2,1,1,1,1],
+[1,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,1],
+[1,1,1,2,1,1,2,1,2,1,2,1,2,1,1,2,1,1,1],
+[1,2,2,2,2,2,1,1,1,1,1,1,1,2,2,2,2,2,1],
+[1,1,1,1,1,2,2,11,12,13,10,2,2,2,1,1,1,1,1],
+[1,2,2,2,2,2,1,1,1,1,1,1,2,2,2,2,2,2,1],
+[1,2,1,1,1,2,2,2,2,1,2,2,2,1,1,1,1,1,1],
+[1,2,2,2,2,1,1,1,2,1,2,1,1,2,2,2,2,2,1],
+[1,1,1,1,2,2,2,2,2,1,2,2,2,1,1,1,1,2,1],
+[1,2,2,2,2,1,2,1,2,4,2,1,2,2,2,2,2,2,1],
+[1,2,1,1,2,1,1,1,1,1,1,1,1,1,2,1,2,1,1],
+[1,1,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,1,1],
+[20,7,2,1,1,1,1,1,2,1,2,1,1,1,1,1,2,7,20],
+[1,1,7,2,2,2,2,2,2,1,2,2,2,2,2,2,2,1,1],
+[1,1,21,1,1,1,1,1,1,1,1,1,1,1,1,1,21,1,1]
+]
+
+matriz2 = [
 [1,1,1,1,1,1,1,1,1,21,1,1,1,1,1,1,1,1,1],
 [1,2,2,2,2,2,2,2,1,2,1,2,2,2,2,2,2,2,1],
 [1,2,1,2,1,2,1,1,2,2,2,1,1,2,1,2,1,2,1],
@@ -183,7 +175,7 @@ matriz1 = [
 [1,1,1,1,1,1,1,1,1,21,1,1,1,1,1,1,1,1,1]
 ]
 
-matriz2 = [
+matriz3 = [
 [1,1,1,1,1,1,1,1,1,21,1,1,1,1,1,1,1,1,1],
 [1,2,1,2,1,2,1,1,1,2,1,1,1,2,1,2,1,2,1],
 [1,2,2,2,1,2,2,2,1,2,1,2,2,2,1,2,2,2,1],
@@ -207,7 +199,7 @@ matriz2 = [
 [1,1,1,1,1,1,1,1,1,21,1,1,1,1,1,1,1,1,1]
 ]
 
-matriz3 = [
+matriz4 = [
 [1,21,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,21,1],
 [1,2,2,1,2,1,2,1,2,2,2,1,2,1,2,1,2,2,1],
 [1,2,1,1,2,1,2,1,2,1,2,1,2,1,2,1,1,2,1],
