@@ -73,20 +73,8 @@ class NomeUser:
                 gravar.write(dado+"\n")
             gravar.close()
             print "!!!!gravado no except!!!!"
-            
 
-
-            
-##        try:
-##            if not this.user + "|" + str(Objetos.jogo.getScore()) in dados:
-##                
-##                gravar = open("data" + os.sep + "rank.dat", "a")
-##                gravar.write(this.user + "|" + str(Objetos.jogo.getScore()) + "\n")
-##                gravar.close()
-##                this.clearUser()
-##                print "gravado com sucesso"
-##        except:
-##            pass
+        this.clearUser()
 
     def screenName(this):
         

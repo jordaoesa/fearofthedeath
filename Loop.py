@@ -45,6 +45,7 @@ class Principal:
                         Objetos.fps.tick(60)
                     Objetos.jogo.tempoModo = 0
                     Objetos.grava.gravarScore()
+                    #Objetos.grava.clearUser()
                     Objetos.menu.__init__()
                     Objetos.menu.run()
                         
@@ -67,6 +68,7 @@ class Principal:
 
                     Objetos.jogo.tempoModo = 0                    
                     Objetos.grava.gravarScore()
+                    #Objetos.grava.clearUser()
                     
                     while Objetos.jogo.tempoModo <= 500:
                         Objetos.jogo.tempoModo += 1

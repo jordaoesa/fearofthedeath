@@ -47,6 +47,10 @@ tarjaNome = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"tar
 ##--- FUNDO OPCOES
 fundoOpcoes = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"fundoOpcoes.png").convert_alpha()
 
+##--- INSTRUCOES
+botoes = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"botoes.png").convert_alpha()
+papiro = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"papiro.png").convert_alpha()
+
 ##--- INICIANDO SONS
 sndTema = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"Fear of the dark.ogg")
 sndMoeda = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"playerMoeda.ogg")
@@ -201,7 +205,7 @@ idiomas = {
     "portugues":[["Inicio","Instrucoes","Creditos","Opcoes","Sair"],
                  ["SELECIONE SEU JOGADOR"],
                  ["DIGITE SEU NOME"],
-                 ["INSTRUCOES"],
+                 ["INSTRUCOES","Utilize os botoes do","teclado direcional para","mover o seu jogador","O objetivo do jogo","eh pegar a maior","quantidade de moedas","Pegue os super booster","aumente sua velocidade e","se proteja dos fantasmas"],
                  ["CREDITOS", "DESENVOLVEDORES"],
                  ["OPCOES", "MODO DE TELA","Tela Cheia","Tela Normal","IDIOMA","Portugues","Ingles","Espanhol","VOLUME","POSICOES"],
                  [],
@@ -212,7 +216,7 @@ idiomas = {
     "ingles":[["Begin","Instructions","Credits","Options","Exit"],
               ["SELECT YOUR PLAYER"],
               ["ENTER YOUR NAME"],
-              ["INSTRUCTIONS"],
+              ["INSTRUCTIONS","Use keyboard directional", "buttons to move", "your player", "The goal of the game", "is to get the most", "amounty of coins", "Take the super booster", "increase your speed and", "protect yourself from ghosts"],
               ["CREDITS","DEVELOPERS"],
               ["OPTIONS","DISPLAY MODE","Fullscreen","Normal Mode","LANGUAGE","Portuguese","English","Spanish","VOLUME","RANKING"],
               [],
@@ -223,7 +227,7 @@ idiomas = {
     "espanhol":[["Inicio","Instrucciones","Creditos","Opciones","Salida"],
                 ["ELIGE TU JUGADOR"],
                 ["INGRESSE SU NOMBRE"],
-                ["INSTRUCCIONES"],
+                ["INSTRUCCIONES","Utilice los botones del", "teclado direccional para", "mover el jugador", "El objetivo del juego", "es obtener la mayor", "cantidad de monedas", "Obtena el refuerzo super", "aumenta su velocidad y", "protejase de los fantasmas"],
                 ["CREDITOS","DESARROLLADORES"],
                 ["OPCIONES", "MODO DE PANTALLA","Pantalla Completa","Pantalla Normal","LENGUAJE","Portugues","Ingles","Espanol","VOLUMEN","POSICIONES"],
                 [],
