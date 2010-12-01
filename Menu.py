@@ -24,10 +24,12 @@ class Menu:
         self.som = pygame.mixer.Sound("data" +os.sep+ "sons" + "menu.wav")
 
         self.screen = pygame.display.set_mode((608, 672), 0, 32)
-        self.background = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fundoMenu.jpg").convert()
+#        self.background = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fundoMenu.jpg").convert()
         self.fantasma = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fantasma.png").convert_alpha()
         self.fantasma1 = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fantasma1.png").convert_alpha()
         self.fantasma2 = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fantasma2.png").convert_alpha()
+        self.shadow = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"shadow.png").convert_alpha()
+        self.papiro = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"papiro4.png").convert_alpha()
 
         self.fantasma_medio = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fantasma_medio.png").convert_alpha()
         self.fantasma_medio1 = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fantasma_medio1.png").convert_alpha()
@@ -41,8 +43,8 @@ class Menu:
         self.x = 0
         self.y = 0
 
-        self.fonte = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"Holiday.ttf", 40, bold = False)
-        self.fonte1 = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"Holiday.ttf", 55, bold = True)
+        self.fonte = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"Holiday.ttf", 30, bold = False)
+        self.fonte1 = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"Holiday.ttf", 35, bold = True)
 
 ##        self.font = pygame.font.SysFont("courrier new", 40, bold = False)
 ##        self.i = self.font.render("créditos", True, (255,255,255))
@@ -52,11 +54,11 @@ class Menu:
         
         
         self.titulo = self.fonte.render("Fear of The Death", True, (255,255,255))
-        self.inicio = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][0], True, (255,255,255))
-        self.instrucoes = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][1], True, (255,255,255))
-        self.creditos = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][2], True, (255,255,255))
-        self.opcoes = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][3], True, (255,255,255))
-        self.sair = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][4], True, (255,255,255))
+        self.inicio = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][0], True, (0,0,0))
+        self.instrucoes = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][1], True, (0,0,0))
+        self.creditos = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][2], True, (0,0,0))
+        self.opcoes = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][3], True, (0,0,0))
+        self.sair = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][4], True, (0,0,0))
 
         self.inicio1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][0], True, (255,0,0))
         self.instrucoes1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][1], True, (255,0,0))
@@ -92,8 +94,9 @@ class Menu:
             mouse_pos = pygame.mouse.get_pos()
             mouse_press = pygame.mouse.get_pressed()
                                     
-            self.screen.blit(self.background,(0,0))
-            
+            self.screen.blit(Objetos.fundoOpcoes,(0,0))
+            self.screen.blit(self.shadow,(-50,90))
+            self.screen.blit(self.papiro,(310, 140))
             
             if not v:
 
@@ -173,12 +176,12 @@ class Menu:
 
 
             ##--- Nome Jogo
-            self.screen.blit(self.titulo, (100, 50))
+            self.screen.blit(self.titulo, (160, 50))
             
             ##--- Inicio  
-            if 85 < mouse_pos[0] < 195 and 180 < mouse_pos[1] < 205:
+            if 408 < mouse_pos[0] < 506 and 235 < mouse_pos[1] < 258:
                 temp1 = self.cont1
-                self.screen.blit(self.inicio1, (70, 165))
+                self.screen.blit(self.inicio1, (400, 220))
 
                 if temp1:
                     self.som.play()
@@ -188,13 +191,15 @@ class Menu:
                     #Objetos.sndTema.stop()
                     Objetos.escolha.selectPlayer()
             else:
-                self.screen.blit(self.inicio, (85, 170))
+                self.screen.blit(self.inicio, (410, 230))
                 self.cont1 = True
 
             ##--- Instrucoes
-            if 85 < mouse_pos[0] < 300 and 250 < mouse_pos[1] < 275:
+            print mouse_pos
+            if 368 < mouse_pos[0] < 539 and 297 < mouse_pos[1] < 317:
                 temp2 = self.cont2
-                self.screen.blit(self.instrucoes1, (60, 230))
+                self.screen.blit(self.instrucoes1, (355, 280))
+                
                 if temp2:
                     self.som.play()
                 self.cont2 = False
@@ -203,13 +208,13 @@ class Menu:
                     #Objetos.sndTema.stop()
                     Objetos.instrucoes.run()
             else:
-                self.screen.blit(self.instrucoes, (85, 240))
+                self.screen.blit(self.instrucoes, (370, 290))
                 self.cont2 = True
 
             ##--- Creditos
-            if 85 < mouse_pos[0] < 255 and 320 < mouse_pos[1] < 350:
+            if 389 < mouse_pos[0] < 529 and 354 < mouse_pos[1] < 377:
                 temp3 = self.cont3
-                self.screen.blit(self.creditos1, (70, 300))
+                self.screen.blit(self.creditos1, (370, 340))
                 if temp3:
                     self.som.play()
                 self.cont3 = False
@@ -218,14 +223,14 @@ class Menu:
                     #Objetos.sndTema.stop()
                     Objetos.creditos.run()
             else:
-                self.screen.blit(self.creditos, (85, 310))
+                self.screen.blit(self.creditos, (390, 350))
                 self.cont3 = True
 
 
             ##--- Opcoes
-            if 85 < mouse_pos[0] < 220 and 390 < mouse_pos[1] < 420:
+            if 399 < mouse_pos[0] < 507 and 415 < mouse_pos[1] < 441:
                 temp4 = self.cont4
-                self.screen.blit(self.opcoes1, (70, 370))
+                self.screen.blit(self.opcoes1, (390, 400))
                 if temp4:
                     self.som.play()
                 self.cont4 = False
@@ -235,13 +240,13 @@ class Menu:
                     Objetos.opcoes.run()
                 
             else:
-                self.screen.blit(self.opcoes, (85, 380))
+                self.screen.blit(self.opcoes, (400, 410))
                 self.cont4 = True
 
             ##--- Sair
-            if 85 < mouse_pos[0] < 175 and 460 < mouse_pos[1] < 490:
+            if 420 < mouse_pos[0] < 491 and 473 < mouse_pos[1] < 495:
                 temp5 = self.cont5
-                self.screen.blit(self.sair1, (75, 440))
+                self.screen.blit(self.sair1, (410, 460))
                 if temp5:
                     self.som.play()
                 self.cont5 = False
@@ -249,7 +254,7 @@ class Menu:
                     #Objetos.sndTema.stop()
                     pygame.quit()
             else:
-                self.screen.blit(self.sair, (85, 450))
+                self.screen.blit(self.sair, (420, 468))
                 self.cont5 = True
                     
             pygame.display.update()
