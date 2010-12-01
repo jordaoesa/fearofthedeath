@@ -10,16 +10,19 @@ class Nivel:
         this.acumulo     = 0
         this.animaTurbo  = 0
         this.animaRoda   = 0
-        
+
+    ##--- DEFINE O TILE NA POSICAO EM QUESTAO
     def SetMapTile (this, (linha, coluna), valor):
         this.mapa[ coluna + (linha * this.qtdTilesX) ] = valor
-        
+
+    ##--- RETORNA O TILE DA POSICAO EM QUESTAO
     def GetMapTile (this, (linha, coluna)):
         if linha >= 0 and linha < this.qtdTilesY and coluna >= 0 and coluna < this.qtdTilesX:
             return this.mapa[ coluna + (linha * this.qtdTilesX) ]
         else:
             return 0
 
+    ##--- MOEDAS
     def comida(this, (sonicX, sonicY), (linha, coluna)):
     
         for liinha in range(linha - 1, linha + 2):
@@ -28,24 +31,22 @@ class Nivel:
                 if  (sonicX - (cooluna * 32) < 32) and (sonicX - (cooluna * 32) > -32) and (sonicY - (liinha * 32) < 32) and (sonicY - (liinha * 32) > -32):
                     result = Objetos.nivel.GetMapTile((liinha, cooluna))
 
-################### REMOCAO DA GRANA       
-                    if result == 2: ##-- GRANA
+                    ##--- REMOCAO DAS MOEDAS      
+                    if result == 2:
                         Objetos.nivel.SetMapTile((liinha, cooluna), 0)
-                        Objetos.sndMoeda.play() ##--PLAY SOM                        
+                        Objetos.sndMoeda.play()
                         Objetos.nivel.acumulo -= 1
                         Objetos.jogo.pontos(10)
                         if Objetos.nivel.acumulo == 0:
                             Objetos.jogo.setModo(3)
                             
-################### REMOCAO DO ESCUDO                       
-                    elif result == 7: ##ESCUDO PROTETOR
+                    ##--- REMOCAO DO SUPER BOOSTER                       
+                    elif result == 7:
                         Objetos.nivel.SetMapTile((liinha, cooluna), 0)
-                        #Objetos.sonic.escudo +=1 ##-- PROTECAO
-                        Objetos.sonic.limiteEscudo += 500 ##-- 500 LACOS PARA VELOCIDADE
+                        Objetos.sonic.limiteEscudo += 500
                         Objetos.jogo.pontos(100)
 
-### PORTAS HORIZONTAIS E VERTICAIS
-
+    ##--- PORTAIS HORIZONTAIS E VERTICAIS
     def portais(this, (sonicX, sonicY), (linha, coluna)):
         
         for liinha in range(linha - 1, linha + 2):
@@ -54,22 +55,23 @@ class Nivel:
                 if  (sonicX - (cooluna * 32) < 32) and (sonicX - (cooluna * 32) > -32) and (sonicY - (liinha * 32) < 32) and (sonicY - (liinha * 32) > -32):
                     
                     result = Objetos.nivel.GetMapTile((liinha, cooluna))
-                
-                    if result == 20: ##PORTA HORIZONTAL
+
+                    ##--- PORTA HORIZONTAL
+                    if result == 20: 
                         for i in range(0, Objetos.nivel.qtdTilesX):
                             if not i == cooluna:
-                                if Objetos.nivel.GetMapTile((liinha, i)) == 20: ##PORTA HORIZONTAL
+                                if Objetos.nivel.GetMapTile((liinha, i)) == 20:
                                     Objetos.sonic.x = i * 32
                                     
                                     if Objetos.sonic.velX > 0:
                                         Objetos.sonic.x += 32
                                     else:
                                         Objetos.sonic.x -= 32
-                                        
-                    elif result == 21: ##PORTA VERTICAL
+                    ##--- PORTA VERTICAL  
+                    elif result == 21:
                         for i in range(0, Objetos.nivel.qtdTilesY):
                             if not i == liinha:
-                                if Objetos.nivel.GetMapTile((i, cooluna)) == 21: ##PORTA VERTICAL
+                                if Objetos.nivel.GetMapTile((i, cooluna)) == 21:
                                     Objetos.sonic.y = i * 32
                                     
                                     if Objetos.sonic.velY > 0:
@@ -77,7 +79,7 @@ class Nivel:
                                     else:
                                         Objetos.sonic.y -= 32
 
-### PORTAS HORIZONTAIS E VERTICAIS PARA OS FANTASMAS
+    ##--- PORTAIS HORIZONTAIS E VERTICAIS PARA OS FANTASMAS
     def portaisF(this, (fX, fY), (linha, coluna), fant):
         
         for liinha in range(linha - 1, linha + 2):
@@ -86,11 +88,12 @@ class Nivel:
                 if  (fX - (cooluna * 32) < 32) and (fX - (cooluna * 32) > -32) and (fY - (liinha * 32) < 32) and (fY - (liinha * 32) > -32):
 
                     result = Objetos.nivel.GetMapTile((liinha, cooluna))
-                
-                    if result == 20: ##PORTA HORIZONTAL
+                    
+                    ##--- PORTA HORIZONTAL
+                    if result == 20: 
                         for i in range(0, Objetos.nivel.qtdTilesX):
                             if not i == cooluna:
-                                if Objetos.nivel.GetMapTile((liinha, i)) == 20: ##PORTA HORIZONTAL
+                                if Objetos.nivel.GetMapTile((liinha, i)) == 20:
                                     fant.x = i * 32
                                     
                                     if fant.velX > 0:
@@ -98,10 +101,11 @@ class Nivel:
                                     else:
                                         fant.x -= 32
                                         
-                    elif result == 21: ##PORTA VERTICAL
+                    ##--- PORTA VERTICAL 
+                    elif result == 21: 
                         for i in range(0, Objetos.nivel.qtdTilesY):
                             if not i == liinha:
-                                if Objetos.nivel.GetMapTile((i, cooluna)) == 21: ##PORTA VERTICAL
+                                if Objetos.nivel.GetMapTile((i, cooluna)) == 21:
                                     fant.y = i * 32
                                     
                                     if fant.velY > 0:
@@ -109,7 +113,7 @@ class Nivel:
                                     else:
                                         fant.y -= 32
 
-### VERIFICA SE EH PAREDE
+    ##--- VERIFICA SE EH PAREDE
     def parede(this, (linha, coluna)):
 
         celula = Objetos.nivel.GetMapTile((linha, coluna))
@@ -118,7 +122,7 @@ class Nivel:
         else:
             return False
 
-### VERIFICA SE VAI BATER NA PAREDE
+    ##--- VERIFICA SE VAI BATER NA PAREDE
     def verificaParede(this, (posX, posY), (linha, coluna)):
         
         for liinha in range(linha-1, linha+2):
@@ -128,6 +132,7 @@ class Nivel:
                         return True
         return False
 
+    ##--- PRINTA O CENARIO
     def printMapa (this):
         
         this.animaTurbo += 1
@@ -143,12 +148,15 @@ class Nivel:
         for linha in range(-1, Objetos.jogo.qtdTilesTela[0] +1):
             for coluna in range(-1, Objetos.jogo.qtdTilesTela[1] +1):
 
-                tileAtual = this.GetMapTile((Objetos.jogo.proximoTile[0] + linha, Objetos.jogo.proximoTile[1] + coluna))
-                if not tileAtual == 0 and not tileAtual == 20 and not tileAtual == 21: ## NADA and PORTA H and PORTA V
+                tileAtual = this.GetMapTile((linha, coluna))
+                if not tileAtual == 0 and not tileAtual == 20 and not tileAtual == 21:
                     image = pygame.image
+
+                    if tileAtual != 1:
+                        Objetos.background.blit(Objetos.grama, (coluna * 32, linha * 32) )
                     
-################### BLITA PROTECAO
-                    if tileAtual == 7 or tileAtual == 6: ##ESCUDO PROTETOR
+                    ##--- BLITA SUPER BOOSTER
+                    if tileAtual == 7:
                         if this.animaTurbo <= 5:     image = Objetos.turbo[0]
                         elif this.animaTurbo <= 10:  image = Objetos.turbo[1]
                         elif this.animaTurbo <= 15:  image = Objetos.turbo[2]
@@ -186,21 +194,21 @@ class Nivel:
                         elif this.animaTurbo <= 175: image = Objetos.turbo[34]
                         elif this.animaTurbo <= 180: image = Objetos.turbo[35]
                         
-
-                        Objetos.background.blit(image, (coluna * 32 - Objetos.jogo.deslocamento[0], linha * 32 - Objetos.jogo.deslocamento[1]) )
+                        Objetos.background.blit(image, (coluna * 32, linha * 32) )
                         
-################### BLITA RODELA
+                    ##--- BLITA MOEDA
                     if tileAtual == 2:
                         if this.animaRoda <= 5: image    = Objetos.roda[0]
                         elif this.animaRoda <= 10: image = Objetos.roda[1]
                         elif this.animaRoda <= 15: image = Objetos.roda[2]
                         elif this.animaRoda <= 20: image = Objetos.roda[3]
 
-                        Objetos.background.blit(image, (coluna * 32 - Objetos.jogo.deslocamento[0], linha * 32 - Objetos.jogo.deslocamento[1]) )
-################### BLITA AS PAREDES
-                    elif tileAtual == 1:
-                        Objetos.background.blit(Objetos.parede[ Objetos.jogo.getNivel() ], (coluna * 32 - Objetos.jogo.deslocamento[0], linha * 32 - Objetos.jogo.deslocamento[1]) )
-        
+                        Objetos.background.blit(image, (coluna * 32, linha * 32) )
+                    ##--- BLITA AS PAREDES
+                    if tileAtual == 1:
+                        Objetos.background.blit(Objetos.parede[ Objetos.jogo.getNivel() ], (coluna * 32, linha * 32) )
+
+    ##--- CARREGA UM NOVO NIVEL DE ACORDO COM O nivelNum
     def loadNivel(this, nivelNum):
 
         this.qtdTilesX   = 19
@@ -249,7 +257,8 @@ class Nivel:
             this.numLinha += 1
 
         this.reiniciar()
-        
+
+    ##--- RESETA AS VARIAVEIS PRINCIPAIS DO JOGO
     def reiniciar(this):
         
         Objetos.fantasma.x         = Objetos.fantasma.homeX

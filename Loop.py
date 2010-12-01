@@ -9,9 +9,10 @@ class Principal:
         Objetos.sndTema.stop()
         
         while True: 
-
+            #a = pygame.image.load("12.jpg").convert()
             Funcoes.verificaTeclas()
-            if Objetos.jogo.modo == 1: ##-- MODO DE JOGO NORMAL
+            ##--- MODO DE JOGO NORMAL
+            if Objetos.jogo.modo == 1:
                 
                 if Objetos.sonic.limiteEscudo > 0:
                     Objetos.sonic.tempoEscudo += 1
@@ -34,7 +35,8 @@ class Principal:
                 Objetos.nivel.portaisF((Objetos.fantasma2.x, Objetos.fantasma2.y), (Objetos.fantasma2.proxLinha, Objetos.fantasma2.proxColuna), Objetos.fantasma2)
                 Objetos.nivel.portaisF((Objetos.fantasma3.x, Objetos.fantasma3.y), (Objetos.fantasma3.proxLinha, Objetos.fantasma3.proxColuna), Objetos.fantasma3)
 
-            elif Objetos.jogo.modo == 2: ##-- REINICIO APOS PERDA DE VIDA
+            ##--- REINICIO APOS PERDA DE VIDA
+            elif Objetos.jogo.modo == 2:
                 
                 if Objetos.jogo.vidas == 1:
                     while Objetos.jogo.tempoModo <= 500:
@@ -61,7 +63,8 @@ class Principal:
                 Objetos.nivel.reiniciar()
                 Objetos.jogo.setModo(1)
 
-            elif Objetos.jogo.modo == 3: ##-- INICIO DA PROXIMA FASE
+            ##--- INICIO DA PROXIMA FASE
+            elif Objetos.jogo.modo == 3:
                     
                 if Objetos.jogo.getNivel() == 3:
 
@@ -100,8 +103,7 @@ class Principal:
                 Objetos.jogo.proximoNivel()
 
             Objetos.background.fill((200, 200, 200))
-
-            ####BLITA MAPA E sonic NA TELA
+            #Objetos.background.blit(a,(0,0))
             Objetos.nivel.printMapa()
             Objetos.sonic.printSonic()
 

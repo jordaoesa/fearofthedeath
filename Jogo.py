@@ -9,12 +9,7 @@ class Jogo:
         this.vidas        = 3
         this.modo         = 0
         this.tempoModo    = 0
-        this.posicaoPixel = (0, 0)
-        this.proximoTile  = (0, 0)
-        this.deslocamento = (0, 0)
-        
         this.setModo(4)
-                
         this.qtdTilesTela = (21, 19)
         this.tamanhoTela = (this.qtdTilesTela[1] * 32, this.qtdTilesTela[0] * 32)
 
@@ -26,9 +21,7 @@ class Jogo:
         
     def printPontuacao(this):
         this.texto = Objetos.fonteHoliday20.render(Objetos.idiomas[Objetos.idioma][8][0]+str(this.score), True, (255,255,255))
-        #this.pontuacao = Objetos.fonteGta.render(str(this.score), True, (0,255,0))
         Objetos.background.blit(this.texto, (130,0))
-        #Objetos.background.blit(this.pontuacao, (165, 0))
 
     def printVidas(this):
         this.texto = Objetos.fonteHoliday20.render(Objetos.idiomas[Objetos.idioma][8][1] + ("*"*this.vidas), True, (255,255,255))

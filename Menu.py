@@ -44,13 +44,9 @@ class Menu:
 
         self.fonte = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"Holiday.ttf", 30, bold = False)
         self.fonte1 = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"Holiday.ttf", 35, bold = True)
-
-##        self.font = pygame.font.SysFont("courrier new", 40, bold = False)
-##        self.i = self.font.render("créditos", True, (255,255,255))
+        
 
     def run(self):
-
-        
         
         self.titulo = self.fonte.render("Fear of The Death", True, (255,255,255))
         self.inicio = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][0], True, (0,0,0))
