@@ -152,8 +152,8 @@ class Nivel:
                 if not tileAtual == 0 and not tileAtual == 20 and not tileAtual == 21:
                     image = pygame.image
 
-                    if tileAtual != 1:
-                        Objetos.background.blit(Objetos.grama, (coluna * 32, linha * 32) )
+##                    if tileAtual != 1:
+##                        Objetos.background.blit(Objetos.grama, (coluna * 32, linha * 32) )
                     
                     ##--- BLITA SUPER BOOSTER
                     if tileAtual == 7:
