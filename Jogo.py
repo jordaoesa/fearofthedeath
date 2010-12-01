@@ -25,20 +25,20 @@ class Jogo:
         return this.score
         
     def printPontuacao(this):
-        this.texto = Objetos.fonteGta.render("SCORE: ", True, (0,0,255))
-        this.pontuacao = Objetos.fonteGta.render(str(this.score), True, (0,255,0))
-        Objetos.background.blit(this.texto, (100,650))
-        Objetos.background.blit(this.pontuacao, (165, 650))
+        this.texto = Objetos.fonteHoliday20.render(Objetos.idiomas[Objetos.idioma][8][0]+str(this.score), True, (255,255,255))
+        #this.pontuacao = Objetos.fonteGta.render(str(this.score), True, (0,255,0))
+        Objetos.background.blit(this.texto, (130,0))
+        #Objetos.background.blit(this.pontuacao, (165, 0))
 
     def printVidas(this):
-        this.texto = Objetos.fonteGta.render("VIDAS: " + (str(1)*this.vidas), True, (255,0,0))
-        Objetos.background.blit(this.texto, (5,650))
+        this.texto = Objetos.fonteHoliday20.render(Objetos.idiomas[Objetos.idioma][8][1] + ("*"*this.vidas), True, (255,255,255))
+        Objetos.background.blit(this.texto, (5,0))
 
     def printTurbo(this):
+        this.turbo = Objetos.fonteHoliday20.render(Objetos.idiomas[Objetos.idioma][8][2], True, (255,255,255))
+        Objetos.background.blit(this.turbo, (325,0))
         if Objetos.sonic.limiteEscudo > 0:
-            this.turbo = Objetos.fonteHoliday.render("Turbo: ", True, (255,0,0))
-            Objetos.background.blit(this.turbo, (90,3))
-            Objetos.background.blit(Objetos.turbo[0], (110,0))
+            Objetos.background.blit(Objetos.turbo[18], (400,0))
         
     def novoJogo(this):
         this.nivel = 1
