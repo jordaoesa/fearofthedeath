@@ -6,7 +6,7 @@ def verificaTeclas():
 
     pressed = pygame.key.get_pressed()
     
-### CHECA SAIDA
+    ##--- CHECA SAIDA
     for event in pygame.event.get(): 
         if event.type == QUIT: 
             pygame.quit()
@@ -16,7 +16,7 @@ def verificaTeclas():
                 Objetos.nivel.reiniciar()
                 Objetos.menu.run()
                 
-### CHECA MOVIMENTOS
+    ##--- CHECA MOVIMENTOS
     if Objetos.jogo.modo == 1:
         if pressed[K_RIGHT]:
             if not Objetos.nivel.verificaParede((Objetos.sonic.x + Objetos.sonic.velocidade, Objetos.sonic.y), (Objetos.sonic.proxLinha, Objetos.sonic.proxColuna)): 
@@ -41,15 +41,3 @@ def verificaTeclas():
                 Objetos.sonic.velX = 0
                 Objetos.sonic.velY = -Objetos.sonic.velocidade
                 Objetos.sonic.direcao = "cima"
-            
-##    if Objetos.jogo.modo == 4:# or jogo.modo == 5:
-##        if pressed[K_RETURN]:
-##            if Objetos.jogo.getNivel() == 3:
-##                print "FIM DO JOGO"
-##                pygame.quit()
-##            else:
-##                Objetos.jogo.proximoNivel()
-##                
-##    if Objetos.jogo.modo == 5:
-##        if pressed[K_RETURN]:
-##            Objetos.jogo.setModo(2)

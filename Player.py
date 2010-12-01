@@ -16,30 +16,12 @@ class Sonic:
         this.homeX        = 0
         this.homeY        = 0
         this.images       = {}
-        #this.escudo       = 0
         this.tempoEscudo  = 0
         this.limiteEscudo = 0
         
     def andar(this):
 
-##        if this.tempoEscudo >= this.limiteEscudo:
-##            this.escudo = 0
-##            this.tempoEscudo = 0
-##        if this.escudo > 0:
-##            this.velocidade = 4
-##            Objetos.fantasma.velocidade = -1
-##            Objetos.fantasma1.velocidade = -1
-##            Objetos.fantasma2.velocidade = -1
-##            Objetos.fantasma3.velocidade = -1
-##        else:
-##            this.limiteEscudo = 0
-##            this.velocidade = 2
-##            Objetos.fantasma.velocidade = 1
-##            Objetos.fantasma1.velocidade = 1
-##            Objetos.fantasma2.velocidade = 1
-##            Objetos.fantasma3.velocidade = 1
         if this.tempoEscudo >= this.limiteEscudo:
-            #this.escudo = 0
             this.tempoEscudo = 0
         if this.tempoEscudo > 0:
             this.velocidade = 4
@@ -55,8 +37,8 @@ class Sonic:
             Objetos.fantasma2.velocidade = 1
             Objetos.fantasma3.velocidade = 1
             
-        this.proxLinha = int(((this.y + 14) / 32))
-        this.proxColuna = int(((this.x + 14) / 32))
+        this.proxLinha = int(((this.y + 12) / 32))
+        this.proxColuna = int(((this.x + 12) / 32))
         
         if not Objetos.nivel.verificaParede((this.x + this.velX, this.y + this.velY), (this.proxLinha, this.proxColuna)):
             this.x += this.velX
@@ -93,7 +75,7 @@ class Sonic:
             elif this.direcao == "baixo":
                 this.images = Objetos.imgPlayer["playerB"]
             
-        Objetos.background.blit (this.images[int(this.animaSonic)], (this.x - Objetos.jogo.posicaoPixel[0], this.y - Objetos.jogo.posicaoPixel[1]))
+        Objetos.background.blit (this.images[int(this.animaSonic)], (this.x, this.y))
         
         if Objetos.jogo.modo == 1:
             if not this.velX == 0 or not this.velY == 0 and this.velocidade == 2:
