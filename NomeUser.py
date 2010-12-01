@@ -168,8 +168,8 @@ class NomeUser:
             this.nome = Objetos.fonteHoliday.render(this.user, True, (0,0,0))
 
             Objetos.background.blit(this.image, (0,0))
-            Objetos.background.blit(Objetos.tarjaNome, (150,100))
-            Objetos.background.blit(Objetos.tarjaNome, (150,130))
-            Objetos.background.blit(this.texto, (153,99))
-            Objetos.background.blit(this.nome, (183, 128))
+            Objetos.background.blit(Objetos.papiro1, (50,100))
+            #Objetos.background.blit(Objetos.tarjaNome, (150,130))
+            Objetos.background.blit(this.texto, (153,120))
+            Objetos.background.blit(this.nome, (183, 170))
             pygame.display.update()

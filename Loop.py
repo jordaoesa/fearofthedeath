@@ -37,21 +37,20 @@ class Principal:
             elif Objetos.jogo.modo == 2: ##-- REINICIO APOS PERDA DE VIDA
                 
                 if Objetos.jogo.vidas == 0:
-                    while Objetos.jogo.tempoModo <= 400:
+                    while Objetos.jogo.tempoModo <= 500:
                         Objetos.jogo.tempoModo += 1
-                        mensagem = Objetos.fonteHoliday.render("Perdeu Manolo", True, (255,0,0))
+                        mensagem = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][7][2], True, (255,0,0))
                         Objetos.background.blit(mensagem, (180, 320))
                         pygame.display.update()
                         Objetos.fps.tick(60)
                     Objetos.jogo.tempoModo = 0
                     Objetos.grava.gravarScore()
-                    #Objetos.grava.clearUser()
                     Objetos.menu.__init__()
                     Objetos.menu.run()
                         
-                while Objetos.jogo.tempoModo <= 400:
+                while Objetos.jogo.tempoModo <= 300:
                     Objetos.jogo.tempoModo += 1
-                    mensagem = Objetos.fonteHoliday.render("Carregando...", True, (255,0,0))
+                    mensagem = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][7][0], True, (255,0,0))
                     Objetos.background.blit(mensagem, (180, 320))
                     pygame.display.update()
                     Objetos.fps.tick(60)
@@ -68,11 +67,10 @@ class Principal:
 
                     Objetos.jogo.tempoModo = 0                    
                     Objetos.grava.gravarScore()
-                    #Objetos.grava.clearUser()
                     
                     while Objetos.jogo.tempoModo <= 500:
                         Objetos.jogo.tempoModo += 1
-                        venceu = Objetos.fonteHoliday.render("VOCE VENCEU", True, (0,0,0))
+                        venceu = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][7][1], True, (0,0,0))
                         Objetos.background.blit(venceu, (200, 320))
 
                         for event in pygame.event.get(): 
@@ -89,9 +87,9 @@ class Principal:
                         Objetos.fps.tick(60)
                     Objetos.menu.run()
                         
-                while Objetos.jogo.tempoModo <= 400:
+                while Objetos.jogo.tempoModo <= 300:
                     Objetos.jogo.tempoModo += 1
-                    mensagem = Objetos.fonteHoliday.render("Carregando...", True, (255,0,0))
+                    mensagem = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][7][0], True, (255,0,0))
                     Objetos.background.blit(mensagem, (180, 320))
                     pygame.display.update()
                     Objetos.fps.tick(60)

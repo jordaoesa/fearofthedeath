@@ -50,6 +50,9 @@ fundoOpcoes = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"f
 ##--- INSTRUCOES
 botoes = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"botoes.png").convert_alpha()
 papiro = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"papiro.png").convert_alpha()
+papiro1 = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"papiro1.png").convert_alpha()
+papiro2 = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"papiro2.png").convert_alpha()
+papiro3 = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"papiro3.png").convert_alpha()
 
 ##--- INICIANDO SONS
 sndTema = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"Fear of the dark.ogg")
@@ -208,8 +211,8 @@ idiomas = {
                  ["INSTRUCOES","Utilize os botoes do","teclado direcional para","mover o seu jogador","O objetivo do jogo","eh pegar a maior","quantidade de moedas","Pegue os super booster","aumente sua velocidade e","se proteja dos fantasmas"],
                  ["CREDITOS", "DESENVOLVEDORES"],
                  ["OPCOES", "MODO DE TELA","Tela Cheia","Tela Normal","IDIOMA","Portugues","Ingles","Espanhol","VOLUME","POSICOES"],
-                 [],
-                 [],
+                 ["POSICOES","Nao ha Resultados"],
+                 ["Carregando...","VOCE VENCEU","PERDEU MANOLO"],
                  []
                  ],
     
@@ -219,8 +222,8 @@ idiomas = {
               ["INSTRUCTIONS","Use keyboard directional", "buttons to move", "your player", "The goal of the game", "is to get the most", "amounty of coins", "Take the super booster", "increase your speed and", "protect yourself from ghosts"],
               ["CREDITS","DEVELOPERS"],
               ["OPTIONS","DISPLAY MODE","Fullscreen","Normal Mode","LANGUAGE","Portuguese","English","Spanish","VOLUME","RANKING"],
-              [],
-              [],
+              ["RANKING", "No hay Resultados"],
+              ["Loading...","YOU WIN","LOST MANOLO"],
               []
               ],
 
@@ -229,9 +232,9 @@ idiomas = {
                 ["INGRESSE SU NOMBRE"],
                 ["INSTRUCCIONES","Utilice los botones del", "teclado direccional para", "mover el jugador", "El objetivo del juego", "es obtener la mayor", "cantidad de monedas", "Obtena el refuerzo super", "aumenta su velocidad y", "protejase de los fantasmas"],
                 ["CREDITOS","DESARROLLADORES"],
-                ["OPCIONES", "MODO DE PANTALLA","Pantalla Completa","Pantalla Normal","LENGUAJE","Portugues","Ingles","Espanol","VOLUMEN","POSICIONES"],
-                [],
-                [],
+                ["OPCIONES", "MODO DE PANTALLA","Pantalla Completa","Pantalla Normal","IDIOMA","Portugues","Ingles","Espanol","VOLUMEN","POSICIONES"],
+                ["POSICIONES","No Results"],
+                ["Cargando...","HAS GANADO","MANOLO PERDIDO"],
                 []
                 ]
 }
