@@ -12,7 +12,7 @@ class Menu:
 	
     def __init__(self):
 
-        Objetos.sndTema.play(-1)
+        Objetos.musicas[0].play(-1)
         
         pygame.init()
 

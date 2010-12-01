@@ -73,13 +73,13 @@ class Opcoes:
                             if event.button == 4 and Objetos.volume != 100:
                                 Objetos.volume += 5
                                 Objetos.sndMoeda.set_volume(Objetos.volume/100.0)
-                                Objetos.sndTema.set_volume(Objetos.volume/100.0)
+                                Objetos.musicas[0].set_volume(Objetos.volume/100.0)
                             elif event.button == 4 and Objetos.volume == 100:
                                 Objetos.sndMoeda.play()
                             if event.button == 5 and Objetos.volume != 0:
                                 Objetos.volume -= 5
                                 Objetos.sndMoeda.set_volume(Objetos.volume/100.0)
-                                Objetos.sndTema.set_volume(Objetos.volume/100.0)
+                                Objetos.musicas[0].set_volume(Objetos.volume/100.0)
                             elif event.button == 5 and Objetos.volume == 0:
                                 Objetos.sndMoeda.play()
                 
@@ -88,13 +88,13 @@ class Opcoes:
                     if mouse_press[0] and Objetos.volume != 100:
                         Objetos.volume += 1
                         Objetos.sndMoeda.set_volume(Objetos.volume/100.0)
-                        Objetos.sndTema.set_volume(Objetos.volume/100.0)
+                        Objetos.musicas[0].set_volume(Objetos.volume/100.0)
                     elif mouse_press[0] and Objetos.volume == 100:
                         Objetos.sndMoeda.play()
                     if mouse_press[2] and Objetos.volume != 0:
                         Objetos.volume -= 1
                         Objetos.sndMoeda.set_volume(Objetos.volume/100.0)
-                        Objetos.sndTema.set_volume(Objetos.volume/100.0)
+                        Objetos.musicas[0].set_volume(Objetos.volume/100.0)
                     elif mouse_press[2] and Objetos.volume == 0:
                         Objetos.sndMoeda.play()
 

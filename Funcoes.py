@@ -12,8 +12,10 @@ def verificaTeclas():
             pygame.quit()
         if event.type == KEYDOWN:
             if event.key == K_ESCAPE:
+                Objetos.start.stopMusicas()
                 Objetos.grava.clearUser()
                 Objetos.nivel.reiniciar()
+                Objetos.menu.__init__()
                 Objetos.menu.run()
                 
     ##--- CHECA MOVIMENTOS

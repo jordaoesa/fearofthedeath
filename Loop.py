@@ -1,15 +1,27 @@
 import pygame
 from pygame.locals import *
+import random
 import Objetos
 import Funcoes
 
 class Principal:
-    
-    def run(this):
-        Objetos.sndTema.stop()
+
+##    def __init__(this):
+##        this.playMusicas()
+
+    def playMusicas(this):
+        this.i = random.randint(1,6)
+        Objetos.musicas[this.i].play(-1)
         
-        while True: 
-            #a = pygame.image.load("12.jpg").convert()
+    def stopMusicas(this):
+        for i in range(1,7):
+            Objetos.musicas[i].stop()
+        
+    def run(this):
+        Objetos.musicas[0].stop()
+        this.playMusicas()
+        while True:
+            
             Funcoes.verificaTeclas()
             ##--- MODO DE JOGO NORMAL
             if Objetos.jogo.modo == 1:
@@ -45,6 +57,7 @@ class Principal:
                         Objetos.background.blit(mensagem, (180, 320))
                         pygame.display.update()
                         Objetos.fps.tick(60)
+                    this.stopMusicas()
                     Objetos.jogo.tempoModo = 0
                     Objetos.grava.gravarScore()
                     Objetos.menu.__init__()
@@ -88,6 +101,7 @@ class Principal:
                                     
                         pygame.display.update()
                         Objetos.fps.tick(60)
+                    this.stopMusicas()
                     Objetos.menu.run()
                         
                 while Objetos.jogo.tempoModo <= 300:
@@ -103,7 +117,6 @@ class Principal:
                 Objetos.jogo.proximoNivel()
 
             Objetos.background.fill((200, 200, 200))
-            #Objetos.background.blit(a,(0,0))
             Objetos.nivel.printMapa()
             Objetos.sonic.printSonic()
 

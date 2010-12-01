@@ -56,7 +56,7 @@ papiro2 = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"papir
 papiro3 = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"papiro3.png").convert_alpha()
 
 ##--- INICIANDO SONS
-sndTema = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"Fear of the dark.ogg")
+musicas = [pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"0"+str(i)+".ogg") for i in range(7)]
 sndMoeda = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"playerMoeda.ogg")
 sndMorte = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"playerMorte.ogg")
 sndMoeda.set_volume(volume/100.0)
