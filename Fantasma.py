@@ -19,7 +19,7 @@ class Fantasma:
                 
     def andar(this):
 
-        if Objetos.jogo.getNivel() == 3:
+        if Objetos.jogo.getNivel() == 4:
             
             Objetos.fantasma.velocidade = 2
             Objetos.fantasma1.velocidade = 2
