@@ -21,21 +21,21 @@ class Opcoes:
                     if event.key == K_ESCAPE:
                         Objetos.menu.run()
             
-            this.texto = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][0],True, (139, 0, 0))
+            this.texto = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][0],True, (255,255,255))
 
-            this.modoTela = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][1], True, (139, 0, 0))
-            this.fullscreen = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][2], True, (0, 255, 0))
-            this.modoNormal = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][3], True, (255, 255, 0))
+            this.modoTela = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][1], True, (0,0,0))
+            this.fullscreen = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][2], True, (0,0,0))
+            this.modoNormal = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][3], True, (0,0,0))
 
-            this.idioma = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][4], True, (79, 79, 79))
-            this.portugues = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][5], True, (255, 255, 255))
-            this.ingles = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][6], True, (169, 169, 169))
-            this.espanhol = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][7], True, (139, 0, 0))
+            this.idioma = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][4], True, (0,0,0))
+            this.portugues = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][5], True, (0,0,0))
+            this.ingles = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][6], True, (0,0,0))
+            this.espanhol = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][7], True, (0,0,0))
 
-            this.volume = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][8], True, (130, 130, 130))
-            this.volumeNum = Objetos.fonteHoliday.render(str(Objetos.volume), True, (169, 169, 169))
+            this.volume = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][8], True, (0,0,0))
+            this.volumeNum = Objetos.fonteHoliday.render(str(Objetos.volume), True, (0,0,0))
 
-            this.posicoes = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][9], True, (255, 255, 255))
+            this.posicoes = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][5][9], True, (0,0,0))
 
 
             ##--- TELA CHEIA
@@ -109,7 +109,7 @@ class Opcoes:
                     except:
                         arq = open("data" + os.sep + "rank.dat", "w")
                         arq.close()
-                        this.mensagem = Objetos.fonteHoliday.render("Nao ha Resultados", True, (255,0,0))
+                        this.mensagem = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][6][1], True, (255,0,0))
                         Objetos.background.blit(this.mensagem, (200, 200))
                     while True:
                         for event in pygame.event.get(): 
@@ -118,18 +118,20 @@ class Opcoes:
                             if event.type == KEYDOWN:
                                 if event.key == K_ESCAPE:
                                     Objetos.opcoes.run()
-                        Objetos.background.fill((255,255,255))
+                        Objetos.background.blit(Objetos.fundoOpcoes, (0,0))
+                        Objetos.background.blit(Objetos.papiro2, (4, 40))
                         i=0
                         for dado in dados:
-                            mensagem = Objetos.fonteHoliday.render("%-10s"%(dado.split("|")[0])+" : "+dado.split("|")[1], True, (255,0,0))
-                            Objetos.background.blit(mensagem, (100, 200+i))
+                            mensagem = Objetos.fonteHoliday.render("%-10s"%(dado.split("|")[0])+" : "+dado.split("|")[1], True, (0,0,0))
+                            Objetos.background.blit(mensagem, (100, 150+i))
                             i+=40
-                        posicoes = Objetos.fonteHoliday.render("POSICOES", True, (255,0,0))
-                        Objetos.background.blit(posicoes, (220,100))
+                        this.posicoes = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][6][0], True, (255,255,255))
+                        Objetos.background.blit(this.posicoes, (220,30))
                         pygame.display.update()
             
 
             Objetos.background.blit(Objetos.fundoOpcoes, (0,0))
+            Objetos.background.blit(Objetos.papiro2, (4, 40))
 
             Objetos.background.blit(this.texto, (240, 30))
 
@@ -147,7 +149,5 @@ class Opcoes:
 
             Objetos.background.blit(this.posicoes, (225,550))
             
-            
-
             pygame.display.update()
 
