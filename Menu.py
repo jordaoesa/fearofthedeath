@@ -58,7 +58,6 @@ class Menu:
         self.opcoes = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][3], True, (255,255,255))
         self.sair = self.fonte.render(Objetos.idiomas[Objetos.idioma][0][4], True, (255,255,255))
 
-        self.titulo1 = self.fonte1.render("Fear of The Death", True, (205,205,205))
         self.inicio1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][0], True, (255,0,0))
         self.instrucoes1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][1], True, (255,0,0))
         self.creditos1 = self.fonte1.render(Objetos.idiomas[Objetos.idioma][0][2], True, (255,0,0))
@@ -82,8 +81,6 @@ class Menu:
         v = False
         
         while True:
-
-            
             
             for event in pygame.event.get():
                 if event.type == QUIT:
@@ -96,7 +93,7 @@ class Menu:
             mouse_press = pygame.mouse.get_pressed()
                                     
             self.screen.blit(self.background,(0,0))
-            self.screen.blit(self.titulo, (130, 50))
+            
             
             if not v:
 
@@ -174,23 +171,10 @@ class Menu:
 
                 self.screen.blit(self.image_grande, (x, y))
 
-                #if x >= 30:
-                #self.screen.blit(self.image_medio, (x1, y1))
 
-                #if x1 >= 30:
-                #self.screen.blit(self.image_pequeno, (x2, y2))
-                  
-##                x1 += 1
-##                #y1+=1
-##                if x1 >= 580:
-##                    x1 = -170
-##                    y1 = y + 50
-##
-##                x2 += 1
-##                #y2+=1
-##                if x2 >= 580:
-##                    x2 = -170
-##                    y2 = y + 80
+            ##--- Nome Jogo
+            self.screen.blit(self.titulo, (100, 50))
+            
             ##--- Inicio  
             if 85 < mouse_pos[0] < 195 and 180 < mouse_pos[1] < 205:
                 temp1 = self.cont1

@@ -107,79 +107,26 @@ class Opcoes:
                         for dado in lerDados:
                             dados.append(dado.strip())
                     except:
+                        arq = open("data" + os.sep + "rank.dat", "w")
+                        arq.close()
                         this.mensagem = Objetos.fonteHoliday.render("Nao ha Resultados", True, (255,0,0))
                         Objetos.background.blit(this.mensagem, (200, 200))
-                    if len(dados) == 0:
-                        this.mensagem = Objetos.fonteHoliday.render("Nao ha Resultados", True, (255,0,0))
-                        Objetos.background.blit(this.mensagem, (200, 200))
-                    else:
-                        while True:
-                            for event in pygame.event.get(): 
-                                if event.type == QUIT: 
-                                    pygame.quit()
-                                if event.type == KEYDOWN:
-                                    if event.key == K_ESCAPE:
-                                        Objetos.opcoes.run()
-                            Objetos.background.fill((255,255,255))
-                            mapaDados = {}
-                            i=0
-                            for dado in dados:
-                                mapaDados[int(dado.split("|")[1])] = dado.split("|")[0]
-                            for dado in sorted(mapaDados.items())[::-1]:
-                                temp1 = str(dado[0])
-                                temp2 = dado[1]
-                                while len(temp2) != 10:
-                                    temp2+=" "
-                                temp3 = Objetos.fonteHoliday.render(temp2+" : "+temp1, True, (255,0,0))
-                                Objetos.background.blit(temp3, (100, 200+i))
-                                i+=40
-                            posicoes = Objetos.fonteHoliday.render("POSICOES", True, (255,0,0))
-                            Objetos.background.blit(posicoes, (100,100))
-                            pygame.display.update()
-
-
-
-                    
-
-                    
-##                    dados  = []
-##                    try:
-##                        ler = open("data" + os.sep + "rank.dat", "r")
-##                        lerDados = ler.readlines()
-##                        ler.close()
-##                        for dado in lerDados:
-##                            dados.append(dado.strip())
-##                    except:
-##                        this.mensagem = Objetos.fonteHoliday.render("Nao ha Resultados", True, (255,0,0))
-##                        Objetos.background.blit(this.mensagem, (200, 200))
-##                    if len(dados) == 0:
-##                        this.mensagem = Objetos.fonteHoliday.render("Nao ha Resultados", True, (255,0,0))
-##                        Objetos.background.blit(this.mensagem, (200, 200))
-##                    else:
-##                        while True:
-##                            for event in pygame.event.get(): 
-##                                if event.type == QUIT: 
-##                                    pygame.quit()
-##                                if event.type == KEYDOWN:
-##                                    if event.key == K_ESCAPE:
-##                                        Objetos.opcoes.run()
-##                            Objetos.background.fill((255,255,255))
-##                            mapaDados = {}
-##                            i=0
-##                            for dado in dados:
-##                                mapaDados[int(dado.split("|")[1])] = dado.split("|")[0]
-##                            for dado in sorted(mapaDados.items())[::-1]:
-##                                temp1 = str(dado[0])
-##                                temp2 = dado[1]
-##                                while len(temp2) != 10:
-##                                    temp2+=" "
-##                                temp3 = Objetos.fonteHoliday.render(temp2+" : "+temp1, True, (255,0,0))
-##                                Objetos.background.blit(temp3, (100, 200+i))
-##                                i+=40
-##                            posicoes = Objetos.fonteHoliday.render("POSICOES", True, (255,0,0))
-##                            Objetos.background.blit(posicoes, (100,100))
-##                            pygame.display.update()
-
+                    while True:
+                        for event in pygame.event.get(): 
+                            if event.type == QUIT: 
+                                pygame.quit()
+                            if event.type == KEYDOWN:
+                                if event.key == K_ESCAPE:
+                                    Objetos.opcoes.run()
+                        Objetos.background.fill((255,255,255))
+                        i=0
+                        for dado in dados:
+                            mensagem = Objetos.fonteHoliday.render("%-10s"%(dado.split("|")[0])+" : "+dado.split("|")[1], True, (255,0,0))
+                            Objetos.background.blit(mensagem, (100, 200+i))
+                            i+=40
+                        posicoes = Objetos.fonteHoliday.render("POSICOES", True, (255,0,0))
+                        Objetos.background.blit(posicoes, (220,100))
+                        pygame.display.update()
             
 
             Objetos.background.blit(Objetos.fundoOpcoes, (0,0))
@@ -187,8 +134,8 @@ class Opcoes:
             Objetos.background.blit(this.texto, (240, 30))
 
             Objetos.background.blit(this.modoTela,(170, 130))
-            Objetos.background.blit(this.fullscreen,(100, 180))
-            Objetos.background.blit(this.modoNormal,(320, 180))
+            Objetos.background.blit(this.fullscreen,(10, 180))
+            Objetos.background.blit(this.modoNormal,(325, 180))
             
             Objetos.background.blit(this.idioma,(240, 280))
             Objetos.background.blit(this.portugues,(70,330))
@@ -203,41 +150,4 @@ class Opcoes:
             
 
             pygame.display.update()
-
-##    def posicoes(this):
-##        
-##        this.dados  = []
-##        try:
-##            ler = open("data" + os.sep + "rank.dat", "r")
-##            lerDados = ler.readlines()
-##            ler.close()
-##            for dado in lerDados:
-##                this.dados.append(dado.strip())
-##            if len(dados) == 0:
-##                this.mensagem = Objetos.fonteHoliday.render("Nao ha Resultados", True, (255,0,0))
-##            else:
-##                classificacao(dados)
-##        except:
-##            this.mensagem = Objetos.fonteHoliday.render("Nao ha Resultados", True, (255,0,0))#Objetos.idiomas[Objetos.idioma][5][9]
-##            criar = open("data" + os.sep + "rank.dat", "w")
-##
-##        Objetos.background.blit(this.mensagem, (200, 200))
-##
-##    def classificacao(this, dados):
-##        try:
-##            this.mapaDados = {}
-##            this.mensagens = []
-##            for dado in dados:
-##                this.mapaDados[int(dado.split("|")[1])] = dado.split("|")[0]
-##            for dado in sorted(mapaDados.items()):
-##                temp1 = Objetos.fonteHoliday.render(dado[1]+" : "+dado[0], True, (255,0,0))
-####                this.mensagens.append()
-##                Objetos.background.blit(temp1, (200, 200))            
-##        except:
-##            this.mensagem = Objetos.fonteHoliday.render("Nao ha Resultados", True, (255,0,0))#Objetos.idiomas[Objetos.idioma][5][9]
-##        Objetos.background.blit(this.mensagem, (200, 200))
-            
-        
-
-        
 

@@ -96,7 +96,9 @@ class Sonic:
         Objetos.background.blit (this.images[int(this.animaSonic)], (this.x - Objetos.jogo.posicaoPixel[0], this.y - Objetos.jogo.posicaoPixel[1]))
         
         if Objetos.jogo.modo == 1:
-            if not this.velX == 0 or not this.velY == 0:
+            if not this.velX == 0 or not this.velY == 0 and this.velocidade == 2:
                 this.animaSonic += 0.2
+            elif not this.velX == 0 or not this.velY == 0 and this.velocidade == 4:
+                this.animaSonic += 0.5
             if int(this.animaSonic) == 3:
                 this.animaSonic = 0
