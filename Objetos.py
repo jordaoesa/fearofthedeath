@@ -22,6 +22,9 @@ modoTela = 0
 background = pygame.display.set_mode((608,672), modoTela, 32)
 pygame.display.set_caption("Fear Of The Death")
 
+
+##--- IMAGEM VIDA
+imgVida = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"vida.png").convert_alpha()
 ##--- VARIAVEL DE VOLUME
 volume = 100
 
@@ -38,7 +41,7 @@ shadowFala = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"sh
 knucklesFala = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"knucklesFala.png").convert_alpha()
 
 ##--- GRAMA
-grama = pygame.image.load("data"+os.sep+"sprites"+os.sep+"paredes"+os.sep+"grama.png").convert_alpha()
+##grama = pygame.image.load("data"+os.sep+"sprites"+os.sep+"paredes"+os.sep+"grama.png").convert_alpha()
 
 ##--- FUNDO NOME
 fundoShadow = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"shadow.jpg").convert_alpha()
@@ -59,8 +62,9 @@ papiro3 = pygame.image.load("data"+os.sep+"sprites"+os.sep+"fundo"+os.sep+"papir
 musicas = [pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"0"+str(i)+".ogg") for i in range(7)]
 sndMoeda = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"playerMoeda.ogg")
 sndMorte = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"playerMorte.ogg")
-sndMoeda.set_volume(volume/100.0)
-sndMorte.set_volume(volume/100.0)
+sndAlerta = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"playerMoeda.ogg")
+##sndMoeda.set_volume(volume/100.0)
+##sndMorte.set_volume(volume/100.0)
 
 ##--- FONTES
 fonteGta = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'fonteGta1.ttf',20,bold = False)

@@ -4,6 +4,13 @@ import Objetos
 
 class Opcoes:     
 
+    def setVolume(this, volNum):
+
+        Objetos.sndMorte.set_volume(volNum/100.0)
+        Objetos.sndMoeda.set_volume(volNum/100.0)
+        for i in range(7):
+            Objetos.musicas[i].set_volume(volNum/100.0)
+    
     def run(this):
 
         while True:
@@ -72,31 +79,27 @@ class Opcoes:
                         if event.type == MOUSEBUTTONDOWN:                        
                             if event.button == 4 and Objetos.volume != 100:
                                 Objetos.volume += 5
-                                Objetos.sndMoeda.set_volume(Objetos.volume/100.0)
-                                Objetos.musicas[0].set_volume(Objetos.volume/100.0)
+                                this.setVolume(Objetos.volume)
                             elif event.button == 4 and Objetos.volume == 100:
-                                Objetos.sndMoeda.play()
+                                Objetos.sndAlerta.play()
                             if event.button == 5 and Objetos.volume != 0:
                                 Objetos.volume -= 5
-                                Objetos.sndMoeda.set_volume(Objetos.volume/100.0)
-                                Objetos.musicas[0].set_volume(Objetos.volume/100.0)
+                                this.setVolume(Objetos.volume)
                             elif event.button == 5 and Objetos.volume == 0:
-                                Objetos.sndMoeda.play()
+                                Objetos.sndAlerta.play()
                 
                 this.volumeNum = Objetos.fonteHoliday.render(str(Objetos.volume), True, (255,0,0))
                 if 0 <= Objetos.volume <= 100:
                     if mouse_press[0] and Objetos.volume != 100:
                         Objetos.volume += 1
-                        Objetos.sndMoeda.set_volume(Objetos.volume/100.0)
-                        Objetos.musicas[0].set_volume(Objetos.volume/100.0)
+                        this.setVolume(Objetos.volume)
                     elif mouse_press[0] and Objetos.volume == 100:
-                        Objetos.sndMoeda.play()
+                        Objetos.sndAlerta.play()
                     if mouse_press[2] and Objetos.volume != 0:
                         Objetos.volume -= 1
-                        Objetos.sndMoeda.set_volume(Objetos.volume/100.0)
-                        Objetos.musicas[0].set_volume(Objetos.volume/100.0)
+                        this.setVolume(Objetos.volume)
                     elif mouse_press[2] and Objetos.volume == 0:
-                        Objetos.sndMoeda.play()
+                        Objetos.sndAlerta.play()
 
             ##--- POSICOES
             elif 223 <= mouse_pos[0] <= 385 and 553 <= mouse_pos[1] <= 578:

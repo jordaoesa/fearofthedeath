@@ -21,11 +21,15 @@ class Jogo:
         
     def printPontuacao(this):
         this.texto = Objetos.fonteHoliday20.render(Objetos.idiomas[Objetos.idioma][8][0]+str(this.score), True, (255,255,255))
-        Objetos.background.blit(this.texto, (130,0))
+        Objetos.background.blit(this.texto, (135,2))
 
     def printVidas(this):
-        this.texto = Objetos.fonteHoliday20.render(Objetos.idiomas[Objetos.idioma][8][1] + ("*"*this.vidas), True, (255,255,255))
-        Objetos.background.blit(this.texto, (5,0))
+        this.texto = Objetos.fonteHoliday20.render(Objetos.idiomas[Objetos.idioma][8][1], True, (255,255,255))
+        j=0
+        for i in range(this.vidas):
+            Objetos.background.blit(Objetos.imgVida, (67+j,-2))
+            j+=20
+        Objetos.background.blit(this.texto, (2,2))
 
     def printTurbo(this):
         this.turbo = Objetos.fonteHoliday20.render(Objetos.idiomas[Objetos.idioma][8][2], True, (255,255,255))
