@@ -65,6 +65,7 @@ sndMorte.set_volume(volume/100.0)
 fonteGta = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'fonteGta1.ttf',20,bold = False)
 fonteSega = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'sega.ttf',30,bold = False)
 fonteHoliday = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'Holiday.ttf',30,bold = False)
+fonteHoliday20 = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'Holiday.ttf',20,bold = False)
 #fonteHoliday = pygame.font.Font("data"+os.sep+"fontes"+os.sep+"50.ttf",30,bold = False)
 
 sonic            = Player.Sonic() ##-- INSTANCIACAO DE UM OBJETO DE SONIC
@@ -213,7 +214,7 @@ idiomas = {
                  ["OPCOES", "MODO DE TELA","Tela Cheia","Tela Normal","IDIOMA","Portugues","Ingles","Espanhol","VOLUME","POSICOES"],
                  ["POSICOES","Nao ha Resultados"],
                  ["Carregando...","VOCE VENCEU","PERDEU MANOLO"],
-                 []
+                 ["Pontos: ","Vidas: ","Turbo: "]
                  ],
     
     "ingles":[["Begin","Instructions","Credits","Options","Exit"],
@@ -224,7 +225,7 @@ idiomas = {
               ["OPTIONS","DISPLAY MODE","Fullscreen","Normal Mode","LANGUAGE","Portuguese","English","Spanish","VOLUME","RANKING"],
               ["RANKING", "No hay Resultados"],
               ["Loading...","YOU WIN","LOST MANOLO"],
-              []
+              ["Score: ","Lifes: ","Turbo: "]
               ],
 
     "espanhol":[["Inicio","Instrucciones","Creditos","Opciones","Salida"],
@@ -235,6 +236,6 @@ idiomas = {
                 ["OPCIONES", "MODO DE PANTALLA","Pantalla Completa","Pantalla Normal","IDIOMA","Portugues","Ingles","Espanol","VOLUMEN","POSICIONES"],
                 ["POSICIONES","No Results"],
                 ["Cargando...","HAS GANADO","MANOLO PERDIDO"],
-                []
+                ["Puntos: ","Vidas: ","Turbo: "]
                 ]
 }
