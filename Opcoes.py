@@ -128,10 +128,21 @@ class Opcoes:
                         this.posicoes = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][6][0], True, (255,255,255))
                         Objetos.background.blit(this.posicoes, (220,30))
                         pygame.display.update()
-            
+
+            ##--- BOTAO VOLTAR
+            this.voltar = Objetos.fonteHoliday.render("...", True, (0,0,0))
+
+            if 545 <= mouse_pos[0] <= 585 and 614 <= mouse_pos[1] <= 633:
+                this.voltar = Objetos.fonteHoliday.render("...", True, (255,0,0))
+                for event in pygame.event.get(): 
+                    if event.type == MOUSEBUTTONDOWN:
+                        if event.button == 1:
+                            Objetos.menu.run()
 
             Objetos.background.blit(Objetos.fundoOpcoes, (0,0))
             Objetos.background.blit(Objetos.papiro2, (4, 40))
+            
+            Objetos.background.blit(this.voltar, (550, 600))
 
             Objetos.background.blit(this.texto, (240, 30))
 
