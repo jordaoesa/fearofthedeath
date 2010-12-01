@@ -36,7 +36,7 @@ class Principal:
 
             elif Objetos.jogo.modo == 2: ##-- REINICIO APOS PERDA DE VIDA
                 
-                if Objetos.jogo.vidas == 0:
+                if Objetos.jogo.vidas == 1:
                     while Objetos.jogo.tempoModo <= 500:
                         Objetos.jogo.tempoModo += 1
                         mensagem = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][7][2], True, (255,0,0))

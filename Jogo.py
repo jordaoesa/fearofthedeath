@@ -36,7 +36,9 @@ class Jogo:
 
     def printTurbo(this):
         if Objetos.sonic.limiteEscudo > 0:
-            Objetos.background.blit(Objetos.turbo[0], (0,0))
+            this.turbo = Objetos.fonteHoliday.render("Turbo: ", True, (255,0,0))
+            Objetos.background.blit(this.turbo, (90,3))
+            Objetos.background.blit(Objetos.turbo[0], (110,0))
         
     def novoJogo(this):
         this.nivel = 1
