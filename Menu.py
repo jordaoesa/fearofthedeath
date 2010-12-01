@@ -24,7 +24,6 @@ class Menu:
         self.som = pygame.mixer.Sound("data" +os.sep+ "sons" + "menu.wav")
 
         self.screen = pygame.display.set_mode((608, 672), 0, 32)
-#        self.background = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fundoMenu.jpg").convert()
         self.fantasma = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fantasma.png").convert_alpha()
         self.fantasma1 = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fantasma1.png").convert_alpha()
         self.fantasma2 = pygame.image.load("data" +os.sep+ "sprites" +os.sep+ "fundo" +os.sep+"fantasma2.png").convert_alpha()
@@ -195,7 +194,6 @@ class Menu:
                 self.cont1 = True
 
             ##--- Instrucoes
-            print mouse_pos
             if 368 < mouse_pos[0] < 539 and 297 < mouse_pos[1] < 317:
                 temp2 = self.cont2
                 self.screen.blit(self.instrucoes1, (355, 280))
