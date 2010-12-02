@@ -13,7 +13,6 @@ import Opcoes
 import Instrucoes
 import Creditos
 
-
 fps = pygame.time.Clock()
 pygame.init()
 pygame.mixer.init()
@@ -63,8 +62,6 @@ sndMorte = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"playerMorte.ogg")
 sndAlerta = pygame.mixer.Sound("data"+os.sep+"sons"+os.sep+"playerMoeda.ogg")
 
 ##--- FONTES
-fonteGta = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'fonteGta1.ttf',20,bold = False)
-fonteSega = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'sega.ttf',30,bold = False)
 fonteHoliday = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'Holiday.ttf',30,bold = False)
 fonteHoliday20 = pygame.font.Font("data" + os.sep + "fontes" + os.sep + 'Holiday.ttf',20,bold = False)
 
@@ -73,16 +70,16 @@ fantasma         = Fantasma.Fantasma()
 fantasma1        = Fantasma.Fantasma()
 fantasma2        = Fantasma.Fantasma()
 fantasma3        = Fantasma.Fantasma()
-nomeTile         = {}       ##-- ARMAZENA OS NOMES DOS TILES
-parede           = {}       ##-- ARMAZENA TODOS OS SPRITES USADOS PARA PAREDE
+nomeTile         = {} ##-- ARMAZENA OS NOMES DOS TILES
+parede           = {} ##-- ARMAZENA TODOS OS SPRITES USADOS PARA PAREDE
 turbo            = {} ##--- ARMAZENA OS SPRITES DO MODO TURBO
 imgPlayer        = {"playerB":{}, "playerE":{},"playerD":{},"playerC":{}}
 shadowPlayer     = {"playerB":{}, "playerE":{},"playerD":{},"playerC":{}}
 knucklesPlayer   = {"playerB":{}, "playerE":{},"playerD":{},"playerC":{}}
 sonicPlayer      = {"playerB":{}, "playerE":{},"playerD":{},"playerC":{}}
 roda             = {} ##-- MOEDA PLAYER
-jogo             = Jogo.Jogo()   ##-- INSTANCIACAO DE UM OBJETO DE Jogo
-nivel            = Nivel.Nivel()  ##-- INSTANCIACAO DE UM OBJETO DE Nivel
+jogo             = Jogo.Jogo() ##-- INSTANCIACAO DE UM OBJETO DE Jogo
+nivel            = Nivel.Nivel() ##-- INSTANCIACAO DE UM OBJETO DE Nivel
 grava            = NomeUser.NomeUser() ## --- Grava a bagaceira
 menu             = Menu.Menu()
 start            = Loop.Principal()
@@ -104,6 +101,7 @@ nomeTile[21] = "portaVertical"
 
 for i in range(36):
     turbo[i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"turbo"+os.sep+str(i)+".png").convert_alpha()
+
 for i in range(4):
     shadowPlayer["playerB"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "0"+str(i)+".png").convert_alpha()
     shadowPlayer["playerE"][i] = pygame.image.load("data"+os.sep+"sprites"+os.sep+"shadow"+os.sep+ "1"+str(i)+".png").convert_alpha()
@@ -127,7 +125,7 @@ for i in range(1,5):
 
 ##--- MATRIZES CAMPO
 
-matriz1= [
+matriz1 = [
 [1,1,21,1,1,1,1,1,1,1,1,1,1,1,1,1,21,1,1],
 [1,1,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,1,1],
 [20,7,2,1,1,1,1,1,2,1,2,1,1,1,1,1,2,7,20],
@@ -139,7 +137,7 @@ matriz1= [
 [1,1,1,2,1,1,2,1,2,1,2,1,2,1,1,2,1,1,1],
 [1,2,2,2,2,2,1,1,1,1,1,1,1,2,2,2,2,2,1],
 [1,1,1,1,1,2,2,11,12,13,10,2,2,2,1,1,1,1,1],
-[1,2,2,2,2,2,1,1,1,1,1,1,2,2,2,2,2,2,1],
+[1,2,2,2,2,2,1,1,1,1,1,1,2,1,2,2,2,2,1],
 [1,2,1,1,1,2,2,2,2,1,2,2,2,1,1,1,1,1,1],
 [1,2,2,2,2,1,1,1,2,1,2,1,1,2,2,2,2,2,1],
 [1,1,1,1,2,2,2,2,2,1,2,2,2,1,1,1,1,2,1],

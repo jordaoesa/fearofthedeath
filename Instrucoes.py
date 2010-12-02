@@ -28,6 +28,7 @@ class Instrucoes:
             Objetos.background.blit(Objetos.fundoOpcoes, (0,0))
             
             if this.cont == 0:
+                
                 Objetos.background.blit(Objetos.botoes, (250, 180))
                 this.texto1 = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][3][1], True,(0,0,0))
                 this.texto2 = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][3][2], True, (0,0,0))
@@ -47,6 +48,7 @@ class Instrucoes:
                 Objetos.background.blit(this.texto4, (550, 600))
                 
             elif this.cont == 1:
+                
                 image = Objetos.roda[0]
                 if this.animaRoda > 20:
                     this.animaRoda = 0
@@ -68,31 +70,37 @@ class Instrucoes:
                 Objetos.background.blit(image, (280, 240))
                 Objetos.background.blit(image, (300, 240))
                 Objetos.background.blit(image, (320, 240))
+                
                 this.texto1 = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][3][4], True,(0,0,0))
                 this.texto2 = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][3][5], True, (0,0,0))
                 this.texto3 = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][3][6], True, (0,0,0))
                 this.texto4 = Objetos.fonteHoliday.render("...", True, (255,255,255))
                 this.texto5 = Objetos.fonteHoliday.render("...", True, (255,255,255))
+                
                 Objetos.background.blit(Objetos.papiro, (40, 320))
                 Objetos.background.blit(this.texto1, (120, 370))
                 Objetos.background.blit(this.texto2, (140, 400))
                 Objetos.background.blit(this.texto3, (120, 430))
+                
                 if 545 <= mouse_pos[0] <= 585 and 614 <= mouse_pos[1] <= 633:
                     this.texto4 = Objetos.fonteHoliday.render("...", True, (255,0,0))
                     for event in pygame.event.get(): 
                         if event.type == MOUSEBUTTONDOWN:
                             if event.button == 1:
                                 this.cont += 1
+                                
                 if 25 <= mouse_pos[0] <= 65 and 614 <= mouse_pos[1] <= 633:
                     this.texto5 = Objetos.fonteHoliday.render("...", True, (255,0,0))
                     for event in pygame.event.get(): 
                         if event.type == MOUSEBUTTONDOWN:
                             if event.button == 1 and this.cont > 0:
                                 this.cont -= 1
+                                
                 Objetos.background.blit(this.texto4, (550, 600))
                 Objetos.background.blit(this.texto5, (30, 600))
                 
             elif this.cont == 2:
+                
                 image = Objetos.turbo[0]
                 if this.animaTurbo >= 181:
                     this.animaTurbo = 0
@@ -153,16 +161,19 @@ class Instrucoes:
                 this.texto3 = Objetos.fonteHoliday.render(Objetos.idiomas[Objetos.idioma][3][9], True, (0,0,0))
                 this.texto4 = Objetos.fonteHoliday.render("...", True, (255,255,255))
                 this.texto5 = Objetos.fonteHoliday.render("...", True, (255,255,255))
+                
                 Objetos.background.blit(Objetos.papiro, (40, 320))
                 Objetos.background.blit(this.texto1, (110, 370))
                 Objetos.background.blit(this.texto2, (100, 400))
                 Objetos.background.blit(this.texto3, (70, 430))
+                
                 if 545 <= mouse_pos[0] <= 585 and 614 <= mouse_pos[1] <= 633:
                     this.texto4 = Objetos.fonteHoliday.render("...", True, (255,0,0))
                     for event in pygame.event.get(): 
                         if event.type == MOUSEBUTTONDOWN:
                             if event.button == 1:
                                 this.cont += 1
+                                
                 if 25 <= mouse_pos[0] <= 65 and 614 <= mouse_pos[1] <= 633:
                     this.texto5 = Objetos.fonteHoliday.render("...", True, (255,0,0))
                     for event in pygame.event.get(): 
@@ -173,6 +184,7 @@ class Instrucoes:
                 Objetos.background.blit(this.texto5, (30, 600))
                 
             elif this.cont == 3:
+                
                 this.cont = 0
                 Objetos.menu.run()
             

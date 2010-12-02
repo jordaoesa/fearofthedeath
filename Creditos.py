@@ -4,9 +4,6 @@ import Objetos
 
 class Creditos:
 
-    def __init__(this):
-        pass
-
     def run(this):
 
         while True:
