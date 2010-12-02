@@ -1,5 +1,3 @@
-# -*- coding: cp1252 -*-
-
 import pygame
 from pygame.locals import *
 import os
@@ -117,20 +115,12 @@ class Menu:
                 
                 if self.ve1:
                     x+=1
-                    #x1+=1
-                    #x2+=1
                 elif self.ve2:
                     y+=1
-                    #y1+=1
-                    #y2+=1
                 elif self.ve3:
                     y-=1
-                    #y1-=1
-                    #y2-=1
                 elif self.ve4:
                     x-=1
-                    #x1-=1
-                    #x2-=1
 
                 if x >= 608:
                     self.ve1 = False
@@ -183,7 +173,6 @@ class Menu:
                 self.cont1 = False
                 
                 if mouse_press[0]:
-                    #Objetos.sndTema.stop()
                     Objetos.escolha.selectPlayer()
             else:
                 self.screen.blit(self.inicio, (410, 230))
@@ -199,7 +188,6 @@ class Menu:
                 self.cont2 = False
 
                 if mouse_press[0]:
-                    #Objetos.sndTema.stop()
                     Objetos.instrucoes.run()
             else:
                 self.screen.blit(self.instrucoes, (370, 290))
@@ -214,7 +202,6 @@ class Menu:
                 self.cont3 = False
 
                 if mouse_press[0]:
-                    #Objetos.sndTema.stop()
                     Objetos.creditos.run()
             else:
                 self.screen.blit(self.creditos, (390, 350))
@@ -230,7 +217,6 @@ class Menu:
                 self.cont4 = False
 
                 if mouse_press[0]:
-                    #Objetos.sndTema.stop()
                     Objetos.opcoes.run()
                 
             else:
@@ -245,7 +231,6 @@ class Menu:
                     self.som.play()
                 self.cont5 = False
                 if mouse_press[0]:
-                    #Objetos.sndTema.stop()
                     pygame.quit()
             else:
                 self.screen.blit(self.sair, (420, 468))
